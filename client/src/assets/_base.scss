@@ -1,0 +1,26 @@
+$primary-color: #2d00f7;
+$font-color: #f7fff7;
+
+html,
+body {
+  margin: 0px;
+  height: 100vh;
+}
+
+.app {
+  overflow: hidden;
+  background-attachment: fixed;
+  height: fit-content;
+  font-family: 'Nunito', sans-serif;
+  background: $primary-color;
+}
+
+.bold-black-text {
+  font-weight: 900;
+}
+
+.center-items {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}

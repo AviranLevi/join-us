@@ -1,0 +1,43 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideInRight {
+  0% {
+    left: 1000px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes fadeSlideInTop {
+  0% {
+    bottom: 50px;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease-in-out 1s;
+}
+
+.slide-from-top {
+  animation: fadeSlideInTop ease-in-out 1s;
+}
+
+.slide-from-right {
+  animation: fadeSlideInRight ease-in-out 1s;
+}
