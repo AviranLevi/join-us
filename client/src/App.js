@@ -3,15 +3,21 @@ import './app.scss';
 import Main from './pages/main/Main';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Login from './pages/login/Login';
+import { connect } from 'react-redux';
 
-function App() {
+const App = (props) => {
   return (
     <div className='app'>
       <Header />
       <Main />
       <Footer />
+
+      {props.features.loginToast ? <Login /> : null}
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state = {}) => state;
+
+export default connect(mapStateToProps)(App);

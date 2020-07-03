@@ -4,9 +4,11 @@
 @import './assets/animation.scss';
 
 @import './pages/main/mains';
+@import './pages/login/login';
 
 @import './components/header/header';
 @import './components/footer/footer';
 
 @import './components/logo/logo';
-@import './components/button/button.scss';
+@import './components/button/button';
+@import './components/input/input';

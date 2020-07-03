@@ -1,0 +1,40 @@
+.input-box {
+  position: relative;
+  padding: 15px 0 0;
+
+  .input-field {
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid $primary-color;
+    outline: none;
+    font-size: 1.3rem;
+    color: $primary-color;
+    padding: 7px 0;
+
+    &::placeholder {
+      color: transparent;
+    }
+    &:placeholder-shown ~ .input-label {
+      font-size: 1.3rem;
+      top: 25px;
+      cursor: text;
+    }
+  }
+
+  .input-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+  }
+
+  .input-field:focus {
+    ~ .input-label {
+      top: 0;
+      font-size: 1rem;
+      color: $primary-color;
+      font-weight: 600;
+    }
+  }
+}

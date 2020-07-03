@@ -7,15 +7,24 @@
     justify-self: start;
     margin-left: 10%;
     font-size: 50px;
+    cursor: pointer;
+    &:hover {
+      animation: wiggle ease-in-out 1s;
+    }
   }
 
   .login-signup {
     grid-template-columns: repeat(2, 1fr);
     height: 100%;
     width: 100%;
+
     button {
       color: $font-color;
       font-size: 30px;
+
+      &:hover {
+        animation: wiggle ease-in-out 1s;
+      }
     }
   }
 }

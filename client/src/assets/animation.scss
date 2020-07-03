@@ -30,6 +30,24 @@
   }
 }
 
+@keyframes wiggle {
+  20% {
+    transform: translateX(4px);
+  }
+  40% {
+    transform: translateX(-4px);
+  }
+  60% {
+    transform: translateX(2px);
+  }
+  80% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .fade-in {
   animation: fadeIn ease-in-out 1s;
 }
@@ -40,4 +58,8 @@
 
 .slide-from-right {
   animation: fadeSlideInRight ease-in-out 1s;
+}
+
+.wiggle {
+  animation: wiggle ease-in-out 1s;
 }

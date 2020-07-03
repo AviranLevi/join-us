@@ -1,13 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../stores/actions';
 import Logo from '../logo/Logo';
 import Button from '../button/Button';
 
-function Header() {
+const Header = (props) => {
   return (
-    <div className='header center-items fade-in'>
+    <div className='header center-items slide-from-top'>
       <Logo text='JoinUS' classes='bold-black-text' />
       <div className='login-signup center-items'>
-        <Button text='Login' classes='bold-black-text' />
+        <Button
+          action={props.openLogin}
+          text='Login'
+          classes='bold-black-text'
+        />
         <Button text='Sign-up' classes='bold-black-text' />
       </div>
 
@@ -16,6 +22,12 @@ function Header() {
       </div> */}
     </div>
   );
-}
+};
 
-export default Header;
+const mapStateToProps = (state = {}) => state;
+
+const mapDispatchToProps = (dispatch) => ({
+  openLogin: () => dispatch(actions.openLoginToast()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
