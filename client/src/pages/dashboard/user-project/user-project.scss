@@ -1,0 +1,8 @@
+.user-project {
+  height: inherit;
+  color: $font-color;
+  grid-template-rows: 1fr 4fr;
+  .user-project-title {
+    font-size: 40px;
+  }
+}

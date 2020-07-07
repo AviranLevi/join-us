@@ -6,7 +6,7 @@ function Main() {
     <div className='main center-items slide-from-right'>
       <Title
         text='Create an AWESOME land-page for your new release!'
-        classes='bold-black-text'
+        classes='bold-text'
       />
     </div>
   );

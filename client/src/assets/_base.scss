@@ -1,5 +1,7 @@
 $primary-color: #2d00f7;
 $font-color: #f7fff7;
+$green: #09bc8a;
+$red: #e71d36;
 
 html,
 body {
@@ -7,12 +9,22 @@ body {
   height: 100vh;
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+}
+
 .app {
   overflow: hidden;
   background-attachment: fixed;
   height: fit-content;
-  font-family: 'Nunito', sans-serif;
+  // font-family: 'Nunito', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: $primary-color;
+}
+
+.bold-text {
+  font-weight: 700;
 }
 
 .bold-black-text {
@@ -27,4 +39,12 @@ body {
 
 .rounded-border {
   border-radius: 5px;
+}
+
+.transition {
+  transition: 1s;
+}
+
+.pointer {
+  cursor: pointer;
 }

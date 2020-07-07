@@ -30,6 +30,18 @@
   }
 }
 
+@keyframes fadeSlideInBottom {
+  0% {
+    top: 50px;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
 @keyframes wiggle {
   20% {
     transform: translateX(4px);
@@ -58,6 +70,10 @@
 
 .slide-from-right {
   animation: fadeSlideInRight ease-in-out 1s;
+}
+
+.slide-from-bottom {
+  animation: fadeSlideInBottom ease-in-out 1s;
 }
 
 .wiggle {

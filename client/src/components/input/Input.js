@@ -9,7 +9,7 @@ const Input = ({ type = 'text', title = '', classes = '', changeAction }) => (
       className={`${classes} input-field`}
       placeholder={title}
     />
-    <label className='input-label' for={title.toLowerCase()}>
+    <label className='input-label' htmlFor={title.toLowerCase()}>
       {title}
     </label>
   </div>

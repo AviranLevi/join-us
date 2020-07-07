@@ -5,6 +5,8 @@
 
 @import './pages/main/mains';
 @import './pages/login/login';
+@import './pages/dashboard/dashboard.scss';
+@import './pages/dashboard/user-project/user-project';
 
 @import './components/header/header';
 @import './components/footer/footer';
@@ -12,3 +14,6 @@
 @import './components/logo/logo';
 @import './components/button/button';
 @import './components/input/input';
+@import './components/facebook/facebook';
+@import './components/google/google';
+@import './components/user-link-input/user-link-input';

@@ -5,14 +5,15 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Login from './pages/login/Login';
 import { connect } from 'react-redux';
+import Dashboard from './pages/dashboard/Dashboard';
 
 const App = (props) => {
   return (
     <div className='app'>
       <Header />
-      <Main />
+      <Dashboard />
+      {/* <Main /> */}
       <Footer />
-
       {props.features.loginToast ? <Login /> : null}
     </div>
   );

@@ -27,4 +27,13 @@
       }
     }
   }
+
+  .signed-in {
+    grid-template-columns: repeat(2, 1fr);
+    color: $font-color;
+
+    img {
+      border-radius: 50%;
+    }
+  }
 }
