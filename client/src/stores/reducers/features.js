@@ -2,11 +2,6 @@ import * as actionType from '../actions/types';
 
 const initialState = {
   loginToast: false,
-  facebook: false,
-  instagram: false,
-  linkedIn: false,
-  website: false,
-  saveLogo: false,
 };
 
 const rootReducer = (state = initialState, action) => {
