@@ -10,3 +10,13 @@ export const facebook = {
 export const spotify = {
   clientId: process.env.REACT_AP_SPOTIFY_CLIENT_ID,
 };
+
+export const searchValues = [
+  'spotify',
+  'apple',
+  'instagram',
+  'facebook',
+  'tiktok',
+  'deezer',
+  'youtube',
+];

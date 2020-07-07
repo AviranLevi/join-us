@@ -1,8 +1,9 @@
 import { icons } from '../constant/icons';
+import { searchValues } from '../config';
 
 export const searchInString = (str) => {
   const value = search(str);
-  console.log(value);
+
   switch (value) {
     case 'spotify': {
       return icons.spotify;
@@ -30,16 +31,6 @@ export const searchInString = (str) => {
     }
   }
 };
-
-const searchValues = [
-  'spotify',
-  'apple',
-  'instagram',
-  'facebook',
-  'tiktok',
-  'deezer',
-  'youtube',
-];
 
 const search = (str) =>
   searchValues.find((value) => (str.search(value) >= 0 ? value : false));

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Title from '../../../components/title/Title';
 import UserLinkInput from '../../../components/user-link-input/UserLinkInput';
-import Icon from '../../../components/icon/icon';
-import { icons } from '../../../constant/icons';
+// import Icon from '../../../components/icon/icon';
+// import { icons } from '../../../constant/icons';
 
 const UserProject = () => {
   const [linksCounter, setLinksCounter] = useState(1);
@@ -19,7 +19,7 @@ const UserProject = () => {
         ))}
       </div>
 
-      <Icon icon={icons.plus} action={() => setLinksCounter(linksCounter++)} />
+      {/* <Icon icon={icons.plus} action={() => setLinksCounter(linksCounter++)} /> */}
     </div>
   );
 };
