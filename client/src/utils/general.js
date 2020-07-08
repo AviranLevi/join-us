@@ -1,11 +1,12 @@
 import { icons } from '../constant/icons';
 import { searchValues } from '../config';
+import { getSpotifyToken } from '../api/joinUsApi';
 
 export const searchInString = (str) => {
   const value = search(str);
-
   switch (value) {
     case 'spotify': {
+      getSpotifyToken();
       return icons.spotify;
     }
     case 'apple': {

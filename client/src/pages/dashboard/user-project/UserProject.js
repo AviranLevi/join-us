@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Title from '../../../components/title/Title';
 import UserLinkInput from '../../../components/user-link-input/UserLinkInput';
-// import Icon from '../../../components/icon/icon';
-// import { icons } from '../../../constant/icons';
+import Icon from '../../../components/icon/icon';
+import { icons } from '../../../constant/icons';
 
 const UserProject = () => {
-  const [linksCounter, setLinksCounter] = useState(1);
+  const count = 1;
+  const [linksCounter, setLinksCounter] = useState(count);
   return (
     <div className='user-project center-items slide-from-right'>
       <Title
@@ -19,7 +20,11 @@ const UserProject = () => {
         ))}
       </div>
 
-      {/* <Icon icon={icons.plus} action={() => setLinksCounter(linksCounter++)} /> */}
+      <Icon
+        icon={icons.plus}
+        action={() => setLinksCounter(linksCounter + 1)}
+        classes='pointer transition plus-btn'
+      />
     </div>
   );
 };

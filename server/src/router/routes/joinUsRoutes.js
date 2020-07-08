@@ -1,11 +1,12 @@
-import * as service from '../../services/authService';
+import * as service from '../../services/joinUsService';
 import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
 
 //READ
-export const getSpotifyToken = (req, res, next) => {
+export const getSpotifyTrack = (req, res, next) => {
   try {
-    const result = service.getSpotifyToken();
+    const result = service.getSpotifyTrack();
+    console.log(result);
     res.status(OK).json(result);
   } catch (error) {
     res.status(ERR).json(error);
