@@ -1,3 +1,17 @@
 .dashboard {
   min-height: 75vh;
+
+  .execute-btn {
+    width: 300px;
+    font-size: 20px;
+    color: $primary-color;
+    padding: 15px;
+    background: $font-color;
+    border-radius: 25px;
+
+    &:hover {
+      // color: $dark-color;
+      background: $green;
+    }
+  }
 }

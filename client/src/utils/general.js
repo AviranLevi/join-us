@@ -1,12 +1,11 @@
 import { icons } from '../constant/icons';
 import { searchValues } from '../config';
-import { getSpotifyToken } from '../api/joinUsApi';
 
-export const searchInString = (str) => {
+export const getSocialIcon = (str) => {
   const value = search(str);
   switch (value) {
     case 'spotify': {
-      getSpotifyToken();
+      const id = getSpotifyId(str);
       return icons.spotify;
     }
     case 'apple': {
@@ -35,3 +34,18 @@ export const searchInString = (str) => {
 
 const search = (str) =>
   searchValues.find((value) => (str.search(value) >= 0 ? value : false));
+
+const getSpotifyId = (str) => {
+  const [protocol, address, path, id] = str
+    .split('/')
+    .filter((el) => el !== '');
+
+  if (id) {
+    const unWantedQuery = id.indexOf('?');
+    if (unWantedQuery > 0) {
+      return id.substr(0, unWantedQuery);
+    }
+    return id;
+  }
+  return false;
+};

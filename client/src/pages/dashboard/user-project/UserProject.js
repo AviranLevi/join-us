@@ -15,8 +15,8 @@ const UserProject = () => {
       />
 
       <div className='music-links center-items'>
-        {[...Array(linksCounter)].map(() => (
-          <UserLinkInput placeholderText='Put any link here...' />
+        {[...Array(linksCounter)].map((count) => (
+          <UserLinkInput key={count} placeholderText='Put any link here...' />
         ))}
       </div>
 

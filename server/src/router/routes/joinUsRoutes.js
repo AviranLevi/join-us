@@ -3,11 +3,13 @@ import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
 
 //READ
-export const getSpotifyTrack = (req, res, next) => {
+export const getSpotifyTrack = async (req, res, next) => {
   try {
-    const result = service.getSpotifyTrack();
+    const { id } = req.query;
+    const result = await service.getSpotifyTrack(id);
     console.log(result);
     res.status(OK).json(result);
+    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;

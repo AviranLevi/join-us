@@ -6,7 +6,10 @@ function Dashboard() {
   return (
     <div className='dashboard center-items slide-from-bottom'>
       <UserProject />
-      <Button text='SHOW ME MY AWESOME PAGE' />
+      <Button
+        text='SHOW ME MY PAGE'
+        classes='execute-btn bold-text transition'
+      />
     </div>
   );
 }

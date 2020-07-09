@@ -4,10 +4,10 @@ const api = axios.create({
   baseURL: 'http://localhost:5000',
 });
 
-export const getSpotifyToken = () => {
+export const getTrackData = async (id) => {
   try {
-    const { data } = api.get('/api/spotify');
-    console.log(data);
+    const { data } = await api.get('/api/spotify', { params: { id } });
+    if (data) return data;
   } catch (error) {
     throw error;
   }

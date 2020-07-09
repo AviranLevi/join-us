@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import Icon from '../icon/icon';
 import { icons } from '../../constant/icons';
-import { searchInString } from '../../utils/general';
+import { getSocialIcon } from '../../utils/general';
 
-const UserLinkInput = ({ text = '', placeholderText, classes = '' }) => {
+const UserLinkInput = ({ key = '', placeholderText, classes = '' }) => {
   const [link, setLink] = useState('');
   const [saveLink, setSaveLink] = useState(false);
 
   return (
-    <div className='user-link-input bold-text center-items'>
-      <Icon icon={searchInString(link)} />
-      <label htmlFor={text.toLowerCase()}>{text}</label>
+    <div key={key} className='user-link-input bold-text center-items'>
+      <Icon icon={getSocialIcon(link)} />
       <input
         onChange={(e) => setLink(e.target.value)}
-        name={text.toLowerCase()}
         placeholder={placeholderText}
         disabled={saveLink}
       />

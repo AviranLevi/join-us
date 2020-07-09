@@ -1,10 +1,15 @@
 import * as spotifyHelper from '../utils/spotify';
 
-export const getSpotifyTrack = async (id = '4JB0EAT4BkLShTyTt50FmO') => {
+export const getSpotifyTrack = async (id) => {
   try {
-    const results = await spotifyHelper.getTrack(id);
-    console.log(results);
-    return results;
+    if (id) {
+      const results = await spotifyHelper.getTrack(id);
+      if (results) {
+        return results;
+      }
+      return 'TRACK NOT FOUND';
+    }
+    return 'ID NOT VALID';
   } catch (error) {
     throw error;
   }
