@@ -12,3 +12,12 @@ export const getTrackData = async (id) => {
     throw error;
   }
 };
+
+export const getUserProject = async (id) => {
+  try {
+    const { data } = await api.get(`/api/user/${id}`);
+    console.log(data);
+  } catch (error) {
+    throw error;
+  }
+};

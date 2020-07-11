@@ -9,6 +9,9 @@ export const INSTAGRAM_LINK = 'INSTAGRAM_LINK';
 export const FACEBOOK_LINK = 'FACEBOOK_LINK';
 export const SOUNDCLOUD_LINK = 'SOUNDCLOUD_LINK';
 export const DEEZER_LINK = 'DEEZER_LINK';
+export const TRACK_NAME = 'TRACK_NAME';
+export const COVER_IMAGE = 'COVER_IMAGE';
+export const ARTISTS = 'ARTISTS';
 
 //features
 export const OPEN_LOGIN_TOAST = 'OPEN_LOGIN_TOAST';

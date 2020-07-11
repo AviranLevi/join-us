@@ -3,7 +3,7 @@ import * as actionType from '../actions/types';
 const initialState = {
   projectId: '',
   coverImage: '',
-  artistName: '',
+  artists: [],
   trackName: '',
   spotify: '',
   appleMusic: '',

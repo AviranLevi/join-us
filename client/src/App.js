@@ -6,15 +6,18 @@ import Footer from './components/footer/Footer';
 import Login from './pages/login/Login';
 import { connect } from 'react-redux';
 import Dashboard from './pages/dashboard/Dashboard';
+import UserLandPage from './pages/user-land-page/UserLandPage';
 
 const App = (props) => {
   return (
     <div className='app'>
-      <Header />
-      <Dashboard />
+      {/* <Header /> */}
+      {/* <Dashboard /> */}
       {/* <Main /> */}
-      <Footer />
+      {/* <Footer /> */}
       {props.features.loginToast ? <Login /> : null}
+
+      <UserLandPage />
     </div>
   );
 };
