@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.use('/', router);
+app.use('/api', router);
 
 app.listen(port, () => {
   console.log(`app is listening to port ${port}`);

@@ -2,7 +2,6 @@ import * as service from '../../services/joinUsService';
 import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
 
-//READ
 export const getSpotifyTrack = async (req, res, next) => {
   try {
     const { id } = req.query;
