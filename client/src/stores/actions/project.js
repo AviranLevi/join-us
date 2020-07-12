@@ -5,8 +5,8 @@ const data = require('./test.json');
 
 export const getSpotifyData = (trackID) => (dispatch) => {
   //   const { album } = api.getTrackData(trackID);
-  const { album, preview_url } = data;
-  const { artists, images, name, external_urls } = album;
+  const { album, artists, name, preview_url, external_urls } = data;
+  const { images } = album;
   const { spotify } = external_urls;
 
   dispatch({

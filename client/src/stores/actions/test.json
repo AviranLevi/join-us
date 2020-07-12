@@ -1,16 +1,16 @@
 {
   "album": {
-    "album_type": "single",
+    "album_type": "album",
     "artists": [
       {
         "external_urls": {
-          "spotify": "https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz"
+          "spotify": "https://open.spotify.com/artist/4r63FhuTkUYltbVAg5TQnk"
         },
-        "href": "https://api.spotify.com/v1/artists/4MCBfE4596Uoi2O4DtmEMz",
-        "id": "4MCBfE4596Uoi2O4DtmEMz",
-        "name": "Juice WRLD",
+        "href": "https://api.spotify.com/v1/artists/4r63FhuTkUYltbVAg5TQnk",
+        "id": "4r63FhuTkUYltbVAg5TQnk",
+        "name": "DaBaby",
         "type": "artist",
-        "uri": "spotify:artist:4MCBfE4596Uoi2O4DtmEMz"
+        "uri": "spotify:artist:4r63FhuTkUYltbVAg5TQnk"
       }
     ],
     "available_markets": [
@@ -95,44 +95,54 @@
       "ZA"
     ],
     "external_urls": {
-      "spotify": "https://open.spotify.com/album/5hxLDyEJV1IvgoAquaImWW"
+      "spotify": "https://open.spotify.com/album/623PL2MBg50Br5dLXC9E9e"
     },
-    "href": "https://api.spotify.com/v1/albums/5hxLDyEJV1IvgoAquaImWW",
-    "id": "5hxLDyEJV1IvgoAquaImWW",
+    "href": "https://api.spotify.com/v1/albums/623PL2MBg50Br5dLXC9E9e",
+    "id": "623PL2MBg50Br5dLXC9E9e",
     "images": [
       {
         "height": 640,
-        "url": "https://i.scdn.co/image/ab67616d0000b2736df47ee9cce261bc4aaf946e",
+        "url": "https://i.scdn.co/image/ab67616d0000b27320e08c8cc23f404d723b5647",
         "width": 640
       },
       {
         "height": 300,
-        "url": "https://i.scdn.co/image/ab67616d00001e026df47ee9cce261bc4aaf946e",
+        "url": "https://i.scdn.co/image/ab67616d00001e0220e08c8cc23f404d723b5647",
         "width": 300
       },
       {
         "height": 64,
-        "url": "https://i.scdn.co/image/ab67616d000048516df47ee9cce261bc4aaf946e",
+        "url": "https://i.scdn.co/image/ab67616d0000485120e08c8cc23f404d723b5647",
         "width": 64
       }
     ],
-    "name": "Righteous",
-    "release_date": "2020-04-24",
+    "name": "BLAME IT ON BABY",
+    "release_date": "2020-04-17",
     "release_date_precision": "day",
-    "total_tracks": 1,
+    "total_tracks": 13,
     "type": "album",
-    "uri": "spotify:album:5hxLDyEJV1IvgoAquaImWW"
+    "uri": "spotify:album:623PL2MBg50Br5dLXC9E9e"
   },
   "artists": [
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz"
+        "spotify": "https://open.spotify.com/artist/4r63FhuTkUYltbVAg5TQnk"
       },
-      "href": "https://api.spotify.com/v1/artists/4MCBfE4596Uoi2O4DtmEMz",
-      "id": "4MCBfE4596Uoi2O4DtmEMz",
-      "name": "Juice WRLD",
+      "href": "https://api.spotify.com/v1/artists/4r63FhuTkUYltbVAg5TQnk",
+      "id": "4r63FhuTkUYltbVAg5TQnk",
+      "name": "DaBaby",
       "type": "artist",
-      "uri": "spotify:artist:4MCBfE4596Uoi2O4DtmEMz"
+      "uri": "spotify:artist:4r63FhuTkUYltbVAg5TQnk"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/757aE44tKEUQEqRuT6GnEB"
+      },
+      "href": "https://api.spotify.com/v1/artists/757aE44tKEUQEqRuT6GnEB",
+      "id": "757aE44tKEUQEqRuT6GnEB",
+      "name": "Roddy Ricch",
+      "type": "artist",
+      "uri": "spotify:artist:757aE44tKEUQEqRuT6GnEB"
     }
   ],
   "available_markets": [
@@ -217,21 +227,21 @@
     "ZA"
   ],
   "disc_number": 1,
-  "duration_ms": 243356,
+  "duration_ms": 181733,
   "explicit": true,
   "external_ids": {
-    "isrc": "USUG12000979"
+    "isrc": "USUM72007941"
   },
   "external_urls": {
-    "spotify": "https://open.spotify.com/track/0OyQns5ayNK2OVaES0Vb8t"
+    "spotify": "https://open.spotify.com/track/7ytR5pFWmSjzHJIeQkgog4"
   },
-  "href": "https://api.spotify.com/v1/tracks/0OyQns5ayNK2OVaES0Vb8t",
-  "id": "0OyQns5ayNK2OVaES0Vb8t",
+  "href": "https://api.spotify.com/v1/tracks/7ytR5pFWmSjzHJIeQkgog4",
+  "id": "7ytR5pFWmSjzHJIeQkgog4",
   "is_local": false,
-  "name": "Righteous",
-  "popularity": 87,
-  "preview_url": "https://p.scdn.co/mp3-preview/6f7ff5cccbbf7e331ad9c77d955fbc4672a13916?cid=774b29d4f13844c495f206cafdad9c86",
-  "track_number": 1,
+  "name": "ROCKSTAR (feat. Roddy Ricch)",
+  "popularity": 100,
+  "preview_url": "https://p.scdn.co/mp3-preview/187c800ce2279e1d8966b0a5fd8a9dabf6acd5c4?cid=774b29d4f13844c495f206cafdad9c86",
+  "track_number": 7,
   "type": "track",
-  "uri": "spotify:track:0OyQns5ayNK2OVaES0Vb8t"
+  "uri": "spotify:track:7ytR5pFWmSjzHJIeQkgog4"
 }

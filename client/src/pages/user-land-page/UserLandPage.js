@@ -30,14 +30,14 @@ const UserLandPage = (props) => {
         <img className='song-cover-image' alt={props.trackName} src={props.coverImage} />
 
         <div className='song-information center-items'>
+          <Title text={props.trackName} classes='bold-black-text song-title' />
+
           {props.artists.map((art, i) => {
             const { spotify } = art.external_urls;
             if (i === 0) {
               return <ArtistLink name={art.name} url={spotify} classes='song-main-artist' />;
             }
           })}
-
-          <Title text={props.trackName} classes='bold-black-text song-title' />
 
           <div className='song-links center-items'>
             <ArtistLink icon={icons.spotify} url={props.spotify} classes='spotify' />
