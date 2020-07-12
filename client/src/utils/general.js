@@ -32,13 +32,10 @@ export const getSocialIcon = (str) => {
   }
 };
 
-const search = (str) =>
-  searchValues.find((value) => (str.search(value) >= 0 ? value : false));
+const search = (str) => searchValues.find((value) => (str.search(value) >= 0 ? value : false));
 
 const getSpotifyId = (str) => {
-  const [protocol, address, path, id] = str
-    .split('/')
-    .filter((el) => el !== '');
+  const [protocol, address, path, id] = str.split('/').filter((el) => el !== '');
 
   if (id) {
     const unWantedQuery = id.indexOf('?');

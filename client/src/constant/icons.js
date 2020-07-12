@@ -13,5 +13,6 @@ export const icons = {
   deezer: <i className='fab fa-deezer'></i>,
   youTube: <i className='fab fa-youtube'></i>,
   tiktok: <i className='fab fa-tiktok'></i>,
+  soundcloud: <i className='fab fa-soundcloud'></i>,
   website: <i className='fas fa-globe-africa'></i>,
 };

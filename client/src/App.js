@@ -12,12 +12,12 @@ const App = (props) => {
   return (
     <div className='app'>
       {/* <Header /> */}
-      {/* <Dashboard /> */}
       {/* <Main /> */}
       {/* <Footer /> */}
-      {props.features.loginToast ? <Login /> : null}
+      {/* {props.features.loginToast ? <Login /> : null} */}
 
-      <UserLandPage />
+      {props.project.audioPreview ? <UserLandPage /> : null}
+      <Dashboard />
     </div>
   );
 };

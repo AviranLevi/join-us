@@ -7,11 +7,7 @@ const Google = () => (
   <GoogleLogin
     clientId={google.clientId}
     render={(renderProps) => (
-      <button
-        className='google-btn slide-from-bottom'
-        onClick={renderProps.onClick}
-        disabled={renderProps.disabled}
-      >
+      <button className='google-btn slide-from-bottom' onClick={renderProps.onClick} disabled={renderProps.disabled}>
         <img src={GoogleLogo} alt='google-logo ' />
       </button>
     )}

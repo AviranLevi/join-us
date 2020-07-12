@@ -5,25 +5,29 @@ const initialState = {
   coverImage: '',
   artists: [],
   trackName: '',
+  audioPreview: '',
   spotify: '',
-  appleMusic: '',
-  tiktok: '',
-  youtube: '',
-  instagram: '',
-  facebook: '',
-  soundcloud: '',
-  deezer: '',
+  appleMusic: 'wwww.applemusic.com',
+  tiktok: 'www.tiktok.com',
+  youtube: 'www.youtube.com',
+  instagram: 'www.instagram.com',
+  facebook: 'www.facebook.com',
+  soundcloud: 'www.soundcloud.com',
+  deezer: 'www.deezer.com ',
+  website: 'www.aviran-levi.com',
 };
 
-const rootReducer = (state = [initialState], action) => {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.SPOTIFY_DATA:
+      const { spotify, coverImage, artists, trackName, audioPreview } = action.payload;
       return {
         ...state,
-        spotify: action.payload.link,
-        coverImage: action.payload.image,
-        artistName: action.payload.artistName,
-        trackName: action.payload.trackName,
+        spotify,
+        coverImage,
+        artists,
+        trackName,
+        audioPreview,
       };
 
     case actionType.APPLE_MUSIC_LINK:

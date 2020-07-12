@@ -14,11 +14,7 @@ const Header = (props) => {
         <UserLoggedIn userName={user.name} userImageSrc={user.profileImage} />
       ) : (
         <div className='login-signup center-items'>
-          <Button
-            action={props.openLogin}
-            text='Login'
-            classes='bold-black-text'
-          />
+          <Button action={props.openLogin} text='Login' classes='bold-black-text' />
           <Button text='Sign-up' classes='bold-black-text' />
         </div>
       )}

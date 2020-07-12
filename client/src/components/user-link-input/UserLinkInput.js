@@ -10,23 +10,11 @@ const UserLinkInput = ({ key = '', placeholderText, classes = '' }) => {
   return (
     <div key={key} className='user-link-input bold-text center-items'>
       <Icon icon={getSocialIcon(link)} />
-      <input
-        onChange={(e) => setLink(e.target.value)}
-        placeholder={placeholderText}
-        disabled={saveLink}
-      />
+      <input onChange={(e) => setLink(e.target.value)} placeholder={placeholderText} disabled={saveLink} />
       {saveLink ? (
-        <Icon
-          icon={icons.edit}
-          action={() => setSaveLink(false)}
-          classes='edit-btn pointer transition'
-        />
+        <Icon icon={icons.edit} action={() => setSaveLink(false)} classes='edit-btn pointer transition' />
       ) : (
-        <Icon
-          icon={icons.save}
-          action={() => setSaveLink(true)}
-          classes='save-btn pointer transition'
-        />
+        <Icon icon={icons.save} action={() => setSaveLink(true)} classes='save-btn pointer transition' />
       )}
     </div>
   );
