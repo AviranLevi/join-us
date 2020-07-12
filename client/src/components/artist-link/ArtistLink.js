@@ -4,7 +4,7 @@ import Icon from '../icon/icon';
 
 const ArtistLink = ({ name, url, icon, classes, style = {} }) => {
   return url ? (
-    <div className={`artist-link bold-text  ${classes}`}>
+    <div className={`artist-link bold-text ${classes}`}>
       <a className='link' target='_blank' href={url} style={style}>
         {name ? name : null}
         {icon ? <Icon icon={icon} /> : null}

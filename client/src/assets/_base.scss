@@ -1,10 +1,3 @@
-$primary-color: #2d00f7;
-$font-color: #f7fff7;
-$green: #13e772;
-$red: #e71d36;
-$dark-color: black;
-$grey: #8b907a;
-
 html,
 body {
   margin: 0px;
@@ -21,7 +14,6 @@ button {
   overflow: hidden;
   background-attachment: fixed;
   height: fit-content;
-  // font-family: 'Nunito', sans-serif;
   font-family: 'Poppins', sans-serif;
   background: $dark-color;
 }

@@ -21,7 +21,8 @@ const UserLandPage = (props) => {
   return (
     <div className='user-land-page center-items'>
       <div className='bg-image' style={backgroundStyle}></div>
-      <div className='song-content center-items'>
+
+      <div className='song-content'>
         <audio controls autoPlay loop className='song-audio'>
           <source src={props.audioPreview} /> />
         </audio>
@@ -41,7 +42,7 @@ const UserLandPage = (props) => {
           <div className='song-links center-items'>
             <ArtistLink icon={icons.spotify} url={props.spotify} classes='spotify' />
             <ArtistLink icon={icons.appleMusic} url={props.appleMusic} classes='apple' />
-            <ArtistLink icon={icons.youTube} url={props.youTube} classes='youtube' />
+            <ArtistLink icon={icons.youTube} url={props.youtube} classes='youtube' />
             <ArtistLink icon={icons.deezer} url={props.deezer} classes='deezer' />
             <ArtistLink icon={icons.soundcloud} url={props.soundcloud} classes='soundcloud' />
           </div>

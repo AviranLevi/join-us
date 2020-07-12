@@ -16,8 +16,7 @@ const App = (props) => {
       {/* <Footer /> */}
       {/* {props.features.loginToast ? <Login /> : null} */}
 
-      {props.project.audioPreview ? <UserLandPage /> : null}
-      <Dashboard />
+      {props.project.audioPreview ? <UserLandPage /> : <Dashboard />}
     </div>
   );
 };

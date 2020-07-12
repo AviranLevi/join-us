@@ -1,12 +1,8 @@
 .user-land-page {
   min-height: 100vh;
   position: relative;
-  a {
-    transition: 1s;
-    &:hover {
-      color: $dark-color;
-    }
-  }
+  letter-spacing: 3px;
+
   .bg-image {
     height: 100%;
     width: 100%;
@@ -17,9 +13,15 @@
 
   .song-content {
     z-index: 100;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
+    justify-items: center;
+    width: 80%;
     color: $font-color;
+
+    a {
+      transition: 1s;
+    }
 
     .song-audio {
       outline: none;
@@ -36,27 +38,81 @@
     .song-information {
       height: 100%;
       text-align: center;
+      justify-self: center;
+      align-self: center;
+      width: 100%;
 
       .song-main-artist {
-        font-size: 50px;
+        font-size: 45px;
       }
 
       .song-title {
-        font-size: 30px;
+        font-size: 35px;
       }
 
       .song-links {
         font-size: 45px;
-        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(75px, 0));
         grid-gap: 100px;
+
+        .spotify {
+          a:hover {
+            color: $spotify;
+          }
+        }
+        .apple {
+          a:hover {
+            color: $apple-music;
+          }
+        }
+        .deezer {
+          a:hover {
+            color: $deezer;
+          }
+        }
+        .soundcloud {
+          a:hover {
+            color: $soundcloud;
+          }
+        }
+
+        .youtube {
+          a:hover {
+            color: $youtube;
+          }
+        }
       }
     }
 
     .artist-social-links {
+      margin-top: 50px;
       font-size: 35px;
       grid-gap: 40px;
       align-self: flex-end;
       grid-template-columns: repeat(4, 1fr);
+
+      .instagram {
+        a:hover {
+          color: $instagram;
+        }
+      }
+      .tiktok {
+        a:hover {
+          color: $tiktok;
+        }
+      }
+      .website {
+        a:hover {
+          color: $dark-color;
+        }
+      }
+
+      .facebook {
+        a:hover {
+          color: $facebook;
+        }
+      }
     }
   }
 }
