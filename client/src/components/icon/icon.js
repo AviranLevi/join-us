@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Icon({ icon, classes = '', action }) {
+function Icon({ icon, classes = '', action, style = {} }) {
   return (
-    <div onClick={action} className={`${classes} icon`}>
+    <div style={style} onClick={action} className={`${classes} icon`}>
       {icon}
     </div>
   );

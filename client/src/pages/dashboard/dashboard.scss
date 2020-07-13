@@ -1,6 +1,4 @@
 .dashboard {
-  min-height: 75vh;
-
   .execute-btn {
     width: 300px;
     font-size: 20px;
@@ -8,6 +6,7 @@
     padding: 15px;
     background: $font-color;
     border-radius: 25px;
+    margin: 40px 0;
 
     &:hover {
       background: $green;

@@ -36,7 +36,7 @@ const UserLandPage = (props) => {
           </div>
 
           <div className='song-information center-items'>
-            <Title text={props.trackName} classes='bold-black-text song-title' />
+            <Title text={props.trackName} classes='bold-text song-title' />
 
             {props.artists.map((art, i) => {
               const { spotify } = art.external_urls;

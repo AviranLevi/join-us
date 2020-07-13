@@ -5,8 +5,12 @@ import Icon from '../../../components/icon/icon';
 import { icons } from '../../../constant/icons';
 
 const UserProject = () => {
-  const count = 1;
-  const [linksCounter, setLinksCounter] = useState(count);
+  const [linksCounter, setLinksCounter] = useState(1);
+
+  const style = {
+    display: 'none',
+  };
+
   return (
     <div className='user-project center-items slide-from-right'>
       <Title text='Put your music release links here:' classes='bold-text user-project-title' />
@@ -17,7 +21,12 @@ const UserProject = () => {
         ))}
       </div>
 
-      <Icon icon={icons.plus} action={() => setLinksCounter(linksCounter + 1)} classes='pointer transition plus-btn' />
+      <Icon
+        style={linksCounter >= 9 ? style : null}
+        icon={icons.plus}
+        action={() => setLinksCounter(linksCounter + 1)}
+        classes='pointer transition plus-btn'
+      />
     </div>
   );
 };

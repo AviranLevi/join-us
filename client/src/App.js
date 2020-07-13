@@ -10,9 +10,9 @@ const App = (props) => {
   return (
     <Router>
       <div className='app'>
-        {/* <Route path='/' exact component={Main} />
-        <Route path='/:id' exact render={({ match }) => <UserLandPage match={match} />} /> */}
-        {props.project.audioPreview ? <UserLandPage /> : <Dashboard />}
+        <Route path='/' exact component={Main} />
+        {/* <Route path='/:id' exact render={({ match }) => <UserLandPage match={match} />} /> */}
+        {/* {props.project.audioPreview ? <UserLandPage /> : <Dashboard />} */}
       </div>
     </Router>
   );

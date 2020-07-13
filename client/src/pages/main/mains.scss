@@ -3,12 +3,12 @@
 
   .middle {
     position: relative;
-    height: 75vh;
+    min-height: 75vh;
     position: relative;
     margin: 0 20vw;
     text-align: center;
 
-    h1 {
+    .main-page-title {
       color: $font-color;
       font-size: 100px;
     }
