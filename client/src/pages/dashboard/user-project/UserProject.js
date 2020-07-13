@@ -9,10 +9,7 @@ const UserProject = () => {
   const [linksCounter, setLinksCounter] = useState(count);
   return (
     <div className='user-project center-items slide-from-right'>
-      <Title
-        text='Put your music release links here:'
-        classes='bold-text user-project-title'
-      />
+      <Title text='Put your music release links here:' classes='bold-text user-project-title' />
 
       <div className='music-links center-items'>
         {[...Array(linksCounter)].map((count) => (
@@ -20,11 +17,7 @@ const UserProject = () => {
         ))}
       </div>
 
-      <Icon
-        icon={icons.plus}
-        action={() => setLinksCounter(linksCounter + 1)}
-        classes='pointer transition plus-btn'
-      />
+      <Icon icon={icons.plus} action={() => setLinksCounter(linksCounter + 1)} classes='pointer transition plus-btn' />
     </div>
   );
 };

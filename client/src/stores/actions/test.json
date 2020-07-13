@@ -1,16 +1,36 @@
 {
   "album": {
-    "album_type": "album",
+    "album_type": "single",
     "artists": [
       {
         "external_urls": {
-          "spotify": "https://open.spotify.com/artist/4r63FhuTkUYltbVAg5TQnk"
+          "spotify": "https://open.spotify.com/artist/7c0XG5cIJTrrAgEC3ULPiq"
         },
-        "href": "https://api.spotify.com/v1/artists/4r63FhuTkUYltbVAg5TQnk",
-        "id": "4r63FhuTkUYltbVAg5TQnk",
-        "name": "DaBaby",
+        "href": "https://api.spotify.com/v1/artists/7c0XG5cIJTrrAgEC3ULPiq",
+        "id": "7c0XG5cIJTrrAgEC3ULPiq",
+        "name": "Ty Dolla $ign",
         "type": "artist",
-        "uri": "spotify:artist:4r63FhuTkUYltbVAg5TQnk"
+        "uri": "spotify:artist:7c0XG5cIJTrrAgEC3ULPiq"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6nB0iY1cjSY1KyhYyuIIKH"
+        },
+        "href": "https://api.spotify.com/v1/artists/6nB0iY1cjSY1KyhYyuIIKH",
+        "id": "6nB0iY1cjSY1KyhYyuIIKH",
+        "name": "FKA twigs",
+        "type": "artist",
+        "uri": "spotify:artist:6nB0iY1cjSY1KyhYyuIIKH"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+        },
+        "href": "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+        "id": "5he5w2lnU9x7JFhnwcekXX",
+        "name": "Skrillex",
+        "type": "artist",
+        "uri": "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
       }
     ],
     "available_markets": [
@@ -95,54 +115,74 @@
       "ZA"
     ],
     "external_urls": {
-      "spotify": "https://open.spotify.com/album/623PL2MBg50Br5dLXC9E9e"
+      "spotify": "https://open.spotify.com/album/6FPhDUfQUECZVD8vnobxjM"
     },
-    "href": "https://api.spotify.com/v1/albums/623PL2MBg50Br5dLXC9E9e",
-    "id": "623PL2MBg50Br5dLXC9E9e",
+    "href": "https://api.spotify.com/v1/albums/6FPhDUfQUECZVD8vnobxjM",
+    "id": "6FPhDUfQUECZVD8vnobxjM",
     "images": [
       {
         "height": 640,
-        "url": "https://i.scdn.co/image/ab67616d0000b27320e08c8cc23f404d723b5647",
+        "url": "https://i.scdn.co/image/ab67616d0000b273f14a141caefca5f1b6e0578a",
         "width": 640
       },
       {
         "height": 300,
-        "url": "https://i.scdn.co/image/ab67616d00001e0220e08c8cc23f404d723b5647",
+        "url": "https://i.scdn.co/image/ab67616d00001e02f14a141caefca5f1b6e0578a",
         "width": 300
       },
       {
         "height": 64,
-        "url": "https://i.scdn.co/image/ab67616d0000485120e08c8cc23f404d723b5647",
+        "url": "https://i.scdn.co/image/ab67616d00004851f14a141caefca5f1b6e0578a",
         "width": 64
       }
     ],
-    "name": "BLAME IT ON BABY",
-    "release_date": "2020-04-17",
+    "name": "Ego Death (feat. Kanye West, FKA twigs & Skrillex)",
+    "release_date": "2020-07-01",
     "release_date_precision": "day",
-    "total_tracks": 13,
+    "total_tracks": 1,
     "type": "album",
-    "uri": "spotify:album:623PL2MBg50Br5dLXC9E9e"
+    "uri": "spotify:album:6FPhDUfQUECZVD8vnobxjM"
   },
   "artists": [
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/4r63FhuTkUYltbVAg5TQnk"
+        "spotify": "https://open.spotify.com/artist/7c0XG5cIJTrrAgEC3ULPiq"
       },
-      "href": "https://api.spotify.com/v1/artists/4r63FhuTkUYltbVAg5TQnk",
-      "id": "4r63FhuTkUYltbVAg5TQnk",
-      "name": "DaBaby",
+      "href": "https://api.spotify.com/v1/artists/7c0XG5cIJTrrAgEC3ULPiq",
+      "id": "7c0XG5cIJTrrAgEC3ULPiq",
+      "name": "Ty Dolla $ign",
       "type": "artist",
-      "uri": "spotify:artist:4r63FhuTkUYltbVAg5TQnk"
+      "uri": "spotify:artist:7c0XG5cIJTrrAgEC3ULPiq"
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/757aE44tKEUQEqRuT6GnEB"
+        "spotify": "https://open.spotify.com/artist/6nB0iY1cjSY1KyhYyuIIKH"
       },
-      "href": "https://api.spotify.com/v1/artists/757aE44tKEUQEqRuT6GnEB",
-      "id": "757aE44tKEUQEqRuT6GnEB",
-      "name": "Roddy Ricch",
+      "href": "https://api.spotify.com/v1/artists/6nB0iY1cjSY1KyhYyuIIKH",
+      "id": "6nB0iY1cjSY1KyhYyuIIKH",
+      "name": "FKA twigs",
       "type": "artist",
-      "uri": "spotify:artist:757aE44tKEUQEqRuT6GnEB"
+      "uri": "spotify:artist:6nB0iY1cjSY1KyhYyuIIKH"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+      },
+      "href": "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+      "id": "5he5w2lnU9x7JFhnwcekXX",
+      "name": "Skrillex",
+      "type": "artist",
+      "uri": "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x"
+      },
+      "href": "https://api.spotify.com/v1/artists/5K4W6rqBFWDnAN6FQUkS6x",
+      "id": "5K4W6rqBFWDnAN6FQUkS6x",
+      "name": "Kanye West",
+      "type": "artist",
+      "uri": "spotify:artist:5K4W6rqBFWDnAN6FQUkS6x"
     }
   ],
   "available_markets": [
@@ -227,21 +267,21 @@
     "ZA"
   ],
   "disc_number": 1,
-  "duration_ms": 181733,
-  "explicit": true,
+  "duration_ms": 231066,
+  "explicit": false,
   "external_ids": {
-    "isrc": "USUM72007941"
+    "isrc": "USAT22004033"
   },
   "external_urls": {
-    "spotify": "https://open.spotify.com/track/7ytR5pFWmSjzHJIeQkgog4"
+    "spotify": "https://open.spotify.com/track/4JB0EAT4BkLShTyTt50FmO"
   },
-  "href": "https://api.spotify.com/v1/tracks/7ytR5pFWmSjzHJIeQkgog4",
-  "id": "7ytR5pFWmSjzHJIeQkgog4",
+  "href": "https://api.spotify.com/v1/tracks/4JB0EAT4BkLShTyTt50FmO",
+  "id": "4JB0EAT4BkLShTyTt50FmO",
   "is_local": false,
-  "name": "ROCKSTAR (feat. Roddy Ricch)",
-  "popularity": 100,
-  "preview_url": "https://p.scdn.co/mp3-preview/187c800ce2279e1d8966b0a5fd8a9dabf6acd5c4?cid=774b29d4f13844c495f206cafdad9c86",
-  "track_number": 7,
+  "name": "Ego Death (feat. Kanye West, FKA twigs & Skrillex)",
+  "popularity": 80,
+  "preview_url": "https://p.scdn.co/mp3-preview/03830bd1cba7e73f737a623c5cd24b8c8717aad9?cid=774b29d4f13844c495f206cafdad9c86",
+  "track_number": 1,
   "type": "track",
-  "uri": "spotify:track:7ytR5pFWmSjzHJIeQkgog4"
+  "uri": "spotify:track:4JB0EAT4BkLShTyTt50FmO"
 }

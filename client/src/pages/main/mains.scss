@@ -1,12 +1,16 @@
 .main {
-  position: relative;
-  height: 75vh;
-  position: relative;
-  margin: 0 20vw;
-  text-align: center;
+  background: $primary-color;
 
-  h1 {
-    color: $font-color;
-    font-size: 100px;
+  .middle {
+    position: relative;
+    height: 75vh;
+    position: relative;
+    margin: 0 20vw;
+    text-align: center;
+
+    h1 {
+      color: $font-color;
+      font-size: 100px;
+    }
   }
 }
