@@ -1,0 +1,41 @@
+.sign-up {
+  position: absolute;
+  top: 16vh;
+  left: 35vw;
+  height: 67vh;
+  width: 30vw;
+  background: $font-color;
+
+  .close-icon {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    font-size: 25px;
+    transition: 1s;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .sign-up-content {
+    grid-gap: 50px;
+    display: grid;
+    margin: 40px;
+
+    h1 {
+      font-size: 50px;
+    }
+
+    button {
+      font-size: 25px;
+      background: $primary-color;
+      color: $font-color;
+      width: 50%;
+      justify-self: center;
+      border-radius: 25px;
+      padding: 10px 0;
+    }
+  }
+}

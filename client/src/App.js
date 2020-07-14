@@ -1,20 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Main from './pages/main/Main';
-import Dashboard from './pages/dashboard/Dashboard';
-import UserLandPage from './pages/user-land-page/UserLandPage';
+import RouterConfig from './pages/RouterConfig';
 import './app.scss';
 
-const App = (props) => {
+const App = () => {
   return (
-    <Router>
-      <div className='app'>
-        <Route path='/' exact component={Main} />
-        {/* <Route path='/:id' exact render={({ match }) => <UserLandPage match={match} />} /> */}
-        {/* {props.project.audioPreview ? <UserLandPage /> : <Dashboard />} */}
-      </div>
-    </Router>
+    <div className='app'>
+      <RouterConfig />
+    </div>
   );
 };
 

@@ -4,11 +4,13 @@
 @import './assets/fonts';
 @import './assets/animation.scss';
 
-@import './pages/main/mains';
-@import './pages/login/login';
+@import './pages/home/home';
 @import './pages/dashboard/dashboard.scss';
 @import './pages/dashboard/user-project/user-project';
 @import './pages/user-land-page/user-land-page';
+
+@import './pages/login/login';
+@import './pages/sign-up/sign-up';
 
 @import './components/header/header';
 @import './components/footer/footer';

@@ -15,7 +15,7 @@ const Header = (props) => {
       ) : (
         <div className='login-signup center-items'>
           <Button action={props.openLogin} text='Login' classes='bold-black-text' />
-          <Button text='Sign-up' classes='bold-black-text' />
+          <Button action={props.openSignUp} text='Sign-up' classes='bold-black-text' />
         </div>
       )}
     </div>
@@ -26,6 +26,7 @@ const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
   openLogin: () => dispatch(actions.openLoginToast()),
+  openSignUp: () => dispatch(actions.openSignUpToast()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

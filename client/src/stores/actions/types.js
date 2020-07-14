@@ -16,9 +16,12 @@ export const ARTISTS = 'ARTISTS';
 //features
 export const OPEN_LOGIN_TOAST = 'OPEN_LOGIN_TOAST';
 export const CLOSE_LOGIN_TOAST = 'CLOSE_LOGIN_TOAST';
+export const OPEN_SIGN_UP_TOAST = 'OPEN_SIGN_UP_TOAST';
+export const CLOSE_SIGN_UP_TOAST = 'CLOSE_SIGN_UP_TOAST';
 
 //social
 export const FACEBOOK_LOGIN = 'FACEBOOK_LOGIN';
+export const GOOGLE_LOGIN = 'GOOGLE_LOGIN';
 
 //errors
 export const FACEBOOK_LOGIN_ERROR = 'FACEBOOK_LOGIN_ERROR';

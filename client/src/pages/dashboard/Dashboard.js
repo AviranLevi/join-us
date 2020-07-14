@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import * as actions from '../../stores/actions';
 import UserProject from './user-project/UserProject';
 import Button from '../../components/button/Button';
+import Menu from './menu/Menu';
 
 const Dashboard = (props) => {
   return (
     <div className='dashboard center-items slide-from-bottom'>
-      <UserProject />
-      <Button text='SHOW ME MY PAGE' classes='execute-btn bold-text transition' action={props.getSpotifyData} />
+      <Menu />
+      <div className='user-workspace'>
+        <UserProject />
+        <Button text='SHOW ME MY PAGE' classes='execute-btn bold-text transition' action={props.getSpotifyData} />
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ export const icons = {
   save: <i className='fas fa-check-circle'></i>,
   play: <i className='fas fa-play'></i>,
   pause: <i className='fas fa-pause'></i>,
+  close: <i className='fas fa-times'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,

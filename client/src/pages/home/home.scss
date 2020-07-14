@@ -1,16 +1,17 @@
-.main {
+.home {
   background: $primary-color;
 
   .middle {
     position: relative;
+    width: 100vw;
     min-height: 75vh;
     position: relative;
-    margin: 0 20vw;
     text-align: center;
 
     .main-page-title {
       color: $font-color;
       font-size: 100px;
+      margin: 0 20vw;
     }
   }
 }
