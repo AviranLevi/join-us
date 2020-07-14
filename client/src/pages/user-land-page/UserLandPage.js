@@ -1,20 +1,23 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { connect } from 'react-redux';
 import Title from '../../components/title/Title';
 import { icons } from '../../constant/icons';
 import Loading from '../../components/loading/Loading';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
 import AudioPlayer from '../../components/audio/AudioPlayer';
+import { getUserProject } from '../../api/joinUsApi';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
 
 const UserLandPage = (props) => {
-  // console.log(props.match);
-  //   useEffect(() => {
-  //     const project = getUserProject(id);
-  //     setUserProject(project);
-  //   }, [userProject]);
+  const { match } = props;
+  const [projectData, setProjectData] = useState({});
+
+  useEffect(() => {
+    const project = async () => await getUserProject(match.params.id);
+    setProjectData(project);
+  }, [projectData]);
 
   const backgroundStyle = {
     backgroundImage: `url(${props.coverImage})`,
@@ -23,6 +26,9 @@ const UserLandPage = (props) => {
     backgroundRepeat: 'no-repeat',
     filter: 'blur(50px)',
   };
+  if (projectData) {
+    return <Redirect to='/' />;
+  }
 
   return (
     <Suspense fallback={<Loading />}>

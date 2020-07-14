@@ -24,7 +24,7 @@ export const getTrackData = async (id) => {
 
 export const getUserProject = async (id) => {
   try {
-    const { data } = await api.get(`/api/user/${id}`);
+    const { data } = await api.get(`/api/project/${id}`);
     console.log(data);
   } catch (error) {
     throw error;
