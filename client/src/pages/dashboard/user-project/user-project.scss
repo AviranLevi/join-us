@@ -10,6 +10,7 @@
   .music-links {
     grid-gap: 20px;
     margin: 40px 0;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .plus-btn {

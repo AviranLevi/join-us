@@ -1,29 +1,29 @@
 import { icons } from '../constant/icons';
+import { socialMedia } from '../constant/enums';
 import { searchValues } from '../config';
 
 export const getSocialIcon = (str) => {
   const value = search(str);
   switch (value) {
-    case 'spotify': {
-      const id = getSpotifyId(str);
-      return icons.spotify;
+    case socialMedia.SPOTIFY: {
+      return { name: socialMedia.SPOTIFY, icon: icons.spotify };
     }
-    case 'apple': {
+    case socialMedia.APPLE: {
       return icons.appleMusic;
     }
-    case 'facebook': {
+    case socialMedia.FACEBOOK: {
       return icons.facebook;
     }
-    case 'instagram': {
+    case socialMedia.INSTAGRAM: {
       return icons.instagram;
     }
-    case 'deezer': {
+    case socialMedia.DEEZER: {
       return icons.deezer;
     }
-    case 'youtube': {
+    case socialMedia.YOUTUBE: {
       return icons.youTube;
     }
-    case 'tiktok': {
+    case socialMedia.TIKTOK: {
       return icons.tiktok;
     }
     default: {
@@ -34,7 +34,7 @@ export const getSocialIcon = (str) => {
 
 const search = (str) => searchValues.find((value) => (str.search(value) >= 0 ? value : false));
 
-const getSpotifyId = (str) => {
+export const getSpotifyId = (str) => {
   const [protocol, address, path, id] = str.split('/').filter((el) => el !== '');
 
   if (id) {

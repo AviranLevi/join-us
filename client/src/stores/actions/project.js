@@ -1,5 +1,5 @@
 import * as actionType from './types';
-import * as api from '../../api/joinUsApi';
+// import * as api from '../../api/joinUsApi';
 
 const data = require('./test.json');
 
@@ -53,5 +53,10 @@ export const getSoundCloudLink = (url) => ({
 
 export const getDeezerLink = (url) => ({
   type: actionType.DEEZER_LINK,
+  payload: url,
+});
+
+export const getWebsiteLink = (url) => ({
+  type: actionType.WEBSITE_LINK,
   payload: url,
 });

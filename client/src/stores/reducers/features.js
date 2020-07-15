@@ -3,6 +3,7 @@ import * as actionType from '../actions/types';
 const initialState = {
   loginToast: false,
   signUpToast: false,
+  linksCounter: 1,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -18,6 +19,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.CLOSE_SIGN_UP_TOAST:
       return { ...state, signUpToast: action.payload };
+
+    case actionType.INCREASE_LINK_COUNTER:
+      return { ...state, linksCounter: state.linksCounter + 1 };
 
     default:
       return state;

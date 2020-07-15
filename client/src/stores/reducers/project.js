@@ -7,14 +7,14 @@ const initialState = {
   trackName: '',
   audioPreview: '',
   spotify: '',
-  appleMusic: 'wwww.applemusic.com',
-  tiktok: 'www.tiktok.com',
-  youtube: 'www.youtube.com',
-  instagram: 'www.instagram.com',
-  facebook: 'www.facebook.com',
-  soundcloud: 'www.soundcloud.com',
-  deezer: 'www.deezer.com ',
-  website: 'www.aviran-levi.com',
+  appleMusic: '',
+  tiktok: '',
+  youtube: '',
+  instagram: '',
+  facebook: '',
+  soundcloud: '',
+  deezer: '',
+  website: '',
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -50,6 +50,10 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.DEEZER_LINK:
       return { ...state, deezer: action.payload };
+
+    case actionType.WEBSITE_LINK:
+      return { ...state, website: action.payload };
+
     default:
       return state;
   }

@@ -1,13 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RouterConfig from './pages/RouterConfig';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Home from './pages/home/Home';
+import UserLandPage from './pages/user-land-page/UserLandPage';
 import './app.scss';
 
 const App = () => {
   return (
-    <div className='app'>
-      <RouterConfig />
-    </div>
+    <Router>
+      <div className='app'>
+        <Route exact path='/' component={Home} />
+        <Route path='/:id' component={UserLandPage} />
+      </div>
+    </Router>
   );
 };
 

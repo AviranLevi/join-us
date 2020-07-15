@@ -6,18 +6,18 @@ import Loading from '../../components/loading/Loading';
 import { Link, Redirect } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
 import AudioPlayer from '../../components/audio/AudioPlayer';
-import { getUserProject } from '../../api/joinUsApi';
+import * as joinUsAPI from '../../api/joinUsApi';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
 
 const UserLandPage = (props) => {
-  const { match } = props;
+  const id = props.match.params.id;
   const [projectData, setProjectData] = useState({});
 
   useEffect(() => {
-    const project = async () => await getUserProject(match.params.id);
+    const project = async () => await joinUsAPI.getUserProject(id).then((res) => res);
     setProjectData(project);
-  }, [projectData]);
+  }, [id]);
 
   const backgroundStyle = {
     backgroundImage: `url(${props.coverImage})`,
@@ -26,7 +26,7 @@ const UserLandPage = (props) => {
     backgroundRepeat: 'no-repeat',
     filter: 'blur(50px)',
   };
-  if (projectData) {
+  if (!projectData) {
     return <Redirect to='/' />;
   }
 
@@ -49,6 +49,7 @@ const UserLandPage = (props) => {
               if (i === 0) {
                 return <ArtistLink name={art.name} url={spotify} classes='song-main-artist' />;
               }
+              return;
             })}
 
             <div className='song-links center-items'>
