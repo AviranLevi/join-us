@@ -8,23 +8,22 @@ import Dashboard from '../dashboard/Dashboard';
 import SignUp from '../sign-up/SignUp';
 
 const Home = (props) => {
-  const { user } = props;
+  const { features } = props;
   return (
-    <div className='home center-items slide-from-right'>
+    <div className='home center-items'>
       <Header />
 
-      <div className='middle center-items slide-from-right'>
-        {user.loggedIn ? (
-          <Dashboard />
-        ) : (
-          <Title text='Create an AWESOME land-page for your new release!' classes='bold-text main-page-title' />
-        )}
+      <div className='middle center-items'>
+        <Title
+          text='Create an AWESOME land-page for your new release!'
+          classes='bold-text main-page-title slide-from-right'
+        />
       </div>
 
-      {props.features.loginToast ? <Login /> : null}
-      {props.features.signUpToast ? <SignUp /> : null}
-
       <Footer />
+
+      {features.loginToast ? <Login /> : null}
+      {features.signUpToast ? <SignUp /> : null}
     </div>
   );
 };

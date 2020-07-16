@@ -8,7 +8,7 @@ import UserLinkInput from '../../../components/user-link-input/UserLinkInput';
 
 const UserProject = (props) => {
   return (
-    <div className='user-project center-items slide-from-right'>
+    <div className='user-project center-items '>
       <Title text='Put your music release links & your social links here:' classes='bold-text user-project-title' />
 
       <div className='music-links center-items'>

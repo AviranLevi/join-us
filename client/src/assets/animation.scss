@@ -60,6 +60,17 @@
   }
 }
 
+@keyframes fadeSlideInLeft {
+  0% {
+    left: -400px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
 .fade-in {
   animation: fadeIn ease-in-out 1s;
 }
@@ -70,6 +81,10 @@
 
 .slide-from-right {
   animation: fadeSlideInRight ease-in-out 1s;
+}
+
+.slide-from-left {
+  animation: fadeSlideInLeft ease-in-out 1s;
 }
 
 .slide-from-bottom {

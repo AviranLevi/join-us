@@ -4,6 +4,7 @@ const initialState = {
   loginToast: false,
   signUpToast: false,
   linksCounter: 1,
+  createNewUser: false,
 };
 
 const rootReducer = (state = initialState, action) => {

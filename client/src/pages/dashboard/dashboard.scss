@@ -1,6 +1,14 @@
 .dashboard {
+  position: relative;
   width: 100vw;
-  grid-template-columns: 1fr 9fr;
+  min-height: 75vh;
+  text-align: center;
+  grid-template-columns: 1fr 3fr 1fr;
+  position: relative;
+
+  .user-workspace {
+    position: relative;
+  }
 
   .execute-btn {
     width: 300px;

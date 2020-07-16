@@ -2,7 +2,7 @@
 @import './assets/base';
 @import './assets/reset';
 @import './assets/fonts';
-@import './assets/animation.scss';
+@import './assets/animation';
 
 @import './pages/home/home';
 @import './pages/dashboard/dashboard.scss';
@@ -11,6 +11,7 @@
 
 @import './pages/login/login';
 @import './pages/sign-up/sign-up';
+@import './pages/dashboard/menu/menu';
 
 @import './components/header/header';
 @import './components/footer/footer';
@@ -21,5 +22,5 @@
 @import './components/facebook/facebook';
 @import './components/google/google';
 @import './components/user-link-input/user-link-input';
-@import './components/artist-link/artist-link.scss';
+@import './components/artist-link/artist-link';
 @import './components/loading/loading';

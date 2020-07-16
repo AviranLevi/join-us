@@ -1,4 +1,8 @@
 //user
+export const USER_NAME = 'USER_NAME';
+export const USER_EMAIL = 'USER_EMAIL';
+export const USER_PASSWORD = 'USER_PASSWORD';
+export const USER_PHONE = 'USER_PHONE';
 
 //project
 export const SPOTIFY_DATA = 'SPOTIFY_DATA';
@@ -21,6 +25,7 @@ export const OPEN_SIGN_UP_TOAST = 'OPEN_SIGN_UP_TOAST';
 export const CLOSE_SIGN_UP_TOAST = 'CLOSE_SIGN_UP_TOAST';
 export const INCREASE_LINK_COUNTER = 'INCREASE_LINK_COUNTER';
 export const DECREASE_LINK_COUNTER = 'DECREASE_LINK_COUNTER';
+export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 
 //social
 export const FACEBOOK_LOGIN = 'FACEBOOK_LOGIN';
@@ -28,3 +33,7 @@ export const GOOGLE_LOGIN = 'GOOGLE_LOGIN';
 
 //errors
 export const FACEBOOK_LOGIN_ERROR = 'FACEBOOK_LOGIN_ERROR';
+export const USER_NAME_ERROR = 'USER_NAME_ERROR';
+export const USER_EMAIL_ERROR = 'USER_EMAIL_ERROR';
+export const USER_PASSWORD_ERROR = 'USER_PASSWORD_ERROR';
+export const USER_PHONE_ERROR = 'USER_PASSWORD_ERROR';

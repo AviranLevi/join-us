@@ -40,6 +40,10 @@ const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
   closeSignUp: () => dispatch(actions.closeSignUpToast()),
+  userName: (e) => dispatch(actions.userName(e.target.value)),
+  userEmail: (e) => dispatch(actions.userEmail(e.target.value)),
+  userPassword: (e) => dispatch(actions.userPassword(e.target.value)),
+  userPhone: (e) => dispatch(actions.userName(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
