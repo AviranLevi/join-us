@@ -20,15 +20,16 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.SPOTIFY_DATA:
-      const { spotify, coverImage, artists, trackName, audioPreview } = action.payload;
+      const { coverImage, artists, trackName, audioPreview } = action.payload;
       return {
         ...state,
-        spotify,
         coverImage,
         artists,
         trackName,
         audioPreview,
       };
+    case actionType.SPOTIFY_LINK:
+      return { ...state, spotify: action.payload };
 
     case actionType.APPLE_MUSIC_LINK:
       return { ...state, appleMusic: action.payload };

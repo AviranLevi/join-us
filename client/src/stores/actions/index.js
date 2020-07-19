@@ -3,7 +3,8 @@ export { userName, userEmail, userPassword, userPhone, createNewUser } from './u
 export { facebookLogin } from './social';
 
 export {
-  getSpotifyData,
+  getTrackData,
+  getSpotifyLink,
   getAppleMusicLink,
   getTiktokLink,
   getYoutubeLink,

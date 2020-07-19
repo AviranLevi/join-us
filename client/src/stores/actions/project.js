@@ -1,24 +1,32 @@
 import * as actionType from './types';
 // import * as api from '../../api/joinUsApi';
+import { getSpotifyId } from '../../utils/general';
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:5000',
+});
 
 const data = require('./test.json');
 
-export const getSpotifyData = (trackID) => (dispatch) => {
-  //   const { album } = api.getTrackData(trackID);
-  const { album, artists, name, preview_url, external_urls } = data;
-  const { images } = album;
-  const { spotify } = external_urls;
+export const getSpotifyLink = (url) => ({
+  type: actionType.SPOTIFY_LINK,
+  payload: url,
+});
 
-  dispatch({
-    type: actionType.SPOTIFY_DATA,
-    payload: {
-      trackName: name,
-      coverImage: images[0].url,
-      artists,
-      spotify,
-      audioPreview: preview_url,
-    },
-  });
+export const getTrackData = () => (dispatch, getState) => {
+  const { project } = getState();
+  const { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website } = project;
+  const userProject = { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
+  if (userProject.spotify) {
+    api
+      .post('/api/project', userProject)
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  }
 };
 
 export const getAppleMusicLink = (url) => ({

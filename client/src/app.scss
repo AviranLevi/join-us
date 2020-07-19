@@ -6,12 +6,14 @@
 
 @import './pages/home/home';
 @import './pages/dashboard/dashboard.scss';
-@import './pages/dashboard/user-project/user-project';
+@import './pages/dashboard/new-project/new-project';
 @import './pages/user-land-page/user-land-page';
 
 @import './pages/login/login';
 @import './pages/sign-up/sign-up';
 @import './pages/dashboard/menu/menu';
+@import './pages/dashboard/user-projects/no-projects/no-projects';
+@import './pages/dashboard/user-projects/projects/projects';
 
 @import './components/header/header';
 @import './components/footer/footer';

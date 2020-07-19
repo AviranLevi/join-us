@@ -4,7 +4,7 @@
   min-height: 75vh;
   text-align: center;
   grid-template-columns: 1fr 3fr 1fr;
-  position: relative;
+  display: grid;
 
   .user-workspace {
     position: relative;

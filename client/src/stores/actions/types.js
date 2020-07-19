@@ -6,6 +6,7 @@ export const USER_PHONE = 'USER_PHONE';
 
 //project
 export const SPOTIFY_DATA = 'SPOTIFY_DATA';
+export const SPOTIFY_LINK = 'SPOTIFY_LINK';
 export const APPLE_MUSIC_LINK = 'APPLE_MUSIC_LINK';
 export const TIKTOK_LINK = 'TIKTOK_LINK';
 export const YOUTUBE_LINK = 'YOUTUBE_LINK';

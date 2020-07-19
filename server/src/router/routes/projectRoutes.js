@@ -5,9 +5,9 @@ const { OK, ERR } = httpResponseStatus;
 //CREATE
 export const createProject = async (req, res, next) => {
   try {
-    console.log(req.body);
-    // const result = await service.createProject(req.body);
-    // res.status(OK).json(result);
+    const result = await service.createProject(req.body);
+    console.log(result);
+    res.status(OK).json(result);
     next();
   } catch (error) {
     res.status(ERR).json(error);

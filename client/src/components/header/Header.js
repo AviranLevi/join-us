@@ -4,12 +4,15 @@ import * as actions from '../../stores/actions';
 import Logo from '../logo/Logo';
 import Button from '../button/Button';
 import UserLoggedIn from './UserLoggedIn/UserLoggedIn';
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   const { user } = props;
   return (
     <div className='header center-items slide-from-top'>
-      <Logo text='JoinUS' classes='bold-black-text' />
+      <Link to={user.loggedIn ? '/dashboard' : '/'} className='logo'>
+        <Logo text='JoinUS' classes='bold-black-text' />
+      </Link>
       {user.loggedIn ? (
         <UserLoggedIn userName={user.name} userImageSrc={user.profileImage} />
       ) : (

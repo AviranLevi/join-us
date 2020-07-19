@@ -5,14 +5,15 @@ import { icons } from '../../../constant/icons';
 
 import Title from '../../../components/title/Title';
 import UserLinkInput from '../../../components/user-link-input/UserLinkInput';
+import Button from '../../../components/button/Button';
 
-const UserProject = (props) => {
+const NewProject = (props) => {
   return (
-    <div className='user-project center-items '>
-      <Title text='Put your music release links & your social links here:' classes='bold-text user-project-title' />
+    <div className='user-new-project center-items fade-in'>
+      <Title text='Put your music release links & your social links here:' classes='bold-text user-new-project-title' />
 
       <div className='music-links center-items'>
-        <UserLinkInput icon={icons.spotify} changeAction={props.getSpotifyData} />
+        <UserLinkInput icon={icons.spotify} changeAction={props.getSpotifyLink} />
         <UserLinkInput icon={icons.instagram} changeAction={props.getInstagramLink} />
         <UserLinkInput icon={icons.appleMusic} changeAction={props.getAppleMusicLink} />
         <UserLinkInput icon={icons.facebook} changeAction={props.getFacebookLink} />
@@ -22,6 +23,7 @@ const UserProject = (props) => {
         <UserLinkInput changeAction={props.getWebsiteLink} />
         <UserLinkInput icon={icons.soundcloud} changeAction={props.getSoundCloudLink} />
       </div>
+      <Button text='SHOW ME MY PAGE' classes='execute-btn bold-text transition' action={props.getTrackData} />
     </div>
   );
 };
@@ -29,7 +31,7 @@ const UserProject = (props) => {
 const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-  getSpotifyData: (e) => dispatch(actions.getSpotifyData(e.target.value)),
+  getSpotifyLink: (e) => dispatch(actions.getSpotifyLink(e.target.value)),
   getAppleMusicLink: (e) => dispatch(actions.getAppleMusicLink(e.target.value)),
   getInstagramLink: (e) => dispatch(actions.getInstagramLink(e.target.value)),
   getTiktokLink: (e) => dispatch(actions.getTiktokLink(e.target.value)),
@@ -38,6 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
   getSoundCloudLink: (e) => dispatch(actions.getSoundCloudLink(e.target.value)),
   getDeezerLink: (e) => dispatch(actions.getDeezerLink(e.target.value)),
   getWebsiteLink: (e) => dispatch(actions.getWebsiteLink(e.target.value)),
+  getTrackData: () => dispatch(actions.getTrackData()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProject);
+export default connect(mapStateToProps, mapDispatchToProps)(NewProject);

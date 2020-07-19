@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-
-import Home from './pages/home/Home';
-import UserLandPage from './pages/user-land-page/UserLandPage';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import './app.scss';
+
 import Dashboard from './pages/dashboard/Dashboard';
+import Login from './pages/login/Login';
+import SignUp from './pages/sign-up/SignUp';
 
 const App = (props) => {
-  const { user } = props;
+  const { user, features } = props;
   return (
     <Router>
+      {user.loggedIn ? <Redirect to='/dashboard' /> : <Redirect to='/' />}
+
       <div className='app'>
-        {user.loggedIn ? <Redirect to='/dashboard' /> : <Redirect to='/' />}
-        <Route exact path='/' component={Home} />
-        <Route exact path='/dashboard' component={Dashboard} />
-        <Route path='/project/:id' component={UserLandPage} />
+        <Dashboard />
+        {features.loginToast ? <Login /> : null}
+        {features.signUpToast ? <SignUp /> : null}
       </div>
     </Router>
   );

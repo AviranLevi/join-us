@@ -1,4 +1,4 @@
-import * as db from '../db/user';
+import * as db from '../db/userDB';
 
 //CREATE
 export const createUser = async (data) => {

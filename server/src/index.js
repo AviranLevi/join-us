@@ -12,9 +12,11 @@ const { env } = process;
 const port = env.PORT || 5000;
 
 mongoose
-  .connect(env.CONNECTION_STRING || 'mongodb://localhost/join-us-db', { useNewUrlParser: true })
+  .connect(env.CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log('DB Connected'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());

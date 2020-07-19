@@ -6,10 +6,13 @@
   margin-top: 20px;
   align-self: start;
 
+  a {
+    text-align: start;
+  }
+
   button {
     font-size: 25px;
     color: $font-color;
-    text-align: start;
     margin: 0 80px;
 
     &:hover {

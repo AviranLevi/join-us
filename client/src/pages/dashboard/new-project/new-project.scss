@@ -1,9 +1,11 @@
-.user-project {
+.user-new-project {
   height: inherit;
   color: $font-color;
   grid-template-rows: 1fr 4fr;
+  position: relative;
+  margin-top: 80px;
 
-  .user-project-title {
+  .user-new-project-title {
     font-size: 40px;
   }
 
