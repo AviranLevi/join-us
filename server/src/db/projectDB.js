@@ -18,6 +18,15 @@ export const getProject = async (id) => {
     throw error;
   }
 };
+export const getUserProjects = async (userId) => {
+  try {
+    const projects = await Project.find({ userId });
+    console.log(projects);
+    return projects;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const updateProject = (id, data) => {
   try {

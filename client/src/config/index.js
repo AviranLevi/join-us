@@ -11,17 +11,13 @@ export const spotify = {
   clientId: process.env.REACT_AP_SPOTIFY_CLIENT_ID,
 };
 
-export const searchValues = [
-  'spotify',
-  'apple',
-  'instagram',
-  'facebook',
-  'tiktok',
-  'deezer',
-  'youtube',
-];
+export const searchValues = ['spotify', 'apple', 'instagram', 'facebook', 'tiktok', 'deezer', 'youtube'];
 
 export const spotifyINFO = {
   client_id: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
   client_secret: process.env.REACT_APP_SPOTIFY_CLIENT_SECRET,
+};
+
+export const apiConfig = {
+  url: process.env.REACT_APP_SERVER_URL,
 };

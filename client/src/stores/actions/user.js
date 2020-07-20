@@ -1,6 +1,14 @@
-import * as actionType from './types';
+import axios from 'axios';
 import validator from 'validator';
+import * as actionType from './types';
+import { apiConfig } from '../../config';
 
+const api = axios.create({
+  baseURL: apiConfig,
+});
+//profile
+
+//sign-up
 export const userName = (name) => (dispatch) => {
   const nameIsValid = validator.isLength(name, { min: 3, max: 20 });
   if (nameIsValid) {

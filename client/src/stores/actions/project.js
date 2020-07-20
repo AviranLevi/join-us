@@ -1,26 +1,24 @@
-import * as actionType from './types';
-import { getSpotifyId } from '../../utils/general';
 import axios from 'axios';
+import * as actionType from './types';
+import { apiConfig } from '../../config';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: apiConfig,
 });
-
-const data = require('./test.json');
 
 export const getSpotifyLink = (url) => ({
   type: actionType.SPOTIFY_LINK,
   payload: url,
 });
 
-export const getTrackData = (ownProps) => (dispatch, getState) => {
+export const getTrackData = () => (dispatch, getState) => {
   const { project } = getState();
   const { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website } = project;
   const userProject = { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
   if (userProject.spotify) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
     api
-      .post('/api/project', userProject)
+      .post('/project', userProject)
       .then((res) => {
         const { data } = res;
         dispatch({ type: actionType.TRACK_DATA, payload: data });

@@ -27,6 +27,18 @@ export const getProject = async (req, res, next) => {
   }
 };
 
+export const getUserProjects = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    const result = await service.getUserProjects(userId);
+    res.status(OK).json(result);
+    next();
+  } catch (error) {
+    res.status(ERR).json(error);
+    throw error;
+  }
+};
+
 //UPDATE
 export const updateProject = async (req, res, next) => {
   try {

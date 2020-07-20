@@ -39,6 +39,15 @@ export const getProject = async (id) => {
   }
 };
 
+export const getUserProjects = async (userId) => {
+  try {
+    const projects = await db.getUserProjects(userId);
+    return projects;
+  } catch (error) {
+    throw error;
+  }
+};
+
 //UPDATE
 export const updateProject = async (id, data) => {
   try {
