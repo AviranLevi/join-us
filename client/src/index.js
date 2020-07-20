@@ -9,6 +9,8 @@ import thunk from 'redux-thunk';
 import FeaturesStore from './stores/reducers/features';
 import UserStore from './stores/reducers/user';
 import ProjectStore from './stores/reducers/project';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import UserLandPage from './pages/user-land-page/UserLandPage';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({});
 const enhancer = composeEnhancers(applyMiddleware(thunk));
@@ -23,7 +25,10 @@ const store = createStore(reducer, enhancer);
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <Router>
+        <Route path='/home' component={App} />
+        <Route exact path='/project/:id' render={({ match }) => <UserLandPage match={match} />} />
+      </Router>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

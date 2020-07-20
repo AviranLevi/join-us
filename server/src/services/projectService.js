@@ -5,12 +5,12 @@ import { getSpotifyTrack } from './api/spotifyAPI';
 export const createProject = async (urls) => {
   try {
     const { spotify } = urls;
-    console.log(urls);
     if (spotify) {
       const trackData = await getSpotifyTrack(spotify);
       if (trackData) {
         const projectToDB = Object.assign(urls, trackData, { userId: 'test' });
         const projectFromDB = await db.createProject(projectToDB);
+        projectFromDB.artists = projectFromDB.artists.map((json) => JSON.parse(json));
         return projectFromDB;
       }
       return 'SPOTIFY ID OR URL INVALID';
@@ -24,8 +24,16 @@ export const createProject = async (urls) => {
 //READ
 export const getProject = async (id) => {
   try {
-    const response = await db.getProject(id);
-    return response;
+    const projectFromDB = await db
+      .getProject(id)
+      .then((res) => res)
+      .catch((err) => err);
+    if (projectFromDB.length) {
+      const response = projectFromDB[0];
+      response.artists = response.artists.map((json) => JSON.parse(json));
+      return response;
+    }
+    return [];
   } catch (error) {
     throw error;
   }

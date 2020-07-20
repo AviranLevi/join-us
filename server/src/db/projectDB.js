@@ -10,9 +10,9 @@ export const createProject = async (projectData) => {
   }
 };
 
-export const getProject = (id) => {
+export const getProject = async (id) => {
   try {
-    const project = Project.find({ id });
+    const project = await Project.find({ _id: id });
     return project;
   } catch (error) {
     throw error;

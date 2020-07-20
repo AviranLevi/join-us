@@ -1,5 +1,4 @@
 import * as actionType from './types';
-// import * as api from '../../api/joinUsApi';
 import { getSpotifyId } from '../../utils/general';
 import axios from 'axios';
 
@@ -14,16 +13,19 @@ export const getSpotifyLink = (url) => ({
   payload: url,
 });
 
-export const getTrackData = () => (dispatch, getState) => {
+export const getTrackData = (ownProps) => (dispatch, getState) => {
   const { project } = getState();
   const { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website } = project;
   const userProject = { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
   if (userProject.spotify) {
+    dispatch({ type: actionType.TRACK_DATA_LOADING });
     api
       .post('/api/project', userProject)
       .then((res) => {
         const { data } = res;
-        console.log(data);
+        dispatch({ type: actionType.TRACK_DATA, payload: data });
+        dispatch({ type: actionType.TRACK_DATA_LOADING });
+        dispatch({ type: actionType.REDIRECT });
       })
       .catch((err) => console.log(err));
   }

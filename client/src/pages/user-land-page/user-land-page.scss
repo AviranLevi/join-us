@@ -1,3 +1,5 @@
+@import '../../assets/base';
+
 .user-land-page {
   min-height: 100vh;
   position: relative;
@@ -81,11 +83,12 @@
       .song-links {
         font-size: 45px;
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(75px, 0));
-        grid-gap: 100px;
+        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
 
         .spotify {
           a:hover {
+            grid-gap: 40px;
+
             color: $spotify;
           }
         }
@@ -115,10 +118,9 @@
 
     .artist-social-links {
       margin-top: 50px;
+      width: 50%;
       font-size: 35px;
-      grid-gap: 40px;
-      align-self: flex-end;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
 
       .instagram {
         a:hover {

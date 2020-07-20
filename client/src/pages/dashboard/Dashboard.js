@@ -17,9 +17,9 @@ const Dashboard = (props) => {
         {user.loggedIn ? <Menu /> : null}
         <div className='user-workspace slide-from-right'>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/dashboard' component={UserProjects} /> >
-            <Route path='/dashboard/new-project' component={NewProject} />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/home/dashboard' component={UserProjects} /> >
+            <Route exact path='/home/dashboard/new-project' component={NewProject} />
           </Switch>
         </div>
       </div>

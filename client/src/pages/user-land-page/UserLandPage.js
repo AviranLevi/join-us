@@ -10,25 +10,29 @@ import * as joinUsAPI from '../../api/joinUsApi';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
 
-const UserLandPage = (props) => {
-  const id = props.match.params.id;
+const UserLandPage = ({ match }) => {
   const [projectData, setProjectData] = useState({});
 
   useEffect(() => {
-    const project = async () => await joinUsAPI.getUserProject(id).then((res) => res);
-    setProjectData(project);
-  }, [id]);
+    const id = match.params.id;
+    const project = async () =>
+      joinUsAPI
+        .getUserProject(id)
+        .then((res) => {
+          setProjectData(res);
+        })
+        .catch((err) => console.log(err));
+
+    project();
+  }, [projectData]);
 
   const backgroundStyle = {
-    backgroundImage: `url(${props.coverImage})`,
+    backgroundImage: `url(${projectData.coverImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     filter: 'blur(50px)',
   };
-  if (!projectData) {
-    return <Redirect to='/' />;
-  }
 
   return (
     <Suspense fallback={<Loading />}>
@@ -37,35 +41,51 @@ const UserLandPage = (props) => {
 
         <div className='song-content'>
           <div className='song-cover'>
-            <AudioPlayer audioSrc={props.audioPreview} classes='center-items transition' />
-            <img className='song-cover-image' alt={props.trackName} src={props.coverImage} />
+            {projectData.audioPreview ? (
+              <AudioPlayer audioSrc={projectData.audioPreview} classes='center-items transition' />
+            ) : null}
+            <img className='song-cover-image' alt={projectData.trackTitle} src={projectData.coverImage} />
           </div>
 
           <div className='song-information center-items'>
-            <Title text={props.trackName} classes='bold-text song-title' />
+            <Title text={projectData.trackTitle} classes='bold-text song-title' />
 
-            {props.artists.map((art, i) => {
-              const { spotify } = art.external_urls;
-              if (i === 0) {
-                return <ArtistLink name={art.name} url={spotify} classes='song-main-artist' />;
-              }
-              return;
-            })}
+            {projectData.artists
+              ? projectData.artists.map((art, i) => {
+                  const { spotify } = art.external_urls;
+                  if (i === 0) {
+                    return <ArtistLink name={art.name} url={spotify} classes='song-main-artist' />;
+                  }
+                  return;
+                })
+              : null}
 
             <div className='song-links center-items'>
-              <ArtistLink icon={icons.spotify} url={props.spotify} classes='spotify' />
-              <ArtistLink icon={icons.appleMusic} url={props.appleMusic} classes='apple' />
-              <ArtistLink icon={icons.youTube} url={props.youtube} classes='youtube' />
-              <ArtistLink icon={icons.deezer} url={props.deezer} classes='deezer' />
-              <ArtistLink icon={icons.soundcloud} url={props.soundcloud} classes='soundcloud' />
+              <ArtistLink icon={icons.spotify} url={projectData.spotify} classes='spotify' />
+              {projectData.appleMusic ? (
+                <ArtistLink icon={icons.appleMusic} url={projectData.appleMusic} classes='apple' />
+              ) : null}
+              {projectData.youtube ? (
+                <ArtistLink icon={icons.youTube} url={projectData.youtube} classes='youtube' />
+              ) : null}
+              {projectData.deezer ? <ArtistLink icon={icons.deezer} url={projectData.deezer} classes='deezer' /> : null}
+              {projectData.soundcloud ? (
+                <ArtistLink icon={icons.soundcloud} url={projectData.soundcloud} classes='soundcloud' />
+              ) : null}
             </div>
           </div>
 
           <div className='artist-social-links center-items'>
-            <ArtistLink icon={icons.instagram} url={props.instagram} classes='instagram' />
-            <ArtistLink icon={icons.tiktok} url={props.tiktok} classes='tiktok' />
-            <ArtistLink icon={icons.facebook} url={props.facebook} classes='facebook' />
-            <ArtistLink icon={icons.website} url={props.website} classes='website' />
+            {projectData.instagram ? (
+              <ArtistLink icon={icons.instagram} url={projectData.instagram} classes='instagram' />
+            ) : null}
+            {projectData.tiktok ? <ArtistLink icon={icons.tiktok} url={projectData.tiktok} classes='tiktok' /> : null}
+            {projectData.facebook ? (
+              <ArtistLink icon={icons.facebook} url={projectData.facebook} classes='facebook' />
+            ) : null}
+            {projectData.website ? (
+              <ArtistLink icon={icons.website} url={projectData.website} classes='website' />
+            ) : null}
           </div>
         </div>
 
@@ -77,6 +97,6 @@ const UserLandPage = (props) => {
   );
 };
 
-const mapStateToProps = (state = {}) => state.project;
+const mapStateToprojectData = (state = {}) => state.project;
 
-export default connect(mapStateToProps)(UserLandPage);
+export default connect(mapStateToprojectData)(UserLandPage);

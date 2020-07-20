@@ -2,9 +2,10 @@ import * as actionType from '../actions/types';
 
 const initialState = {
   projectId: '',
+  userId: '',
   coverImage: '',
   artists: [],
-  trackName: '',
+  trackTitle: '',
   audioPreview: '',
   spotify: '',
   appleMusic: '',
@@ -19,14 +20,41 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionType.SPOTIFY_DATA:
-      const { coverImage, artists, trackName, audioPreview } = action.payload;
-      return {
-        ...state,
+    case actionType.TRACK_DATA:
+      const {
+        _id,
+        spotify,
+        appleMusic,
+        tiktok,
+        youtube,
+        instagram,
+        facebook,
+        deezer,
+        soundcloud,
+        website,
+        trackTitle,
         coverImage,
         artists,
-        trackName,
         audioPreview,
+        userId,
+      } = action.payload;
+      return {
+        ...state,
+        projectId: _id,
+        spotify,
+        appleMusic,
+        tiktok,
+        youtube,
+        instagram,
+        facebook,
+        deezer,
+        soundcloud,
+        website,
+        coverImage,
+        artists,
+        trackTitle,
+        audioPreview,
+        userId,
       };
     case actionType.SPOTIFY_LINK:
       return { ...state, spotify: action.payload };

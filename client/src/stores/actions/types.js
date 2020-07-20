@@ -5,7 +5,7 @@ export const USER_PASSWORD = 'USER_PASSWORD';
 export const USER_PHONE = 'USER_PHONE';
 
 //project
-export const SPOTIFY_DATA = 'SPOTIFY_DATA';
+export const TRACK_DATA = 'TRACK_DATA';
 export const SPOTIFY_LINK = 'SPOTIFY_LINK';
 export const APPLE_MUSIC_LINK = 'APPLE_MUSIC_LINK';
 export const TIKTOK_LINK = 'TIKTOK_LINK';
@@ -27,7 +27,8 @@ export const CLOSE_SIGN_UP_TOAST = 'CLOSE_SIGN_UP_TOAST';
 export const INCREASE_LINK_COUNTER = 'INCREASE_LINK_COUNTER';
 export const DECREASE_LINK_COUNTER = 'DECREASE_LINK_COUNTER';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
-
+export const TRACK_DATA_LOADING = 'TRACK_DATA_LOADING';
+export const REDIRECT = 'REDIRECT';
 //social
 export const FACEBOOK_LOGIN = 'FACEBOOK_LOGIN';
 export const GOOGLE_LOGIN = 'GOOGLE_LOGIN';
