@@ -20,7 +20,6 @@ export const getProject = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.getProject(id);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;

@@ -30,7 +30,7 @@ const NewProject = (props) => {
 
 const mapStateToProps = (state = {}) => state;
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   getSpotifyLink: (e) => dispatch(actions.getSpotifyLink(e.target.value)),
   getAppleMusicLink: (e) => dispatch(actions.getAppleMusicLink(e.target.value)),
   getInstagramLink: (e) => dispatch(actions.getInstagramLink(e.target.value)),
@@ -40,7 +40,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   getSoundCloudLink: (e) => dispatch(actions.getSoundCloudLink(e.target.value)),
   getDeezerLink: (e) => dispatch(actions.getDeezerLink(e.target.value)),
   getWebsiteLink: (e) => dispatch(actions.getWebsiteLink(e.target.value)),
-  getTrackData: () => dispatch(actions.getTrackData(ownProps)),
+  getTrackData: () => dispatch(actions.getTrackData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProject);

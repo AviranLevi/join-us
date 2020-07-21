@@ -5,7 +5,7 @@ import { icons } from '../../constant/icons';
 import Loading from '../../components/loading/Loading';
 import { Link, Redirect } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
-import AudioPlayer from '../../components/audio/AudioPlayer';
+import AudioPlayer from '../../components/audio-player/AudioPlayer';
 import * as joinUsAPI from '../../api/joinUsApi';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
@@ -24,7 +24,7 @@ const UserLandPage = ({ match }) => {
         .catch((err) => console.log(err));
 
     project();
-  }, [projectData]);
+  }, []);
 
   const backgroundStyle = {
     backgroundImage: `url(${projectData.coverImage})`,

@@ -2,8 +2,10 @@ import axios from 'axios';
 import * as actionType from './types';
 import { apiConfig } from '../../config';
 
+const { url } = apiConfig;
+
 const api = axios.create({
-  baseURL: apiConfig,
+  baseURL: url,
 });
 
 export const getSpotifyLink = (url) => ({

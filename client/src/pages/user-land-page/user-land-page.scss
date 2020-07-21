@@ -1,4 +1,8 @@
+@import '../../assets/colors';
 @import '../../assets/base';
+@import '../../assets/reset';
+@import '../../assets/fonts';
+@import '../../assets/animation';
 
 .user-land-page {
   min-height: 100vh;
@@ -6,6 +10,12 @@
   letter-spacing: 3px;
   grid-template-rows: 90% 10%;
   background: $dark-color;
+  font-family: 'Poppins', sans-serif;
+
+  a {
+    color: $font-color;
+    cursor: pointer;
+  }
 
   .bg-image {
     height: 100%;

@@ -9,6 +9,7 @@ export const icons = {
   close: <i className='fas fa-times'></i>,
   projects: <i className='fas fa-link'></i>,
   create: <i className='fas fa-marker'></i>,
+  goTo: <i className='fas fa-arrow-circle-right'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,
