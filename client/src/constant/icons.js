@@ -10,6 +10,7 @@ export const icons = {
   projects: <i className='fas fa-link'></i>,
   create: <i className='fas fa-marker'></i>,
   goTo: <i className='fas fa-arrow-circle-right'></i>,
+  share: <i className='fas fa-share'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,

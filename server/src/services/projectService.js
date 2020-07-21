@@ -10,7 +10,6 @@ export const createProject = async (urls) => {
       if (trackData) {
         const projectToDB = Object.assign(urls, trackData, { userId: 'test' });
         const projectFromDB = await db.createProject(projectToDB);
-        projectFromDB.artists = projectFromDB.artists.map((json) => JSON.parse(json));
         return projectFromDB;
       }
       return 'SPOTIFY ID OR URL INVALID';
@@ -30,7 +29,6 @@ export const getProject = async (id) => {
       .catch((err) => err);
     if (projectFromDB.length) {
       const response = projectFromDB[0];
-      response.artists = response.artists.map((json) => JSON.parse(json));
       return response;
     }
     return [];

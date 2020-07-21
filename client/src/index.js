@@ -27,7 +27,7 @@ ReactDOM.render(
     <React.StrictMode>
       <Router>
         <Route exact path='/'>
-          <Redirect to='/home' />
+          <Redirect to='/home/dashboard' />
         </Route>
         <Route path='/home' component={App} />
         <Route exact path='/project/:id' render={({ match }) => <UserLandPage match={match} />} />

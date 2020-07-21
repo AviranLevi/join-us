@@ -1,4 +1,4 @@
-export { userName, userEmail, userPassword, userPhone, createNewUser } from './user';
+export { userName, userEmail, userPassword, userPhone, createNewUser, getUserProjects } from './user';
 
 export { facebookLogin } from './social';
 

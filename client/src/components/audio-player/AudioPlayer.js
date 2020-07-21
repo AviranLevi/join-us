@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../button/Button';
 import { icons } from '../../constant/icons.js';
 
-const AudioPlayer = ({ audioSrc, classes = '' }) => {
+const AudioPlayer = ({ audioSrc, classes = '', autoPlay = true }) => {
   const [audioPause, setAudioPause] = useState(false);
   const style = {
     display: 'none',
@@ -20,7 +20,7 @@ const AudioPlayer = ({ audioSrc, classes = '' }) => {
 
   return (
     <div className={`${classes} audio-player`}>
-      <audio id='player' controls autoPlay loop className='song-audio'>
+      <audio id='player' controls autoPlay={autoPlay} loop className='song-audio'>
         <source src={audioSrc} /> />
       </audio>
       <div className='audio-btns'>

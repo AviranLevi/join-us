@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import * as actions from '../../../stores/actions';
 import { icons } from '../../../constant/icons';
 
@@ -8,8 +9,14 @@ import UserLinkInput from '../../../components/user-link-input/UserLinkInput';
 import Button from '../../../components/button/Button';
 
 const NewProject = (props) => {
+  const { user, features, project } = props;
+  if (!user.loggedIn) {
+    return <Redirect to='/home/login' />;
+  }
   return (
     <div className='user-new-project center-items fade-in'>
+      {features.redirect ? <Redirect to={`/project/${project.projectId}`} /> : null}
+
       <Title text='Put your music release links & your social links here:' classes='bold-text user-new-project-title' />
 
       <div className='music-links center-items'>

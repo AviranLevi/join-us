@@ -21,3 +21,12 @@ export const getUserProject = async (id) => {
     throw error;
   }
 };
+
+// export const getUserProjects = async (userId) => {
+//   try {
+//     const { data } = await api.get(`/project/user/${userId}`);
+//     console.log(data);
+//   } catch (error) {
+//     throw error;
+//   }
+// };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from '../home/Home';
 import Header from '../../components/header/Header';
 import Menu from './menu/Menu';
@@ -17,7 +17,7 @@ const Dashboard = (props) => {
         {user.loggedIn ? <Menu /> : null}
         <div className='user-workspace slide-from-right'>
           <Switch>
-            <Route exact path='/home' component={Home} />
+            <Route exact path='/home/login' component={Home} />
             <Route exact path='/home/dashboard' component={UserProjects} /> >
             <Route exact path='/home/dashboard/new-project' component={NewProject} />
           </Switch>

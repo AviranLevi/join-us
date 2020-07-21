@@ -7,19 +7,24 @@ import { Link, Redirect } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
 import AudioPlayer from '../../components/audio-player/AudioPlayer';
 import * as joinUsAPI from '../../api/joinUsApi';
+import { isEmpty } from '../../utils/general';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
 
 const UserLandPage = ({ match }) => {
   const [projectData, setProjectData] = useState({});
-
+  const [projectDataNotFound, setProjectDataNotFound] = useState(false);
   useEffect(() => {
     const id = match.params.id;
     const project = async () =>
       joinUsAPI
         .getUserProject(id)
         .then((res) => {
-          setProjectData(res);
+          if (!isEmpty(res)) {
+            setProjectData(res);
+          } else {
+            setProjectDataNotFound(true);
+          }
         })
         .catch((err) => console.log(err));
 
@@ -33,6 +38,9 @@ const UserLandPage = ({ match }) => {
     backgroundRepeat: 'no-repeat',
     filter: 'blur(50px)',
   };
+  if (projectDataNotFound) {
+    return <Redirect to='/error' />;
+  }
 
   return (
     <Suspense fallback={<Loading />}>

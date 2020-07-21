@@ -1,5 +1,4 @@
 import * as spotifyHelper from '../../utils/spotify';
-import { json } from 'body-parser';
 
 export const getSpotifyTrack = async (url) => {
   try {
@@ -12,7 +11,7 @@ export const getSpotifyTrack = async (url) => {
       const results = {
         trackTitle: name,
         coverImage: images[0].url,
-        artists: artists.map((info) => JSON.stringify(info)),
+        artists,
         spotify,
         audioPreview: preview_url || '',
       };

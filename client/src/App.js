@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Redirect } from 'react-router-dom';
 import './app.scss';
 
 import Dashboard from './pages/dashboard/Dashboard';
@@ -14,8 +14,7 @@ const App = (props) => {
     <div className='app'>
       <Dashboard />
 
-      {user.loggedIn ? <Redirect to='/home/dashboard' /> : <Redirect to='/home' />}
-      {features.redirect ? <Redirect to={`/project/${project.projectId}`} /> : null}
+      {user.loggedIn ? <Redirect to='home/dashboard' /> : <Redirect to='/home/login' />}
       {features.loginToast ? <Login /> : null}
       {features.signUpToast ? <SignUp /> : null}
       {features.trackDataLoading ? <Loading /> : null}

@@ -33,6 +33,9 @@ const rootReducer = (state = initialState, action) => {
         loggedIn: true,
       };
 
+    case actionType.USER_PROJECTS:
+      return { ...state, projects: action.payload };
+
     default:
       return state;
   }

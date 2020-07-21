@@ -20,6 +20,7 @@ export const getProject = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.getProject(id);
     res.status(OK).json(result);
+    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -28,8 +29,8 @@ export const getProject = async (req, res, next) => {
 
 export const getUserProjects = async (req, res, next) => {
   try {
-    const { userId } = req.params;
-    const result = await service.getUserProjects(userId);
+    const { id } = req.params;
+    const result = await service.getUserProjects(id);
     res.status(OK).json(result);
     next();
   } catch (error) {

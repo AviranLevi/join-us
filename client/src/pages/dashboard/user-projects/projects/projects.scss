@@ -1,0 +1,9 @@
+.projects {
+  color: $font-color;
+  grid-gap: 10px;
+  .projects-title {
+    font-size: 50px;
+    justify-self: start;
+    margin-bottom: 50px;
+  }
+}

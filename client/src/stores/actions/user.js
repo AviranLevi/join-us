@@ -3,10 +3,23 @@ import validator from 'validator';
 import * as actionType from './types';
 import { apiConfig } from '../../config';
 
+const { url } = apiConfig;
+
 const api = axios.create({
-  baseURL: apiConfig,
+  baseURL: url,
 });
-//profile
+
+//dashboard
+export const getUserProjects = (userId) => (dispatch) => {
+  api
+    .get(`/project/user/${userId}`)
+    .then((res) => {
+      const { data } = res;
+      console.log(data);
+      dispatch({ type: actionType.USER_PROJECTS, payload: data });
+    })
+    .catch((err) => console.log(err));
+};
 
 //sign-up
 export const userName = (name) => (dispatch) => {

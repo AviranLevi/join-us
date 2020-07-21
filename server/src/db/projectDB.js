@@ -21,25 +21,24 @@ export const getProject = async (id) => {
 export const getUserProjects = async (userId) => {
   try {
     const projects = await Project.find({ userId });
-    console.log(projects);
     return projects;
   } catch (error) {
     throw error;
   }
 };
 
-export const updateProject = (id, data) => {
+export const updateProject = async (id, data) => {
   try {
-    const project = Project.findOneAndUpdate(id, data, { new: true });
+    const project = await Project.findOneAndUpdate(id, data, { new: true });
     return project;
   } catch (error) {
     throw error;
   }
 };
 
-export const deleteProject = (id) => {
+export const deleteProject = async (id) => {
   try {
-    const project = Project.deleteOne(id);
+    const project = await Project.deleteOne(id);
     return project;
   } catch (error) {
     throw error;
