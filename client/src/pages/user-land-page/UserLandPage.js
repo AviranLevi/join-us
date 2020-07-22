@@ -46,7 +46,7 @@ const UserLandPage = ({ match }) => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className='user-land-page center-items'>
+      <div className='user-land-page center-items fade-in'>
         <div className='bg-image' style={backgroundStyle}></div>
         <MetaTags>
           <meta property='og:url' content={`https://www.join-us.com/project/${projectData._id}`} />
@@ -106,9 +106,7 @@ const UserLandPage = ({ match }) => {
           </div>
         </div>
 
-        <Link to='/'>
-          <Logo text='Powered by JoinUS' />
-        </Link>
+        <Link to='/home/dashboard'>Powered by JoinUS</Link>
       </div>
     </Suspense>
   );

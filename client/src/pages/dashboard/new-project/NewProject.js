@@ -15,7 +15,7 @@ const NewProject = (props) => {
   }
   return (
     <div className='user-new-project center-items fade-in'>
-      {features.redirect ? <Redirect to={`/project/${project.projectId}`} /> : null}
+      {features.redirect ? <Redirect to={`/project/${project.projectId}`} target='_blank' /> : null}
 
       <Title text='Put your music release links & your social links here:' classes='bold-text user-new-project-title' />
 

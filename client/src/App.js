@@ -9,7 +9,7 @@ import SignUp from './pages/sign-up/SignUp';
 import Loading from './components/loading/Loading';
 
 const App = (props) => {
-  const { user, features, project } = props;
+  const { user, features } = props;
   return (
     <div className='app'>
       <Dashboard />

@@ -7,6 +7,6 @@ router.post('/', routes.createProject);
 router.get('/:id', routes.getProject);
 router.get('/user/:id', routes.getUserProjects);
 router.patch('/:id', routes.updateProject);
-router.delete('/delete', routes.deleteProject);
+router.delete('/:id', routes.deleteProject);
 
 export default router;

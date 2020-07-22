@@ -15,7 +15,6 @@ export const getUserProjects = (userId) => (dispatch) => {
     .get(`/project/user/${userId}`)
     .then((res) => {
       const { data } = res;
-      console.log(data);
       dispatch({ type: actionType.USER_PROJECTS, payload: data });
     })
     .catch((err) => console.log(err));

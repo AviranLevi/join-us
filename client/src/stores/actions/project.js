@@ -3,7 +3,6 @@ import * as actionType from './types';
 import { apiConfig } from '../../config';
 
 const { url } = apiConfig;
-
 const api = axios.create({
   baseURL: url,
 });
@@ -16,7 +15,9 @@ export const getSpotifyLink = (url) => ({
 export const getTrackData = () => (dispatch, getState) => {
   const { project } = getState();
   const { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website } = project;
+
   const userProject = { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
+
   if (userProject.spotify) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
     api
@@ -70,3 +71,12 @@ export const getWebsiteLink = (url) => ({
   type: actionType.WEBSITE_LINK,
   payload: url,
 });
+
+export const removeProject = (projectId) => (dispatch) => {
+  api
+    .delete(projectId)
+    .then((res) => {
+      dispatch({ type: actionType.REMOVE_PROJECT });
+    })
+    .catch((err) => console.log(err));
+};

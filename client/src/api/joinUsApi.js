@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { apiConfig } from '../config';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api/',
+  baseURL: apiConfig.url,
 });
 
 export const createUser = async (userInfo = {}) => {
@@ -22,11 +23,11 @@ export const getUserProject = async (id) => {
   }
 };
 
-// export const getUserProjects = async (userId) => {
-//   try {
-//     const { data } = await api.get(`/project/user/${userId}`);
-//     console.log(data);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const removeProject = async (userId) => {
+  try {
+    const { data } = await api.delete(`/project/${userId}`);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};

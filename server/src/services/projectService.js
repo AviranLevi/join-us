@@ -59,11 +59,12 @@ export const updateProject = async (id, data) => {
 //DELETE
 export const deleteProject = async (id) => {
   try {
-    const response = await db.deleteProject(id);
-    return response;
+    const projectDeleted = await db.deleteProject(id);
+    if (projectDeleted) {
+      return { deleted: projectDeleted, message: 'Project has been deleted successfully' };
+    }
+    return { deleted: projectDeleted, message: 'Something was wrong, try again later' };
   } catch (error) {
     throw error;
   }
 };
-
-const formatToDB = (data, urls) => {};

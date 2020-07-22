@@ -11,6 +11,7 @@ export const icons = {
   create: <i className='fas fa-marker'></i>,
   goTo: <i className='fas fa-arrow-circle-right'></i>,
   link: <i className='fas fa-link'></i>,
+  remove: <i className='fas fa-trash-alt'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,

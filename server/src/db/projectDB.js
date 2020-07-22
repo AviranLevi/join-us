@@ -38,8 +38,12 @@ export const updateProject = async (id, data) => {
 
 export const deleteProject = async (id) => {
   try {
-    const project = await Project.deleteOne(id);
-    return project;
+    const project = await Project.deleteOne({ _id: id });
+    const { deletedCount } = project;
+    if (deletedCount === 1) {
+      return true;
+    }
+    return false;
   } catch (error) {
     throw error;
   }

@@ -4,13 +4,17 @@
   position: relative;
   font-size: 20px;
 
+  &:hover.project-content {
+    transition: 1s;
+  }
+
   a {
     text-decoration: none;
     color: $font-color;
   }
 
   i {
-    font-size: 35px;
+    font-size: 28px;
     cursor: pointer;
     transition: 1s;
     &:hover {
@@ -29,7 +33,7 @@
 
   .project-content {
     z-index: 100;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr;
     width: 90%;
 
     .project-title {
