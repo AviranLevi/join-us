@@ -1,21 +1,23 @@
 import React, { useEffect, lazy, Suspense, useState } from 'react';
+import MetaTags from 'react-meta-tags';
 import { connect } from 'react-redux';
-import Title from '../../components/title/Title';
-import { icons } from '../../constant/icons';
-import Loading from '../../components/loading/Loading';
 import { Link, Redirect } from 'react-router-dom';
-import Logo from '../../components/logo/Logo';
-import AudioPlayer from '../../components/audio-player/AudioPlayer';
+import { icons } from '../../constant/icons';
 import * as joinUsAPI from '../../api/joinUsApi';
 import { isEmpty } from '../../utils/general';
+
+import Title from '../../components/title/Title';
+import Loading from '../../components/loading/Loading';
+import Logo from '../../components/logo/Logo';
+import AudioPlayer from '../../components/audio-player/AudioPlayer';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
 
 const UserLandPage = ({ match }) => {
   const [projectData, setProjectData] = useState({});
   const [projectDataNotFound, setProjectDataNotFound] = useState(false);
+  const id = match.params.id;
   useEffect(() => {
-    const id = match.params.id;
     const project = async () =>
       joinUsAPI
         .getUserProject(id)
@@ -46,6 +48,13 @@ const UserLandPage = ({ match }) => {
     <Suspense fallback={<Loading />}>
       <div className='user-land-page center-items'>
         <div className='bg-image' style={backgroundStyle}></div>
+        <MetaTags>
+          <meta property='og:url' content={`https://www.join-us.com/project/${projectData._id}`} />
+          <meta property='og:type' content='article' />
+          <meta property='og:title' content={projectData.trackTitle} />
+          <meta property='og:image' content={projectData.coverImage} />
+          <meta property='og:site_name' content='JoinUS' />
+        </MetaTags>
 
         <div className='song-content'>
           <div className='song-cover'>

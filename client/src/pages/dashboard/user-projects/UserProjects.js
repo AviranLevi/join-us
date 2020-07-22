@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 
 const UserProjects = (props) => {
   const { user } = props;
+
   useEffect(() => {
     props.getUserProjects('test');
   }, [props.getUserProjects]);

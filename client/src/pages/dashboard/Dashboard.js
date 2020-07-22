@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from '../home/Home';
 import Header from '../../components/header/Header';
 import Menu from './menu/Menu';

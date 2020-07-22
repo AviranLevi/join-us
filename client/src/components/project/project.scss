@@ -7,8 +7,14 @@
   a {
     text-decoration: none;
     color: $font-color;
-    i {
-      font-size: 35px;
+  }
+
+  i {
+    font-size: 35px;
+    cursor: pointer;
+    transition: 1s;
+    &:hover {
+      color: $grey;
     }
   }
 
@@ -23,11 +29,30 @@
 
   .project-content {
     z-index: 100;
-    width: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    width: 90%;
+
+    .project-title {
+      line-height: 35px;
+    }
 
     .project-artists {
       grid-gap: 10px;
+    }
+
+    .share-link-copy {
+      .copied-toast {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 25px;
+      }
     }
   }
 

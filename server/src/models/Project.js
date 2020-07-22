@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
+import moment from 'moment';
 
 const Schema = mongoose.Schema;
+const currentDate = moment().format('MMM Do YYYY');
 
 const projectSchema = new Schema({
   trackTitle: {
@@ -14,6 +16,9 @@ const projectSchema = new Schema({
   coverImage: {
     type: String,
     required: [true, `Song's cover image is missing`],
+  },
+  thumbnailCoverImage: {
+    type: String,
   },
   audioPreview: {
     type: String,
@@ -49,6 +54,10 @@ const projectSchema = new Schema({
   userId: {
     type: String,
     required: [true, 'User Id is missing.'],
+  },
+  createdAt: {
+    type: String,
+    default: currentDate,
   },
 });
 
