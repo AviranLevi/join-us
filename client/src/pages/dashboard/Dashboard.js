@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import * as actions from '../../stores/actions/';
-
 import Home from '../home/Home';
 import Header from '../../components/header/Header';
 import Menu from './menu/Menu';
@@ -13,11 +11,6 @@ import Profile from './profile/Profile';
 
 const Dashboard = (props) => {
   const { user } = props;
-
-  useEffect(() => {
-    props.getUserProjects('test');
-  }, [props.getUserProjects]);
-
   return (
     <div className='home center-items'>
       <Header />
@@ -39,7 +32,4 @@ const Dashboard = (props) => {
 
 const mapStateToProps = (state = {}) => state;
 
-const mapDispatchToProps = (dispatch) => ({
-  getUserProjects: (id) => dispatch(actions.getUserProjects(id)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

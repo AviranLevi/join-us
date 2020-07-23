@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../../stores/actions/';
 import Title from '../../../components/title/Title';
 import { icons } from '../../../constant/icons';
 import Icon from '../../../components/icon/icon';
@@ -7,6 +8,10 @@ import ProfileSocialLinks from './profile-social-links/ProfileSocialLinks';
 import ProfileInfo from './profile-info/ProfileInfo';
 
 const Profile = (props) => {
+  useEffect(() => {
+    props.getUserProjects('test');
+  }, [props.getUserProjects]);
+
   return (
     <div className='profile center-items fade-in'>
       {props.profileImage ? (
@@ -28,4 +33,8 @@ const Profile = (props) => {
 
 const mapStateToProps = (state = {}) => state.user;
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = (dispatch) => ({
+  getUserProjects: (id) => dispatch(actions.getUserProjects(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
