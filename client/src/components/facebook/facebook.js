@@ -13,6 +13,7 @@ const Facebook = (props) => (
     textButton=''
     callback={(res) => props.facebookLogin(res)}
     icon='fab fa-facebook'
+    scope='public_profile'
   />
 );
 

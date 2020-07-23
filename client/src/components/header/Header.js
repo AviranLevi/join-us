@@ -10,7 +10,7 @@ const Header = (props) => {
   const { user } = props;
   return (
     <div className='header center-items slide-from-top'>
-      <Link to={user.loggedIn ? '/home/dashboard' : '/home'} className='logo'>
+      <Link to={user.loggedIn ? '/home/dashboard' : '/home/login'} className='logo'>
         <Logo text='JoinUS' classes='bold-black-text' />
       </Link>
       {user.loggedIn ? (

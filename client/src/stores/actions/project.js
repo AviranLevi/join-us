@@ -76,7 +76,7 @@ export const removeProject = (projectId) => (dispatch) => {
   api
     .delete(projectId)
     .then((res) => {
-      dispatch({ type: actionType.REMOVE_PROJECT });
+      dispatch({ type: actionType.REMOVE_PROJECT, payload: projectId });
     })
     .catch((err) => console.log(err));
 };

@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 const Menu = () => {
   return (
     <div className='menu slide-from-left'>
-      <Link to='dashboard/new-project'>
+      <Link to='/home/dashboard/new-project'>
         <Button text='New Page' icon={icons.create} classes='bold-text transition' />
       </Link>
       <Link to='/home/profile'>
         <Button text='My Profile' classes='bold-text transition' />
       </Link>
-      <Link to='dashboard'>
+      <Link to='/home/dashboard'>
         <Button text={'My Projects'} classes='bold-text transition' />
       </Link>
     </div>

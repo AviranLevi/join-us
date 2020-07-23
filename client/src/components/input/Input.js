@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Input = ({ type = 'text', title = '', classes = '', changeAction }) => (
+const Input = ({ type = 'text', title = '', classes = '', changeAction, value }) => (
   <div className={`${classes} input-box`}>
     <input
+      value={value}
       name={title.toLowerCase()}
       type={type}
       onChange={changeAction}

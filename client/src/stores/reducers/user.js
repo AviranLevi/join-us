@@ -43,6 +43,13 @@ const rootReducer = (state = initialState, action) => {
     case actionType.USER_PROJECTS:
       return { ...state, projects: action.payload };
 
+    case actionType.REMOVE_PROJECT:
+      console.log(action.payload);
+      const removedProject = state.projects.findIndex((project) => project.projectId === action.payload);
+      const projects = state.projects.slice(removedProject, 1);
+      console.log(projects);
+      return { ...state, projects };
+
     default:
       return state;
   }

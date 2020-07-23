@@ -12,11 +12,12 @@ const SignUp = (props) => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
-    const userData = { userName, email, password, phone };
+    const userData = { userName, email, password, confirmPassword, phone };
     createUser(userData);
   }
 
@@ -26,10 +27,16 @@ const SignUp = (props) => {
 
       <div className='sign-up-content'>
         <Title text='Signup' classes='bold-text' />
-        <Input title='Full Name' action={(e) => setUserName(e.target.value)} />
-        <Input title='Email' action={(e) => setEmail(e.target.value)} />
-        <Input title='Password' type='password' action={(e) => setPassword(e.target.value)} />
-        <Input title='Phone' action={(e) => setPhone(e.target.value)} />
+        <Input title='Full Name' value={userName} action={(e) => setUserName(e.target.value)} />
+        <Input title='Email' value={email} action={(e) => setEmail(e.target.value)} />
+        <Input title='Password' value={password} type='password' action={(e) => setPassword(e.target.value)} />
+        <Input
+          title='Confirm Password'
+          value={confirmPassword}
+          type='password'
+          action={(e) => setConfirmPassword(e.target.value)}
+        />
+        <Input title='Phone' value={phone} action={(e) => setPhone(e.target.value)} />
         <Button text='Sign-up' classes='bold-text' action={() => setSubmitted(true)} />
       </div>
     </div>
