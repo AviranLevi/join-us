@@ -2,12 +2,19 @@ import * as actionType from '../actions/types';
 
 const initialState = {
   loggedIn: true,
-  name: '',
-  password: '',
-  email: '',
+  name: 'Su Xan San',
+  password: '123456',
+  email: 'aviran233@gmail.com',
   phone: '',
-  profileImage: '',
+  profileImage:
+    'https://uploads.disquscdn.com/images/dc368ebd907dfb3c40406ed0c842b10023f20651969cbd4bf77e524b3bf29ce7.jpg',
   projects: [],
+  spotify: '',
+  instagram: '',
+  tiktok: '',
+  facebook: '',
+  website: '',
+  createdAt: 'Jul 22nd 2020',
 };
 
 const rootReducer = (state = initialState, action) => {

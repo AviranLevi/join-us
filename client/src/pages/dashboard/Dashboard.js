@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+import * as actions from '../../stores/actions/';
+
 import Home from '../home/Home';
 import Header from '../../components/header/Header';
 import Menu from './menu/Menu';
 import NewProject from './new-project/NewProject';
 import UserProjects from './user-projects/UserProjects';
 import Footer from '../../components/footer/Footer';
+import Profile from './profile/Profile';
 
 const Dashboard = (props) => {
   const { user } = props;
+
+  useEffect(() => {
+    props.getUserProjects('test');
+  }, [props.getUserProjects]);
+
   return (
     <div className='home center-items'>
       <Header />
@@ -19,6 +27,7 @@ const Dashboard = (props) => {
           <Switch>
             <Route exact path='/home/login' component={Home} />
             <Route exact path='/home/dashboard' component={UserProjects} /> >
+            <Route exact path='/home/profile' component={Profile} />
             <Route exact path='/home/dashboard/new-project' component={NewProject} />
           </Switch>
         </div>
@@ -30,4 +39,7 @@ const Dashboard = (props) => {
 
 const mapStateToProps = (state = {}) => state;
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = (dispatch) => ({
+  getUserProjects: (id) => dispatch(actions.getUserProjects(id)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

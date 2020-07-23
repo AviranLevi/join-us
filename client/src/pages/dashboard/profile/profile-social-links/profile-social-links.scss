@@ -1,0 +1,32 @@
+.profile-social-links {
+  grid-template-columns: repeat(6, 1fr);
+  font-size: 40px;
+  grid-gap: 20px;
+
+  a {
+    transition: 1s;
+  }
+
+  .spotify-profile:hover {
+    color: $spotify;
+  }
+
+  .instagram-profile:hover {
+    color: $instagram;
+  }
+
+  .facebook-profile:hover {
+    color: $facebook;
+  }
+
+  .tiktok-profile:hover {
+    color: $tiktok;
+  }
+
+  .youtube-profile:hover {
+    color: $youtube;
+  }
+  .website-profile:hover {
+    color: $dark-color;
+  }
+}

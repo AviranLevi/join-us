@@ -1,0 +1,22 @@
+.profile {
+  color: $font-color;
+  grid-template-columns: repeat(2, 1fr);
+
+  .profile-image {
+    max-height: 700px;
+    max-width: 100%;
+    border-radius: 25px;
+  }
+
+  .profile-content {
+    grid-gap: 20px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+
+    .profile-name {
+      font-size: 60px;
+      align-self: center;
+    }
+  }
+}

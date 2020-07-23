@@ -30,15 +30,25 @@
   }
 
   .signed-in {
-    grid-template-columns: repeat(2, 1fr);
-    color: $font-color;
+    a {
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 20px;
+      .profile-header-name {
+        font-size: 25px;
+      }
 
-    .profile-icon {
-      font-size: 40px;
-    }
+      .profile-icon {
+        font-size: 40px;
+      }
 
-    img {
-      border-radius: 50%;
+      img {
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        border: solid $font-color 3px;
+        height: 60px;
+        width: 60px;
+      }
     }
   }
 }
