@@ -1,0 +1,59 @@
+.acount-settings {
+  color: $font-color;
+  text-align: start;
+  position: relative;
+  display: grid;
+
+  .acount-settings-title {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
+  .edit-profile-btn {
+    position: absolute;
+    top: 0;
+    color: $font-color;
+    font-size: 40px;
+    right: 0;
+  }
+
+  .acount-info {
+    font-size: 25px;
+    display: grid;
+    grid-gap: 30px;
+    margin-bottom: 30px;
+
+    .acount-input {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+
+      input {
+        width: 50%;
+        color: $primary-color;
+        font-size: 20px;
+        border: none;
+        padding: 0 20px;
+        height: 40px;
+        border-radius: 4px;
+
+        &:disabled {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .save-profile-btn {
+    color: $primary-color;
+    justify-self: center;
+    padding: 10px 30px;
+    font-size: 22px;
+    background: $font-color;
+    border-radius: 25px;
+    opacity: 1;
+
+    &:disabled {
+      opacity: 0.8;
+    }
+  }
+}

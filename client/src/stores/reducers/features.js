@@ -7,6 +7,7 @@ const initialState = {
   createNewUser: false,
   trackDataLoading: false,
   redirect: false,
+  editUser: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -31,6 +32,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.REDIRECT:
       return { ...state, redirect: !state.redirect };
+
+    case actionType.EDIT_USER_INFO:
+      return { ...state, editUser: !state.editUser };
 
     default:
       return state;

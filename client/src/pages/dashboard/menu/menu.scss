@@ -13,10 +13,14 @@
   button {
     font-size: 25px;
     color: $font-color;
-    margin: 0 80px;
+    margin: 0 60px;
 
     &:hover {
       animation: wiggle ease-in-out 1s;
     }
+  }
+
+  .settings-btn {
+    align-self: end;
   }
 }

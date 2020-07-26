@@ -25,8 +25,8 @@ export const getTrackData = () => (dispatch, getState) => {
       .then((res) => {
         const { data } = res;
         dispatch({ type: actionType.TRACK_DATA, payload: data });
-        dispatch({ type: actionType.TRACK_DATA_LOADING });
         dispatch({ type: actionType.REDIRECT });
+        dispatch({ type: actionType.TRACK_DATA_LOADING });
       })
       .catch((err) => console.log(err));
   }

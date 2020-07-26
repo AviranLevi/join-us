@@ -9,7 +9,7 @@ import ProfileInfo from './profile-info/ProfileInfo';
 
 const Profile = (props) => {
   useEffect(() => {
-    props.getUserProjects('test');
+    props.getUserProjects(props.id);
   }, [props.getUserProjects]);
 
   return (

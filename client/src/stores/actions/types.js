@@ -20,6 +20,7 @@ export const TRACK_NAME = 'TRACK_NAME';
 export const COVER_IMAGE = 'COVER_IMAGE';
 export const ARTISTS = 'ARTISTS';
 export const REMOVE_PROJECT = 'REMOVE_PROJECT';
+
 //features
 export const OPEN_LOGIN_TOAST = 'OPEN_LOGIN_TOAST';
 export const CLOSE_LOGIN_TOAST = 'CLOSE_LOGIN_TOAST';
@@ -30,6 +31,8 @@ export const DECREASE_LINK_COUNTER = 'DECREASE_LINK_COUNTER';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const TRACK_DATA_LOADING = 'TRACK_DATA_LOADING';
 export const REDIRECT = 'REDIRECT';
+export const EDIT_USER_INFO = 'EDIT_USER_INFO';
+
 //social
 export const FACEBOOK_LOGIN = 'FACEBOOK_LOGIN';
 export const GOOGLE_LOGIN = 'GOOGLE_LOGIN';

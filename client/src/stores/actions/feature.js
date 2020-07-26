@@ -27,3 +27,7 @@ export const increaseLinksCounter = () => ({
 export const decreaseLinksCounter = () => ({
   type: actionType.DECREASE_LINK_COUNTER,
 });
+
+export const editUserInfo = () => ({
+  type: actionType.EDIT_USER_INFO,
+});

@@ -106,7 +106,9 @@ const UserLandPage = ({ match }) => {
           </div>
         </div>
 
-        <Link to='/home/dashboard'>Powered by JoinUS</Link>
+        <Link to='/home/dashboard' target='_blank'>
+          Powered by JoinUS
+        </Link>
       </div>
     </Suspense>
   );

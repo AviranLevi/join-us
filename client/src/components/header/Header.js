@@ -14,7 +14,7 @@ const Header = (props) => {
         <Logo text='JoinUS' classes='bold-black-text' />
       </Link>
       {user.loggedIn ? (
-        <UserLoggedIn userName={user.name} userImageSrc={user.profileImage} />
+        <UserLoggedIn userId={user.id} userName={user.name} userImageSrc={user.profileImage} />
       ) : (
         <div className='login-signup center-items'>
           <Button action={props.openLogin} text='Login' classes='bold-black-text' />

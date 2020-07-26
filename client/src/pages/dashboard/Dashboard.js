@@ -8,6 +8,7 @@ import NewProject from './new-project/NewProject';
 import UserProjects from './user-projects/UserProjects';
 import Footer from '../../components/footer/Footer';
 import Profile from './profile/Profile';
+import AcountSettings from './acount-settings/AcountSettings';
 
 const Dashboard = (props) => {
   const { user } = props;
@@ -20,8 +21,9 @@ const Dashboard = (props) => {
           <Switch>
             <Route exact path='/home/login' component={Home} />
             <Route exact path='/home/dashboard' component={UserProjects} /> >
-            <Route exact path='/home/profile' component={Profile} />
+            <Route exact path='/home/profile/:id' component={Profile} />
             <Route exact path='/home/dashboard/new-project' component={NewProject} />
+            <Route exact path='/home/dashboard/settings' component={AcountSettings} />
           </Switch>
         </div>
       </div>

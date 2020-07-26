@@ -31,10 +31,13 @@
 
   .signed-in {
     a {
-      grid-template-columns: 1fr 2fr;
-      grid-gap: 20px;
+      grid-template-columns: 1fr 4fr;
+      margin: 0 60px;
+      width: auto;
+
       .profile-header-name {
         font-size: 25px;
+        justify-self: start;
       }
 
       .profile-icon {
@@ -42,6 +45,7 @@
       }
 
       img {
+        margin-right: 15px;
         border-radius: 50%;
         object-fit: cover;
         object-position: center;

@@ -13,6 +13,7 @@ export const icons = {
   link: <i className='fas fa-link'></i>,
   remove: <i className='fas fa-trash-alt'></i>,
   image: <i className='far fa-images'></i>,
+  settings: <i className='fas fa-cog'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,

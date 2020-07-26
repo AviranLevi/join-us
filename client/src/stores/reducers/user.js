@@ -1,6 +1,7 @@
 import * as actionType from '../actions/types';
 
 const initialState = {
+  id: 'test',
   loggedIn: true,
   name: 'Su Xan San',
   password: '123456',

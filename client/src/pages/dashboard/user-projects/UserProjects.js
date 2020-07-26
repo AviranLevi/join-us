@@ -9,7 +9,7 @@ const UserProjects = (props) => {
   const { user } = props;
 
   useEffect(() => {
-    props.getUserProjects('test');
+    props.getUserProjects(user.id);
   }, [props.getUserProjects]);
 
   if (!user.loggedIn) {

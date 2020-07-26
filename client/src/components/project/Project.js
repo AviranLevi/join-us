@@ -52,11 +52,11 @@ const Project = ({ songId, title, artists = [], createdDate, coverImage }) => {
 
         <Title text={createdDate} />
 
-        <Link to={`/project/${songId}`} target='_blank'>
+        <Link to={`/project/${songId}`} target='_blank' title='Go To Page'>
           <Icon icon={icons.goTo} />
         </Link>
 
-        <div onClick={copyToClipboard} className='share-link-copy'>
+        <div onClick={copyToClipboard} className='share-link-copy' title='Copy Link'>
           <Icon icon={icons.link} />
           {copySuccess ? (
             <div className='copied-toast fade-in-out'>
@@ -65,7 +65,7 @@ const Project = ({ songId, title, artists = [], createdDate, coverImage }) => {
           ) : null}
         </div>
 
-        <div onClick={deleteProject} className='remove-project'>
+        <div onClick={deleteProject} className='remove-project' title='Delete Project'>
           <Icon icon={icons.remove} />
         </div>
       </div>

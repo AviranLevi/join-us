@@ -15,4 +15,11 @@ export {
   getWebsiteLink,
 } from './project';
 
-export { openLoginToast, closeLoginToast, openSignUpToast, closeSignUpToast, increaseLinksCounter } from './feature';
+export {
+  openLoginToast,
+  closeLoginToast,
+  openSignUpToast,
+  closeSignUpToast,
+  increaseLinksCounter,
+  editUserInfo,
+} from './feature';
