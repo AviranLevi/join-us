@@ -1,6 +1,17 @@
-export { userName, userEmail, userPassword, userPhone, createNewUser, getUserProjects } from './user';
-
-export { facebookLogin } from './social';
+export {
+  userName,
+  userEmail,
+  userPassword,
+  userPhone,
+  userSpotify,
+  userInstagram,
+  userTiktok,
+  userFacebook,
+  userYouTube,
+  userWebsite,
+  createNewUser,
+  getUserProjects,
+} from './user';
 
 export {
   getTrackData,
@@ -15,11 +26,4 @@ export {
   getWebsiteLink,
 } from './project';
 
-export {
-  openLoginToast,
-  closeLoginToast,
-  openSignUpToast,
-  closeSignUpToast,
-  increaseLinksCounter,
-  editUserInfo,
-} from './feature';
+export { openLoginToast, closeLoginToast, openSignUpToast, closeSignUpToast, editUserInfo } from './feature';

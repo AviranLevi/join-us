@@ -94,7 +94,7 @@
       .song-links {
         font-size: 45px;
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
         .spotify {
           a:hover {

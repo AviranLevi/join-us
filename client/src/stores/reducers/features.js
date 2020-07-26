@@ -3,11 +3,11 @@ import * as actionType from '../actions/types';
 const initialState = {
   loginToast: false,
   signUpToast: false,
-  linksCounter: 1,
   createNewUser: false,
   trackDataLoading: false,
   redirect: false,
   editUser: false,
+  createUser: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -24,9 +24,6 @@ const rootReducer = (state = initialState, action) => {
     case actionType.CLOSE_SIGN_UP_TOAST:
       return { ...state, signUpToast: action.payload };
 
-    case actionType.INCREASE_LINK_COUNTER:
-      return { ...state, linksCounter: state.linksCounter + 1 };
-
     case actionType.TRACK_DATA_LOADING:
       return { ...state, trackDataLoading: !state.trackDataLoading };
 
@@ -35,6 +32,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.EDIT_USER_INFO:
       return { ...state, editUser: !state.editUser };
+
+    case actionType.CREATE_NEW_USER:
+      return { ...state, createUser: true };
 
     default:
       return state;

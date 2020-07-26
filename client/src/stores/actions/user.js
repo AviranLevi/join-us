@@ -63,7 +63,20 @@ export const userPhone = (phone) => (dispatch) => {
   }
 };
 
+//on progress
 export const createNewUser = () => (dispatch, getState) => {
   const data = getState();
   console.log(data);
 };
+
+export const userSpotify = (url) => ({ type: actionType.USER_SPOTIFY, payload: url });
+
+export const userInstagram = (url) => ({ type: actionType.USER_INSTAGRAM, payload: url });
+
+export const userTiktok = (url) => ({ type: actionType.USER_TIKTOK, payload: url });
+
+export const userFacebook = (url) => ({ type: actionType.USER_FACEBOOK, payload: url });
+
+export const userYouTube = (url) => ({ type: actionType.USER_YOUTUBE, payload: url });
+
+export const userWebsite = (url) => ({ type: actionType.USER_WEBSITE, payload: url });

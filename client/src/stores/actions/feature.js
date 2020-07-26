@@ -20,14 +20,6 @@ export const closeSignUpToast = () => ({
   payload: false,
 });
 
-export const increaseLinksCounter = () => ({
-  type: actionType.INCREASE_LINK_COUNTER,
-});
-
-export const decreaseLinksCounter = () => ({
-  type: actionType.DECREASE_LINK_COUNTER,
-});
-
 export const editUserInfo = () => ({
   type: actionType.EDIT_USER_INFO,
 });

@@ -10,11 +10,12 @@ const initialState = {
   profileImage:
     'https://uploads.disquscdn.com/images/dc368ebd907dfb3c40406ed0c842b10023f20651969cbd4bf77e524b3bf29ce7.jpg',
   projects: [],
-  spotify: '',
-  instagram: '',
-  tiktok: '',
-  facebook: '',
-  website: '',
+  spotify: 's',
+  instagram: 'i',
+  tiktok: 't',
+  facebook: 'f',
+  youtube: 'y',
+  website: 'w',
   createdAt: 'Jul 22nd 2020',
 };
 
@@ -45,10 +46,8 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, projects: action.payload };
 
     case actionType.REMOVE_PROJECT:
-      console.log(action.payload);
       const removedProject = state.projects.findIndex((project) => project.projectId === action.payload);
       const projects = state.projects.slice(removedProject, 1);
-      console.log(projects);
       return { ...state, projects };
 
     default:

@@ -1,32 +1,33 @@
 .profile-social-links {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
   font-size: 40px;
+  width: 100%;
   grid-gap: 20px;
 
   a {
     transition: 1s;
   }
 
-  .spotify-profile:hover {
+  .spotify-profile > a:hover {
     color: $spotify;
   }
 
-  .instagram-profile:hover {
+  .instagram-profile > a:hover {
     color: $instagram;
   }
 
-  .facebook-profile:hover {
+  .facebook-profile > a:hover {
     color: $facebook;
   }
 
-  .tiktok-profile:hover {
+  .tiktok-profile > a:hover {
     color: $tiktok;
   }
 
-  .youtube-profile:hover {
+  .youtube-profile > a:hover {
     color: $youtube;
   }
-  .website-profile:hover {
+  .website-profile > a:hover {
     color: $dark-color;
   }
 }

@@ -1,11 +1,10 @@
 .login {
   position: absolute;
-  top: 10vh;
-  left: 25vw;
-  height: 80vh;
-  width: 50vw;
+  top: 22vh;
+  left: 38vw;
+  height: 55vh;
+  width: 25vw;
   background: $font-color;
-  grid-template-columns: repeat(2, 1fr);
 
   .close-icon {
     position: absolute;
@@ -26,11 +25,12 @@
     border-right: 1px solid grey;
 
     .login-box {
-      height: 60%;
+      height: 100%;
+      width: 80%;
       display: grid;
 
       .login-title {
-        font-size: 40px;
+        font-size: 50px;
       }
 
       .login-btn {
@@ -38,6 +38,7 @@
         background: $primary-color;
         color: $font-color;
         transition: 1s;
+        align-self: center;
 
         &:hover {
           background: $dark-color;
@@ -46,8 +47,8 @@
     }
   }
 
-  .login-social {
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-  }
+  // .login-social {
+  //   grid-gap: 20px;
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
 }
