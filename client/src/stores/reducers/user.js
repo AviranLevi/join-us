@@ -1,26 +1,29 @@
 import * as actionType from '../actions/types';
 
 const initialState = {
-  id: 'test',
-  loggedIn: true,
-  name: 'Su Xan San',
-  password: '123456',
-  email: 'aviran233@gmail.com',
+  id: '',
+  loggedIn: false,
+  name: '',
+  password: '',
+  confirmPassword: '',
+  email: '',
   phone: '',
-  profileImage:
-    'https://uploads.disquscdn.com/images/dc368ebd907dfb3c40406ed0c842b10023f20651969cbd4bf77e524b3bf29ce7.jpg',
+  profileImage: '',
   projects: [],
-  spotify: 's',
-  instagram: 'i',
-  tiktok: 't',
-  facebook: 'f',
-  youtube: 'y',
-  website: 'w',
-  createdAt: 'Jul 22nd 2020',
+  spotify: '',
+  instagram: '',
+  tiktok: '',
+  facebook: '',
+  youtube: '',
+  website: '',
+  createdAt: '',
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionType.USER_LOG_IN:
+      return { ...state, loggedIn: true };
+
     case actionType.USER_NAME:
       return { ...state, name: action.payload };
 
@@ -49,6 +52,9 @@ const rootReducer = (state = initialState, action) => {
       const removedProject = state.projects.findIndex((project) => project.projectId === action.payload);
       const projects = state.projects.slice(removedProject, 1);
       return { ...state, projects };
+
+    case actionType.USER_LOG_OUT:
+      return state;
 
     default:
       return state;

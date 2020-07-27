@@ -32,6 +32,11 @@ a {
   font-weight: 900;
 }
 
+.error {
+  border: 2px solid $red;
+  border-radius: 5px;
+}
+
 .center-items {
   display: grid;
   justify-items: center;

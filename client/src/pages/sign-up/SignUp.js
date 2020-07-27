@@ -6,21 +6,38 @@ import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
 import Icon from '../../components/icon/icon';
 import { icons } from '../../constant/icons';
+import ErrorMessage from '../../components/errorMessage/errorMessage';
 
 const SignUp = (props) => {
-  const { user } = props;
-
+  const { user, errors } = props;
+  const { signUp } = errors;
   return (
     <div className='sign-up fade-in rounded-border'>
       <Icon icon={icons.close} classes='close-icon bold-black-text' action={props.closeSignUp} />
       <div className='sign-up-content'>
         <Title text='Signup' classes='bold-text' />
-        <Input title='Full Name' value={user.userName} action={props.userName} />
-        <Input title='Email' value={user.email} action={props.userEmail} />
-        <Input title='Password' value={user.password} type='password' action={props.userPassword} />
-        <Input title='Confirm Password' type='password' />
-        <Input title='Phone' value={user.phone} action={props.usersPhone} />
-        <Button text='Sign-up' classes='bold-text' />
+        <div className='sign-up-input'>
+          <Input title='Full Name' value={user.name} changeAction={props.userName} />
+          {signUp.name ? <ErrorMessage message='*Name is required (minimum 3 characters)' /> : null}
+        </div>
+
+        <div className='sign-up-input'>
+          <Input title='Email' value={user.email} changeAction={props.userEmail} />
+          {signUp.email ? <ErrorMessage message='*Please enter valid email' /> : null}
+        </div>
+        <div className='sign-up-input'>
+          <Input title='Password' value={user.password} type='password' changeAction={props.userPassword} />
+          {signUp.password ? <ErrorMessage message='*Password is required (minimun 6 characters)' /> : null}
+        </div>
+        <div className='sign-up-input'>
+          <Input title='Confirm Password' value={user.confirmPassword} type='password' />
+          {signUp.confirmPassword ? <ErrorMessage message='*Passwords are not matched' /> : null}
+        </div>
+        <div className='sign-up-input'>
+          <Input title='Phone' value={user.phone} changeAction={props.usersPhone} />
+          {signUp.phone ? <ErrorMessage message='Please enter valid phone number' /> : null}
+        </div>
+        <Button text='Sign-up' classes='bold-text' action={props.createNewUser} />
       </div>
     </div>
   );
@@ -34,6 +51,7 @@ const mapDispatchToProps = (dispatch) => ({
   userEmail: (e) => dispatch(actions.userEmail(e.target.value)),
   userPassword: (e) => dispatch(actions.userPassword(e.target.value)),
   userPhone: (e) => dispatch(actions.userName(e.target.value)),
+  createNewUser: () => dispatch(actions.createNewUser()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

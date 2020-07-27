@@ -21,7 +21,11 @@ const NewProject = (props) => {
 
       <div className='music-links center-items'>
         <UserLinkInput icon={icons.spotify} changeAction={props.getSpotifyLink} />
-        <UserLinkInput icon={icons.instagram} changeAction={props.getInstagramLink} />
+        <UserLinkInput
+          icon={icons.instagram}
+          changeAction={props.getInstagramLink}
+          value={project.instagram ? project.instagram : user.instagram}
+        />
         <UserLinkInput icon={icons.appleMusic} changeAction={props.getAppleMusicLink} />
         <UserLinkInput icon={icons.facebook} changeAction={props.getFacebookLink} />
         <UserLinkInput icon={icons.deezer} changeAction={props.getDeezerLink} />

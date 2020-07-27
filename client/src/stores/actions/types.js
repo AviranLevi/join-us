@@ -2,6 +2,7 @@
 export const USER_NAME = 'USER_NAME';
 export const USER_EMAIL = 'USER_EMAIL';
 export const USER_PASSWORD = 'USER_PASSWORD';
+export const USER_CONFIRM_PASSWORD = 'USER_CONFIRM_PASSWORD';
 export const USER_PHONE = 'USER_PHONE';
 export const USER_PROJECTS = 'USER_PROJECTS';
 export const USER_SPOTIFY = 'USER_SPOTIFY';
@@ -10,6 +11,8 @@ export const USER_TIKTOK = 'USER_TIKTOK';
 export const USER_FACEBOOK = 'USER_FACEBOOK';
 export const USER_YOUTUBE = 'USER_YOUTUBE';
 export const USER_WEBSITE = 'USER_WEBSITE';
+export const USER_LOG_IN = 'USER_LOG_IN';
+export const USER_LOG_OUT = 'USER_LOG_OUT';
 
 //project
 export const TRACK_DATA = 'TRACK_DATA';
@@ -47,3 +50,4 @@ export const USER_NAME_ERROR = 'USER_NAME_ERROR';
 export const USER_EMAIL_ERROR = 'USER_EMAIL_ERROR';
 export const USER_PASSWORD_ERROR = 'USER_PASSWORD_ERROR';
 export const USER_PHONE_ERROR = 'USER_PASSWORD_ERROR';
+export const USER_CONFIRM_PASSWORD_ERROR = 'USER_CONFIRM_PASSWORD_ERROR';

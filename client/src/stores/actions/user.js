@@ -20,8 +20,8 @@ export const getUserProjects = (userId) => (dispatch) => {
 };
 
 export const userName = (name) => (dispatch) => {
-  const nameIsValid = validator.isLength(name, { min: 3, max: 20 });
   dispatch({ type: actionType.USER_NAME, payload: name });
+  const nameIsValid = validator.isLength(name, { min: 3, max: 20 });
 
   if (nameIsValid) {
     dispatch({ type: actionType.USER_NAME_ERROR, payload: false });
@@ -31,8 +31,8 @@ export const userName = (name) => (dispatch) => {
 };
 
 export const userEmail = (email) => (dispatch) => {
-  const emailIsValid = validator.isEmail(email);
   dispatch({ type: actionType.USER_EMAIL, payload: email });
+  const emailIsValid = validator.isEmail(email);
 
   if (emailIsValid) {
     dispatch({ type: actionType.USER_EMAIL_ERROR, payload: false });
@@ -52,6 +52,15 @@ export const userPassword = (password) => (dispatch) => {
   }
 };
 
+export const userConfirmPassword = (confirmPassword) => (dispatch, getState) => {
+  const password = getState().user.password;
+  if (password !== confirmPassword) {
+    dispatch({ type: actionType.USER_CONFIRM_PASSWORD_ERROR, payload: true });
+  } else {
+    dispatch({ type: actionType.USER_CONFIRM_PASSWORD_ERROR, payload: false });
+  }
+};
+
 export const userPhone = (phone) => (dispatch) => {
   const phoneIsValid = validator.isMobilePhone(phone);
   dispatch({ type: actionType.USER_PHONE, payload: phone });
@@ -65,7 +74,7 @@ export const userPhone = (phone) => (dispatch) => {
 
 //on progress
 export const createNewUser = () => (dispatch, getState) => {
-  const data = getState();
+  const data = getState().user;
   console.log(data);
 };
 
@@ -80,3 +89,5 @@ export const userFacebook = (url) => ({ type: actionType.USER_FACEBOOK, payload:
 export const userYouTube = (url) => ({ type: actionType.USER_YOUTUBE, payload: url });
 
 export const userWebsite = (url) => ({ type: actionType.USER_WEBSITE, payload: url });
+
+export const userLogout = () => ({ type: actionType.USER_LOG_OUT });

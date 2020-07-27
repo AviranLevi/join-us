@@ -11,6 +11,7 @@ export {
   userWebsite,
   createNewUser,
   getUserProjects,
+  userLogout,
 } from './user';
 
 export {
