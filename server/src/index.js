@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import router from './router';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import passport from 'passport';
+require('./config/passport');
 
 const app = express();
 
@@ -22,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/api', router);
 

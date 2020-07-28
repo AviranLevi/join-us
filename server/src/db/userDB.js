@@ -2,19 +2,25 @@ import User from '../models/User';
 
 export const createUser = async (data) => {
   try {
-    const user = await new User(data);
+    const user = new User(data);
+    await user.save();
     return user;
   } catch (error) {
     throw error;
   }
 };
 
-export const getUserLogin = async (data) => {
+export const getUserByEmail = async (email, password) => {
   try {
-    const { email, password } = data;
-    const user = await User.findOne({ email, password });
-    console.log(user);
-    return user;
+    const user = await User.findOne({ email }, (err, user) => {
+      if (err) return err;
+      if (!user) return 'USER NOT FOUND';
+      user.comparePassword(password, (data) => data);
+    });
+    if (user) {
+      return user;
+    }
+    return 'USER_NOT_FOUND';
   } catch (error) {
     throw error;
   }

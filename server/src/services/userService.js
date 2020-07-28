@@ -1,4 +1,5 @@
 import * as db from '../db/userDB';
+import bcrypt from 'bcryptjs';
 
 //CREATE
 export const createUser = async (data) => {
@@ -11,10 +12,15 @@ export const createUser = async (data) => {
 };
 
 //READ
-export const userLogin = async (data) => {
+export const getUserByEmail = async (data) => {
   try {
-    const response = await db.getUserLogin(data);
-    return response;
+    const { email } = data;
+    console.log(password);
+    const user = await db.getUserByEmail(email, password);
+    if (user) {
+      return user;
+    }
+    return 'USER NOT FOUND';
   } catch (error) {
     throw error;
   }

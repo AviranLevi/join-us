@@ -1,10 +1,11 @@
 import express from 'express';
 import * as routes from './routes/userRoutes';
+import passport from 'passport';
 
 const router = express.Router();
 
 router.post('/', routes.createUser);
-router.post('/login', routes.userLogin);
+router.post('/login', passport.authenticate('local', { session: false }), routes.userLogin);
 router.get('/:id', routes.getUser);
 router.patch('/:id', routes.updateUser);
 router.delete('/:id', routes.deleteUser);

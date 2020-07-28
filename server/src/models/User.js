@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
-import { isEmail, isMobilePhone } from 'validator';
+import { isEmail } from 'validator';
+import bcrypt from 'bcryptjs';
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -12,6 +14,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
     validate: [isEmail, 'Email is invalid'],
   },
   password: {
@@ -19,8 +22,6 @@ const userSchema = new Schema({
     required: true,
     min: 6,
     max: 20,
-    select: true,
-    bcrypt: true,
   },
   profileImage: {
     type: String,
@@ -32,5 +33,28 @@ const userSchema = new Schema({
     type: [String],
   },
 });
+
+userSchema.pre('save', function (next) {
+  if (!this.isModified('password')) return next();
+
+  bcrypt.hash(this.password, 10, (err, passHash) => {
+    if (err) return next(err);
+    this.password = passHash;
+    next();
+  });
+});
+
+userSchema.methods.comparePassword = function (password, cb) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
+    if (err) {
+      return cb(err);
+    } else {
+      if (!isMatch) {
+        return cb(null, isMatch);
+      }
+      return cb(null, this);
+    }
+  });
+};
 
 export default mongoose.model('user', userSchema);
