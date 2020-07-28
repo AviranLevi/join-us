@@ -7,7 +7,6 @@ const initialState = {
   password: '',
   confirmPassword: '',
   email: '',
-  phone: '',
   profileImage: '',
   projects: [],
   spotify: '',
@@ -33,8 +32,12 @@ const rootReducer = (state = initialState, action) => {
     case actionType.USER_PASSWORD:
       return { ...state, password: action.payload };
 
-    case actionType.USER_PHONE:
-      return { ...state, phone: action.payload };
+    case actionType.USER_CONFIRM_PASSWORD:
+      return { ...state, confirmPassword: action.payload };
+
+    case actionType.USER_SUBMIT:
+      const { _id, name, email } = action.payload;
+      return { ...state, id: _id, name, email, loggedIn: true };
 
     case actionType.FACEBOOK_LOGIN:
       return {

@@ -20,7 +20,7 @@ const Dashboard = (props) => {
         <div className='user-workspace slide-from-right'>
           <Switch>
             <Route exact path='/home/login' component={Home} />
-            <Route exact path='/home/dashboard' component={UserProjects} /> >
+            <Route exact path='/home/dashboard' component={UserProjects} />
             <Route exact path='/home/profile/:id' component={Profile} />
             <Route exact path='/home/dashboard/new-project' component={NewProject} />
             <Route exact path='/home/dashboard/settings' component={AcountSettings} />

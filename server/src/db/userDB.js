@@ -1,8 +1,19 @@
 import User from '../models/User';
 
-export const createUser = (data) => {
+export const createUser = async (data) => {
   try {
-    const user = new User(data);
+    const user = await new User(data);
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getUserLogin = async (data) => {
+  try {
+    const { email, password } = data;
+    const user = await User.findOne({ email, password });
+    console.log(user);
     return user;
   } catch (error) {
     throw error;

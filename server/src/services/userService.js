@@ -11,6 +11,15 @@ export const createUser = async (data) => {
 };
 
 //READ
+export const userLogin = async (data) => {
+  try {
+    const response = await db.getUserLogin(data);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getUser = async (id) => {
   try {
     const response = await db.getUser(id);

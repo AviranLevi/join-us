@@ -19,7 +19,6 @@ const AcountSettings = (props) => {
         <AcountInput title='Name' value={user.name} changeAction={props.userName} edit={features.editUser} />
         <AcountInput title='Email' value={user.email} changeAction={props.userEmail} edit={features.editUser} />
         <AcountInput type='password' title='Password' value={user.password} edit={features.editUser} />
-        <AcountInput title='Phone' value={user.phone} edit={features.editUser} />
 
         <Title text='Your Social Links' classes='bold-text' />
         <AcountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
@@ -50,7 +49,6 @@ const mapStateToProps = (state = {}) => state;
 const mapDispatchToProps = (dispatch) => ({
   userName: (e) => dispatch(actions.userName(e.target.value)),
   userEmail: (e) => dispatch(actions.userEmail(e.target.value)),
-  userPhone: (e) => dispatch(actions.userPhone(e.target.value)),
   userPassword: (e) => dispatch(actions.userPassword(e.target.value)),
   userSpotify: (e) => dispatch(actions.userSpotify(e.target.value)),
   userInstagram: (e) => dispatch(actions.userInstagram(e.target.value)),

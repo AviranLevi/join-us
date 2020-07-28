@@ -1,6 +1,6 @@
 .sign-up {
   position: absolute;
-  top: 10vh;
+  top: 15vh;
   left: 35vw;
   height: fit-content;
   width: 30vw;
@@ -24,6 +24,11 @@
     display: grid;
     margin: 40px;
 
+    .sign-up-input {
+      display: grid;
+      grid-gap: 10px;
+    }
+
     h1 {
       font-size: 50px;
     }
@@ -36,9 +41,6 @@
       justify-self: center;
       border-radius: 25px;
       padding: 10px 0;
-      &:hover {
-        animation: wiggle ease-in-out 1s;
-      }
     }
   }
 }

@@ -54,6 +54,8 @@ export const userPassword = (password) => (dispatch) => {
 
 export const userConfirmPassword = (confirmPassword) => (dispatch, getState) => {
   const password = getState().user.password;
+  dispatch({ type: actionType.USER_CONFIRM_PASSWORD, payload: confirmPassword });
+
   if (password !== confirmPassword) {
     dispatch({ type: actionType.USER_CONFIRM_PASSWORD_ERROR, payload: true });
   } else {
@@ -61,21 +63,27 @@ export const userConfirmPassword = (confirmPassword) => (dispatch, getState) => 
   }
 };
 
-export const userPhone = (phone) => (dispatch) => {
-  const phoneIsValid = validator.isMobilePhone(phone);
-  dispatch({ type: actionType.USER_PHONE, payload: phone });
-
-  if (phone && phoneIsValid) {
-    dispatch({ type: actionType.USER_PHONE_ERROR, payload: false });
-  } else {
-    dispatch({ type: actionType.USER_PHONE_ERROR, payload: true });
+export const createNewUser = () => (dispatch, getState) => {
+  const data = getState().user;
+  const { name, email, password, confirmPassword } = data;
+  if (name && email && password && password === confirmPassword) {
+    api
+      .post('/user', { name, email, password })
+      .then((res) => {
+        const { data } = res;
+        dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
+        dispatch({ type: actionType.USER_SUBMIT, payload: data });
+      })
+      .catch((err) => console.log(err));
   }
 };
 
-//on progress
-export const createNewUser = () => (dispatch, getState) => {
-  const data = getState().user;
-  console.log(data);
+export const userLogin = () => (dispatch, getState) => {
+  const { email, password } = getState().user;
+  api
+    .post('/user/login', { email, password })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 };
 
 export const userSpotify = (url) => ({ type: actionType.USER_SPOTIFY, payload: url });

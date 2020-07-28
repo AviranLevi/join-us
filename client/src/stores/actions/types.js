@@ -13,6 +13,7 @@ export const USER_YOUTUBE = 'USER_YOUTUBE';
 export const USER_WEBSITE = 'USER_WEBSITE';
 export const USER_LOG_IN = 'USER_LOG_IN';
 export const USER_LOG_OUT = 'USER_LOG_OUT';
+export const USER_SUBMIT = 'USER_SUBMIT';
 
 //project
 export const TRACK_DATA = 'TRACK_DATA';

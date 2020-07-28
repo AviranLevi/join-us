@@ -10,6 +10,7 @@ import Button from '../../../components/button/Button';
 
 const NewProject = (props) => {
   const { user, features, project } = props;
+  console.log(project);
   if (!user.loggedIn) {
     return <Redirect to='/home/login' />;
   }

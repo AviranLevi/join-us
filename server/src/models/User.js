@@ -11,11 +11,8 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
+    required: true,
     validate: [isEmail, 'Email is invalid'],
-  },
-  phone: {
-    type: String,
-    validate: [isMobilePhone, 'Phone is invalid'],
   },
   password: {
     type: String,

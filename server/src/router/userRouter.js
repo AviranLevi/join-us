@@ -4,6 +4,7 @@ import * as routes from './routes/userRoutes';
 const router = express.Router();
 
 router.post('/', routes.createUser);
+router.post('/login', routes.userLogin);
 router.get('/:id', routes.getUser);
 router.patch('/:id', routes.updateUser);
 router.delete('/:id', routes.deleteUser);

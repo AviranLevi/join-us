@@ -2,7 +2,7 @@ export {
   userName,
   userEmail,
   userPassword,
-  userPhone,
+  userConfirmPassword,
   userSpotify,
   userInstagram,
   userTiktok,
@@ -11,6 +11,7 @@ export {
   userWebsite,
   createNewUser,
   getUserProjects,
+  userLogin,
   userLogout,
 } from './user';
 

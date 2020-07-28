@@ -15,6 +15,17 @@ export const createUser = async (req, res, next) => {
 };
 
 //READ
+export const userLogin = async (req, res, next) => {
+  try {
+    const result = await service.userLogin(req.body);
+    res.status(OK).json(result);
+    next();
+  } catch (error) {
+    res.status(ERR).json(error);
+    throw error;
+  }
+};
+
 export const getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
