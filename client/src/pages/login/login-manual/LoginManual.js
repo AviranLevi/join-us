@@ -10,7 +10,7 @@ const LoginManual = (props) => (
     <div className='login-box'>
       <Title text='Login' classes='bold-black-text login-title' />
       <Input title='Email' classes='username-input' changeAction={props.userEmail} />
-      <Input title='Password' classes='pass-input' changeAction={props.userPassword} />
+      <Input title='Password' type='password' classes='pass-input' changeAction={props.userPassword} />
       <Button text='Login' classes='bold-black-text login-btn rounded-border' action={props.userLogin} />
     </div>
   </div>

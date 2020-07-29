@@ -1,11 +1,9 @@
-// require('cookie-parser')
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import router from './router';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import passport from 'passport';
-require('./config/passport');
+import bodyParser from 'body-parser';
 
 const app = express();
 const { env } = process;
@@ -18,8 +16,10 @@ const options = {
 };
 
 mongoose.connect(url, options).then(() => console.log('DB Connected'));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(cors());
 
 app.use('/api', router);

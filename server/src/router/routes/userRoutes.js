@@ -19,10 +19,11 @@ export const createUser = async (req, res, next) => {
 export const userLogin = async (req, res, next) => {
   try {
     if (req.isAuthenticated()) {
-      const { _id, email } = req.user;
+      const user = req.user;
+      const { _id } = user;
       const token = JWT.signToken(_id);
       res.cookie('access_token', token, { httpOnly: true, sameSite: true });
-      res.status(OK).json({ isAuthenticated: true, user: { email } });
+      res.status(OK).json({ isAuthenticated: true, user });
     }
     next();
   } catch (error) {
