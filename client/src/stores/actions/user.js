@@ -71,8 +71,9 @@ export const createNewUser = () => (dispatch, getState) => {
       .post('/user', { name, email, password })
       .then((res) => {
         const { data } = res;
+        console.log(data);
         dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
-        dispatch({ type: actionType.USER_SUBMIT, payload: data });
+        // dispatch({ type: actionType.USER_SUBMIT, payload: data });
       })
       .catch((err) => console.log(err));
   }

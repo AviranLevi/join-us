@@ -1,26 +1,23 @@
-import * as db from '../db/userDB';
-import bcrypt from 'bcryptjs';
+import * as db from '../db/user';
 
 //CREATE
 export const createUser = async (data) => {
   try {
-    const response = await db.createUser(data);
-    return response;
+    const user = await db.createUser(data);
+    return user;
   } catch (error) {
     throw error;
   }
 };
 
 //READ
-export const getUserByEmail = async (data) => {
+export const getUserByEmail = async (email) => {
   try {
-    const { email } = data;
-    console.log(password);
-    const user = await db.getUserByEmail(email, password);
+    const user = await db.getUserByEmail(email);
     if (user) {
       return user;
     }
-    return 'USER NOT FOUND';
+    return false;
   } catch (error) {
     throw error;
   }

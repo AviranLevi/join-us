@@ -4,7 +4,7 @@ import moment from 'moment';
 const Schema = mongoose.Schema;
 const currentDate = moment().format('MMM Do YYYY');
 
-const projectSchema = new Schema({
+const ProjectSchema = new Schema({
   trackTitle: {
     type: String,
     required: [true, `Song's Title is missing`],
@@ -61,4 +61,4 @@ const projectSchema = new Schema({
   },
 });
 
-export default mongoose.model('project', projectSchema);
+export default mongoose.model('Project', ProjectSchema);

@@ -3,8 +3,9 @@ import { isEmail } from 'validator';
 import bcrypt from 'bcryptjs';
 
 const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: [true, `User name is required`],
@@ -26,15 +27,13 @@ const userSchema = new Schema({
   profileImage: {
     type: String,
   },
-  projects: {
-    type: [String],
-  },
+  projects: [{ type: ObjectId, ref: 'Project' }],
   socialMedia: {
     type: [String],
   },
 });
 
-userSchema.pre('save', function (next) {
+UserSchema.pre('save', function (next) {
   if (!this.isModified('password')) return next();
 
   bcrypt.hash(this.password, 10, (err, passHash) => {
@@ -44,7 +43,7 @@ userSchema.pre('save', function (next) {
   });
 });
 
-userSchema.methods.comparePassword = function (password, cb) {
+UserSchema.methods.comparePassword = function (password, cb) {
   bcrypt.compare(password, this.password, (err, isMatch) => {
     if (err) {
       return cb(err);
@@ -57,4 +56,4 @@ userSchema.methods.comparePassword = function (password, cb) {
   });
 };
 
-export default mongoose.model('user', userSchema);
+export default mongoose.model('User', UserSchema);

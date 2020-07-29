@@ -1,6 +1,7 @@
 import * as service from '../../services/userService';
 import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
+import * as JWT from '../../utils/jwt';
 
 //CREATE
 export const createUser = async (req, res, next) => {
@@ -17,11 +18,12 @@ export const createUser = async (req, res, next) => {
 //READ
 export const userLogin = async (req, res, next) => {
   try {
-    console.log(req);
     if (req.isAuthenticated()) {
-      console.log(req.user);
+      const { _id, email } = req.user;
+      const token = JWT.signToken(_id);
+      res.cookie('access_token', token, { httpOnly: true, sameSite: true });
+      res.status(OK).json({ isAuthenticated: true, user: { email } });
     }
-    // res.status(OK).json(result);
     next();
   } catch (error) {
     res.status(ERR).json(error);

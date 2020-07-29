@@ -1,7 +1,12 @@
 import jwt from 'jsonwebtoken';
 const { env } = process;
 
-export const createToken = (data) =>
-  jwt.sign(data, env.PRIVATE_KEY, {
-    expiresIn: 60 * 120,
-  });
+export const signToken = (userId) =>
+  jwt.sign(
+    {
+      iss: 'JoinUs',
+      sub: userId,
+    },
+    env.JWT_KEY,
+    { expiresIn: '1d' }
+  );

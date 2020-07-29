@@ -1,8 +1,12 @@
 import express from 'express';
 import * as routes from './routes/userRoutes';
+import jwt from 'jsonwebtoken';
 import passport from 'passport';
+import passportConfig from '../config/passport';
 
 const router = express.Router();
+// const passport = require('passport');
+// const passportConfig = require('../config/passport');
 
 router.post('/', routes.createUser);
 router.post('/login', passport.authenticate('local', { session: false }), routes.userLogin);

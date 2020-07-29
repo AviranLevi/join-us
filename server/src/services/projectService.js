@@ -1,4 +1,4 @@
-import * as db from '../db/projectDB';
+import * as db from '../db/project';
 import { getSpotifyTrack } from './api/spotifyAPI';
 
 //CREATE

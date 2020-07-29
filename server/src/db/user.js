@@ -1,26 +1,26 @@
 import User from '../models/User';
+import { dbResponses } from '../constant';
 
 export const createUser = async (data) => {
   try {
-    const user = new User(data);
-    await user.save();
-    return user;
+    const { email } = data;
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return dbResponses.alreadyExists;
+    } else {
+      const user = new User(data);
+      user.save();
+      return user;
+    }
   } catch (error) {
     throw error;
   }
 };
 
-export const getUserByEmail = async (email, password) => {
+export const getUserByEmail = async (email) => {
   try {
-    const user = await User.findOne({ email }, (err, user) => {
-      if (err) return err;
-      if (!user) return 'USER NOT FOUND';
-      user.comparePassword(password, (data) => data);
-    });
-    if (user) {
-      return user;
-    }
-    return 'USER_NOT_FOUND';
+    const user = await User.findOne({ email });
+    return user;
   } catch (error) {
     throw error;
   }
