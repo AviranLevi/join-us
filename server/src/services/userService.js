@@ -11,18 +11,6 @@ export const createUser = async (data) => {
 };
 
 //READ
-export const getUserByEmail = async (email) => {
-  try {
-    const user = await db.getUserByEmail(email);
-    if (user) {
-      return user;
-    }
-    return false;
-  } catch (error) {
-    throw error;
-  }
-};
-
 export const getUser = async (id) => {
   try {
     const response = await db.getUser(id);

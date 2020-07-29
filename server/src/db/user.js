@@ -17,15 +17,6 @@ export const createUser = async (data) => {
   }
 };
 
-export const getUserByEmail = async (email) => {
-  try {
-    const user = await User.findOne({ email });
-    return user;
-  } catch (error) {
-    throw error;
-  }
-};
-
 export const getUser = (id) => {
   try {
     const user = User.find({ id });
