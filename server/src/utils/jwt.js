@@ -8,5 +8,5 @@ export const signToken = (userId) =>
       sub: userId,
     },
     env.JWT_KEY,
-    { expiresIn: '1d' }
+    { expiresIn: '24h' }
   );

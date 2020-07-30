@@ -21,7 +21,15 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.USER_LOG_IN:
-      return { ...state, loggedIn: true };
+      const { payload } = action;
+      return {
+        ...state,
+        loggedIn: true,
+        id: payload._id,
+        name: payload.name,
+        email: payload.email,
+        projects: payload.projects,
+      };
 
     case actionType.USER_NAME:
       return { ...state, name: action.payload };

@@ -2,13 +2,13 @@ import * as db from '../db/project';
 import { getSpotifyTrack } from './api/spotifyAPI';
 
 //CREATE
-export const createProject = async (urls) => {
+export const createProject = async (data) => {
   try {
-    const { spotify } = urls;
+    const { id, spotify } = data;
     if (spotify) {
       const trackData = await getSpotifyTrack(spotify);
       if (trackData) {
-        const projectToDB = Object.assign(urls, trackData, { userId: 'test' });
+        const projectToDB = Object.assign(data, trackData, { userId: id });
         const projectFromDB = await db.createProject(projectToDB);
         return projectFromDB;
       }

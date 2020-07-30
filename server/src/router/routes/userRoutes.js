@@ -3,7 +3,6 @@ import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
 import * as JWT from '../../utils/jwt';
 
-//CREATE
 export const createUser = async (req, res, next) => {
   try {
     const result = await service.createUser(req.body);
@@ -15,8 +14,7 @@ export const createUser = async (req, res, next) => {
   }
 };
 
-//READ
-export const userLogin = async (req, res, next) => {
+export const userLogin = (req, res, next) => {
   try {
     if (req.isAuthenticated()) {
       const user = req.user;
@@ -32,6 +30,16 @@ export const userLogin = async (req, res, next) => {
   }
 };
 
+export const userLogout = (req, res, next) => {
+  try {
+    res.clearCookie('access_token');
+    res.status(OK).json({ user: {}, success: true });
+    next();
+  } catch (error) {
+    res.status(ERR).json({ message: error.message, success: false });
+  }
+};
+
 export const getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -39,12 +47,12 @@ export const getUser = async (req, res, next) => {
     res.status(OK).json(result);
     next();
   } catch (error) {
+    console.log('error', error);
     res.status(ERR).json(error);
     throw error;
   }
 };
 
-//UPDATE
 export const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -57,7 +65,6 @@ export const updateUser = async (req, res, next) => {
   }
 };
 
-//DELETE
 export const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;

@@ -83,7 +83,17 @@ export const userLogin = () => (dispatch, getState) => {
   const { email, password } = getState().user;
   api
     .post('/user/login', { email, password })
-    .then((res) => console.log(res))
+    .then((res) => {
+      dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
+      const { data } = res;
+      const { isAuthenticated, user } = data;
+      if (isAuthenticated) {
+        console.log(user);
+        dispatch({ type: actionType.USER_LOG_IN, payload: user });
+        dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
+        dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
+      }
+    })
     .catch((err) => console.log(err));
 };
 

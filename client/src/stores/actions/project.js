@@ -13,10 +13,10 @@ export const getSpotifyLink = (url) => ({
 });
 
 export const getTrackData = () => (dispatch, getState) => {
-  const { project } = getState();
+  const { project, user } = getState();
   const { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website } = project;
-
-  const userProject = { spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
+  const { id } = user;
+  const userProject = { id, spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
 
   if (userProject.spotify) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
