@@ -9,7 +9,8 @@ import ProfileInfo from './profile-info/ProfileInfo';
 
 const Profile = (props) => {
   useEffect(() => {
-    props.getUserProjects(props.id);
+    const { id } = props.match.params;
+    props.getUserProjects(id);
   }, [props.getUserProjects]);
 
   return (

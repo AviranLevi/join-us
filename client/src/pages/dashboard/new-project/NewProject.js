@@ -21,18 +21,22 @@ const NewProject = (props) => {
       <Title text='Put your music release links & your social links here:' classes='bold-text user-new-project-title' />
 
       <div className='music-links center-items'>
-        <UserLinkInput icon={icons.spotify} changeAction={props.getSpotifyLink} />
+        <UserLinkInput value={project.spotify} icon={icons.spotify} changeAction={props.getSpotifyLink} />
         <UserLinkInput
           icon={icons.instagram}
           changeAction={props.getInstagramLink}
           value={project.instagram ? project.instagram : user.instagram}
         />
-        <UserLinkInput icon={icons.appleMusic} changeAction={props.getAppleMusicLink} />
-        <UserLinkInput icon={icons.facebook} changeAction={props.getFacebookLink} />
-        <UserLinkInput icon={icons.deezer} changeAction={props.getDeezerLink} />
-        <UserLinkInput icon={icons.tiktok} changeAction={props.getTiktokLink} />
-        <UserLinkInput icon={icons.youTube} changeAction={props.getYoutubeLink} />
-        <UserLinkInput changeAction={props.getWebsiteLink} />
+        <UserLinkInput value={project.appleMusic} icon={icons.appleMusic} changeAction={props.getAppleMusicLink} />
+        <UserLinkInput
+          value={project.facebook ? project.facebook : user.facebook}
+          icon={icons.facebook}
+          changeAction={props.getFacebookLink}
+        />
+        <UserLinkInput value={project.deezer} icon={icons.deezer} changeAction={props.getDeezerLink} />
+        <UserLinkInput value={project.tiktok} icon={icons.tiktok} changeAction={props.getTiktokLink} />
+        <UserLinkInput value={project.youtube} icon={icons.youTube} changeAction={props.getYoutubeLink} />
+        <UserLinkInput value={project.website ? project.website : user.website} changeAction={props.getWebsiteLink} />
         <UserLinkInput icon={icons.soundcloud} changeAction={props.getSoundCloudLink} />
       </div>
       <Button text='SHOW ME MY PAGE' classes='execute-btn bold-text transition' action={props.getTrackData} />

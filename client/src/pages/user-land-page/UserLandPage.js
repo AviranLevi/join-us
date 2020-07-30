@@ -38,7 +38,7 @@ const UserLandPage = ({ match }) => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    filter: 'blur(50px)',
+    filter: 'blur(50px) saturate(1.5)',
   };
   if (projectDataNotFound) {
     return <Redirect to='/error' />;
