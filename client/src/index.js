@@ -31,7 +31,7 @@ ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <Router>
-        <Route exact path='/'>
+        <Route exact path='*'>
           <Redirect to='/home/dashboard' />
         </Route>
         <Route path='/home' component={App} />

@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
-import { isEmail } from 'validator';
+import moment from 'moment';
 import bcrypt from 'bcryptjs';
+import { isEmail } from 'validator';
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
+const currentDate = moment().format('MMM Do YYYY');
 
 const UserSchema = new Schema({
   name: {
@@ -30,6 +32,10 @@ const UserSchema = new Schema({
   projects: [{ type: ObjectId, ref: 'Project' }],
   socialMedia: {
     type: [String],
+  },
+  createdAt: {
+    type: String,
+    default: currentDate,
   },
 });
 

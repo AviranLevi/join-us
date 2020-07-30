@@ -29,6 +29,7 @@ const rootReducer = (state = initialState, action) => {
         name: payload.name,
         email: payload.email,
         projects: payload.projects,
+        createdAt: payload.createdAt,
       };
 
     case actionType.USER_NAME:
