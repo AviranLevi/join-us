@@ -10,7 +10,7 @@ const UserProjects = (props) => {
 
   useEffect(() => {
     props.getUserProjects(user.id);
-  }, [props.getUserProjects]);
+  }, []);
 
   if (!user.loggedIn) {
     return <Redirect to='/home/login' />;

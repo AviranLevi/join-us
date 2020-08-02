@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { icons } from '../../../../constant/icons';
-import Icon from '../../../../components/icon/icon';
 import ArtistLink from '../../../../components/artist-link/ArtistLink';
 
 const ProfileSocialLinks = (props) => (

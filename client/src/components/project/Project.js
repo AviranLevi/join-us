@@ -8,7 +8,6 @@ import * as joinUsApi from '../../api/joinUsApi';
 
 const Project = ({ songId, title, artists = [], createdDate, coverImage }) => {
   const [copySuccess, setCopySuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [removeProject, setRemoveProject] = useState(false);
   const [removeProjectAnimation, setRemoveProjectAnimation] = useState(false);
   const artistsLength = artists.length;

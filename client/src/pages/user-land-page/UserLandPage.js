@@ -9,7 +9,6 @@ import * as actions from '../../stores/actions';
 
 import Title from '../../components/title/Title';
 import Loading from '../../components/loading/Loading';
-import Logo from '../../components/logo/Logo';
 import AudioPlayer from '../../components/audio-player/AudioPlayer';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));

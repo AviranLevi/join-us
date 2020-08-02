@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Title from '../../../components/title/Title';
 import * as actions from '../../../stores/actions';
 import AccountInput from '../../../components/account-input/AccountInput';
-import Icon from '../../../components/icon/icon';
 import { icons } from '../../../constant/icons';
 import Button from '../../../components/button/Button';
 
