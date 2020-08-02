@@ -18,9 +18,9 @@ const AccountSettings = (props) => {
         <Title text='Private Information' classes='bold-text' />
         <AccountInput title='Name' value={user.name} changeAction={props.userName} edit={features.editUser} />
         <AccountInput title='Email' value={user.email} changeAction={props.userEmail} edit={features.editUser} />
-        <AccountInput type='password' title='Password' value={user.password} edit={features.editUser} />
+        <AccountInput type='file' title='Profile Picture' value={user.profilePicture} edit={features.editUser} />
 
-        <Title text='Your Social Links' classes='bold-text' />
+        {/* <Title text='Your Social Links' classes='bold-text' />
         <AccountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
         <AccountInput
           title='Instagram'
@@ -36,7 +36,7 @@ const AccountSettings = (props) => {
           changeAction={props.userFacebook}
         />
         <AccountInput title='YouTube' value={user.youtube} edit={features.editUser} changeAction={props.userYouTube} />
-        <AccountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} />
+        <AccountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} /> */}
       </div>
 
       <Button text={'Save'} classes='save-profile-btn' disabled={features.editUser} />

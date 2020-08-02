@@ -21,40 +21,10 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.TRACK_DATA:
-      const {
-        _id,
-        spotify,
-        appleMusic,
-        tiktok,
-        youtube,
-        instagram,
-        facebook,
-        deezer,
-        soundcloud,
-        website,
-        trackTitle,
-        coverImage,
-        artists,
-        audioPreview,
-        userId,
-      } = action.payload;
+      const { _id } = action.payload;
       return {
         ...state,
         projectId: _id,
-        spotify,
-        appleMusic,
-        tiktok,
-        youtube,
-        instagram,
-        facebook,
-        deezer,
-        soundcloud,
-        website,
-        coverImage,
-        artists,
-        trackTitle,
-        audioPreview,
-        userId,
       };
     case actionType.SPOTIFY_LINK:
       return { ...state, spotify: action.payload };
@@ -83,6 +53,8 @@ const rootReducer = (state = initialState, action) => {
     case actionType.WEBSITE_LINK:
       return { ...state, website: action.payload };
 
+    case actionType.RESET_PROJECT_STATE:
+      return initialState;
     default:
       return state;
   }

@@ -8,7 +8,7 @@ const Projects = (props) => {
   return (
     <div className='projects center-items fade-in'>
       <Title text={`My Projects`} classes='projects-title bold-text' />
-      {user.projects.map((project) => (
+      {user.projects.reverse().map((project) => (
         <Project
           key={project._id}
           songId={project._id}

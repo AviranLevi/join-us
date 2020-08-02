@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { icons } from '../../constant/icons';
 import * as joinUsAPI from '../../api/joinUsApi';
 import { isEmpty } from '../../utils/general';
+import * as actions from '../../stores/actions';
 
 import Title from '../../components/title/Title';
 import Loading from '../../components/loading/Loading';
@@ -13,10 +14,11 @@ import AudioPlayer from '../../components/audio-player/AudioPlayer';
 
 const ArtistLink = lazy(() => import('../../components/artist-link/ArtistLink'));
 
-const UserLandPage = ({ match }) => {
+const UserLandPage = (props) => {
   const [projectData, setProjectData] = useState({});
   const [projectDataNotFound, setProjectDataNotFound] = useState(false);
-  const id = match.params.id;
+  const id = props.match.params.id;
+
   useEffect(() => {
     const project = async () =>
       joinUsAPI
@@ -31,6 +33,7 @@ const UserLandPage = ({ match }) => {
         .catch((err) => console.log(err));
 
     project();
+    props.resetProjectState();
   }, []);
 
   const backgroundStyle = {
@@ -114,6 +117,10 @@ const UserLandPage = ({ match }) => {
   );
 };
 
-const mapStateToprojectData = (state = {}) => state.project;
+const mapStateToProjectData = (state = {}) => state.project;
 
-export default connect(mapStateToprojectData)(UserLandPage);
+const mapDispatchToProjectData = (dispatch) => ({
+  resetProjectState: () => dispatch(actions.resetProjectState()),
+});
+
+export default connect(mapStateToProjectData, mapDispatchToProjectData)(UserLandPage);

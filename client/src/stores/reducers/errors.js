@@ -12,12 +12,16 @@ const initialState = {
     notFound: false,
     authenticated: false,
   },
+  project: {
+    createError: false,
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.USER_NAME_ERROR:
       return { ...state, signUp: { ...state.signUp, name: action.payload } };
+
     case actionType.USER_EMAIL_ERROR:
       return { ...state, signUp: { ...state.signUp, email: action.payload } };
 

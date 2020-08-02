@@ -23,6 +23,7 @@ export {
   getSoundCloudLink,
   getDeezerLink,
   getWebsiteLink,
+  resetProjectState,
 } from './project';
 
 export {

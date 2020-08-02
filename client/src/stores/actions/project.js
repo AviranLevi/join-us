@@ -17,12 +17,14 @@ export const getTrackData = () => (dispatch, getState) => {
     axios
       .post('/api/project', userProject)
       .then((res) => {
-        const { data } = res;
-        dispatch({ type: actionType.TRACK_DATA, payload: data });
+        dispatch({ type: actionType.TRACK_DATA, payload: res.data });
         dispatch({ type: actionType.REDIRECT });
         dispatch({ type: actionType.TRACK_DATA_LOADING });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        dispatch({ type: actionType.TRACK_DATA_LOADING });
+        dispatch({ type: actionType.TRACK_DATA, payload: {} });
+      });
   }
 };
 
@@ -65,3 +67,8 @@ export const getWebsiteLink = (url) => ({
   type: actionType.WEBSITE_LINK,
   payload: url,
 });
+
+export const resetProjectState = () => (dispatch) => {
+  dispatch({ type: actionType.RESET_PROJECT_STATE });
+  dispatch({ type: actionType.REDIRECT });
+};
