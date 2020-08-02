@@ -8,6 +8,10 @@ const initialState = {
     confirmPassword: false,
     phone: false,
   },
+  login: {
+    notFound: false,
+    authenticated: false,
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -25,6 +29,10 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.USER_PHONE_ERROR:
       return { ...state, signUp: { ...state.signUp, phone: action.payload } };
+
+    case actionType.USER_NOT_FOUND: {
+      return { ...state, login: { ...state.login, notFound: action.payload } };
+    }
 
     default:
       return state;

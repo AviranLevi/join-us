@@ -16,6 +16,7 @@ const initialState = {
   youtube: '',
   website: '',
   createdAt: '',
+  isAuthenticated: false,
 };
 
 const rootReducer = (state = initialState, action) => {

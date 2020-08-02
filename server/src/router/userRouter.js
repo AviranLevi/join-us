@@ -7,7 +7,8 @@ const passportConfig = require('../config/passport');
 
 router.post('/', routes.createUser);
 router.post('/login', passport.authenticate('local', { session: false }), routes.userLogin);
-router.get('/logout', passport.authenticate('jwt', { session: false }, routes.userLogout));
+router.get('/logout', passport.authenticate('jwt', { session: false }), routes.userLogout);
+router.get('/auth', passport.authenticate('jwt', { session: false }), routes.userAuth);
 router.get('/:id', routes.getUser);
 router.patch('/:id', routes.updateUser);
 router.delete('/:id', routes.deleteUser);

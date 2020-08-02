@@ -23,3 +23,8 @@ export const closeSignUpToast = () => ({
 export const editUserInfo = () => ({
   type: actionType.EDIT_USER_INFO,
 });
+
+export const closeErrorToast = () => ({
+  type: actionType.USER_NOT_FOUND,
+  payload: false,
+});

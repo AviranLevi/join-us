@@ -47,7 +47,17 @@ export const getUser = async (req, res, next) => {
     res.status(OK).json(result);
     next();
   } catch (error) {
-    console.log('error', error);
+    res.status(ERR).json(error);
+    throw error;
+  }
+};
+
+export const userAuth = async (req, res, next) => {
+  try {
+    const results = { isAuthenticated: true, user: req.user };
+    res.status(OK).json(results);
+    next();
+  } catch (error) {
     res.status(ERR).json(error);
     throw error;
   }

@@ -6,14 +6,14 @@ import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
 import Icon from '../../components/icon/icon';
 import { icons } from '../../constant/icons';
-import ErrorMessage from '../../components/errorMessage/errorMessage';
+import ErrorMessage from '../../components/error-message/ErrorMessage';
 
 const SignUp = (props) => {
   const { user, errors } = props;
   const { signUp } = errors;
 
   return (
-    <div className='sign-up fade-in rounded-border'>
+    <form className='sign-up fade-in rounded-border' onSubmit={props.createNewUser}>
       <Icon icon={icons.close} classes='close-icon bold-black-text' action={props.closeSignUp} />
       <div className='sign-up-content'>
         <Title text='Signup' classes='bold-text' />
@@ -45,7 +45,7 @@ const SignUp = (props) => {
 
         <Button text='Sign-up' classes='bold-text' action={props.createNewUser} />
       </div>
-    </div>
+    </form>
   );
 };
 

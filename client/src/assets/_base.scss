@@ -37,6 +37,10 @@ a {
   border-radius: 5px;
 }
 
+.error-message {
+  color: $red;
+}
+
 .center-items {
   display: grid;
   justify-items: center;

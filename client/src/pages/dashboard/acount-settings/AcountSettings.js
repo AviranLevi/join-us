@@ -39,7 +39,7 @@ const AcountSettings = (props) => {
         <AcountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} />
       </div>
 
-      <Button text={'Save'} classes='save-profile-btn' disabled={props.editUserInfo} />
+      <Button text={'Save'} classes='save-profile-btn' disabled={features.editUser} />
     </div>
   );
 };

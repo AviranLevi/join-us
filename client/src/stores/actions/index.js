@@ -9,10 +9,7 @@ export {
   userFacebook,
   userYouTube,
   userWebsite,
-  createNewUser,
   getUserProjects,
-  userLogin,
-  userLogout,
 } from './user';
 
 export {
@@ -28,4 +25,13 @@ export {
   getWebsiteLink,
 } from './project';
 
-export { openLoginToast, closeLoginToast, openSignUpToast, closeSignUpToast, editUserInfo } from './feature';
+export {
+  openLoginToast,
+  closeLoginToast,
+  openSignUpToast,
+  closeSignUpToast,
+  editUserInfo,
+  closeErrorToast,
+} from './feature';
+
+export { createNewUser, userLogin, userLogout, userAuthenticated } from './auth';

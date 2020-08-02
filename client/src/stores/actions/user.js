@@ -63,40 +63,6 @@ export const userConfirmPassword = (confirmPassword) => (dispatch, getState) => 
   }
 };
 
-export const createNewUser = () => (dispatch, getState) => {
-  const data = getState().user;
-  const { name, email, password, confirmPassword } = data;
-  if (name && email && password && password === confirmPassword) {
-    api
-      .post('/user', { name, email, password })
-      .then((res) => {
-        const { data } = res;
-        console.log(data);
-        dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
-        // dispatch({ type: actionType.USER_SUBMIT, payload: data });
-      })
-      .catch((err) => console.log(err));
-  }
-};
-
-export const userLogin = () => (dispatch, getState) => {
-  const { email, password } = getState().user;
-  api
-    .post('/user/login', { email, password })
-    .then((res) => {
-      dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
-      const { data } = res;
-      const { isAuthenticated, user } = data;
-      if (isAuthenticated) {
-        console.log(user);
-        dispatch({ type: actionType.USER_LOG_IN, payload: user });
-        dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
-        dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
-      }
-    })
-    .catch((err) => console.log(err));
-};
-
 export const userSpotify = (url) => ({ type: actionType.USER_SPOTIFY, payload: url });
 
 export const userInstagram = (url) => ({ type: actionType.USER_INSTAGRAM, payload: url });
@@ -108,5 +74,3 @@ export const userFacebook = (url) => ({ type: actionType.USER_FACEBOOK, payload:
 export const userYouTube = (url) => ({ type: actionType.USER_YOUTUBE, payload: url });
 
 export const userWebsite = (url) => ({ type: actionType.USER_WEBSITE, payload: url });
-
-export const userLogout = () => ({ type: actionType.USER_LOG_OUT });
