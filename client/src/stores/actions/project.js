@@ -1,11 +1,5 @@
 import axios from 'axios';
 import * as actionType from './types';
-import { apiConfig } from '../../config';
-
-const { url } = apiConfig;
-const api = axios.create({
-  baseURL: url,
-});
 
 export const getSpotifyLink = (url) => ({
   type: actionType.SPOTIFY_LINK,
@@ -20,8 +14,8 @@ export const getTrackData = () => (dispatch, getState) => {
 
   if (userProject.spotify) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
-    api
-      .post('/project', userProject)
+    axios
+      .post('/api/project', userProject)
       .then((res) => {
         const { data } = res;
         dispatch({ type: actionType.TRACK_DATA, payload: data });
@@ -71,12 +65,3 @@ export const getWebsiteLink = (url) => ({
   type: actionType.WEBSITE_LINK,
   payload: url,
 });
-
-export const removeProject = (projectId) => (dispatch) => {
-  api
-    .delete(projectId)
-    .then((res) => {
-      dispatch({ type: actionType.REMOVE_PROJECT, payload: projectId });
-    })
-    .catch((err) => console.log(err));
-};

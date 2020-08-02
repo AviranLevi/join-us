@@ -18,7 +18,7 @@ const Menu = (props) => {
         <Button text={'My Projects'} classes='bold-text transition' />
       </Link>
       <Link to='/home/dashboard/settings'>
-        <Button text='Acount Settings' icon={icons.settings} classes='bold-text transition settings-btn' />
+        <Button text='Account Settings' classes='bold-text transition settings-btn' />
       </Link>
       <Button text='Logout' classes='bold-text transition logout-btn' action={props.logout} />
     </div>

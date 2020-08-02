@@ -10,7 +10,7 @@ import NewProject from './new-project/NewProject';
 import UserProjects from './user-projects/UserProjects';
 import Footer from '../../components/footer/Footer';
 import Profile from './profile/Profile';
-import AcountSettings from './acount-settings/AcountSettings';
+import AccountSettings from './account-settings/AccountSettings';
 
 const Dashboard = (props) => {
   useEffect(() => {
@@ -28,7 +28,7 @@ const Dashboard = (props) => {
             <Route exact path='/home/dashboard' component={UserProjects} />
             <Route exact path='/home/profile/:id' component={Profile} />
             <Route exact path='/home/dashboard/new-project' component={NewProject} />
-            <Route exact path='/home/dashboard/settings' component={AcountSettings} />
+            <Route exact path='/home/dashboard/settings' component={AccountSettings} />
           </Switch>
         </div>
       </div>

@@ -1,17 +1,10 @@
 import axios from 'axios';
 import validator from 'validator';
 import * as actionType from './types';
-import { apiConfig } from '../../config';
-
-const { url } = apiConfig;
-
-const api = axios.create({
-  baseURL: url,
-});
 
 export const getUserProjects = (userId) => (dispatch) => {
-  api
-    .get(`/project/user/${userId}`)
+  axios
+    .get(`/api/project/user/${userId}`)
     .then((res) => {
       const { data } = res;
       dispatch({ type: actionType.USER_PROJECTS, payload: data });

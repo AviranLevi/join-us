@@ -1,24 +1,18 @@
 import axios from 'axios';
 import * as actionType from './types';
-import { apiConfig } from '../../config';
-
-const { url } = apiConfig;
-
-const api = axios.create({
-  baseURL: url,
-});
 
 export const createNewUser = () => (dispatch, getState) => {
   const data = getState().user;
   const { name, email, password, confirmPassword } = data;
   if (name && email && password && password === confirmPassword) {
-    api
-      .post('/user', { name, email, password })
+    axios
+      .post('/api/user', { name, email, password })
       .then((res) => {
         const { data } = res;
-        console.log(data);
-        dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
-        // dispatch({ type: actionType.USER_SUBMIT, payload: data });
+        if (data) {
+          dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
+          dispatch({ type: actionType.OPEN_LOGIN_TOAST, payload: true });
+        }
       })
       .catch((err) => console.log(err));
   }
@@ -26,8 +20,8 @@ export const createNewUser = () => (dispatch, getState) => {
 
 export const userLogin = () => (dispatch, getState) => {
   const { email, password } = getState().user;
-  api
-    .post('/user/login', { email, password })
+  axios
+    .post('/api/user/login', { email, password })
     .then((res) => {
       dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
       const { data } = res;
@@ -44,18 +38,26 @@ export const userLogin = () => (dispatch, getState) => {
 };
 
 export const userLogout = () => (dispatch) => {
-  api
-    .get('/user/logout')
-    .then((res) => console.log(res))
+  axios
+    .get('/api/user/logout')
+    .then((res) => {
+      const { data } = res;
+      const { user } = data;
+      dispatch({ type: actionType.USER_LOG_OUT, payload: user });
+      dispatch({ type: actionType.USER_LOG_OUT });
+    })
     .catch((err) => console.log(err));
 };
 
 export const userAuthenticated = () => (dispatch) => {
-  api
-    .get('/user/auth')
+  axios
+    .get('/api/user/auth')
     .then((res) => {
       if (res.status !== 401) {
-        console.log(res);
+        const { data } = res;
+        const { user } = data;
+        dispatch({ type: actionType.USER_LOG_IN, payload: user });
+        dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
       }
       return { isAuthenticated: false, user: {} };
     })

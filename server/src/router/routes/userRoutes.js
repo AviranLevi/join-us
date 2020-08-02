@@ -7,7 +7,6 @@ export const createUser = async (req, res, next) => {
   try {
     const result = await service.createUser(req.body);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -21,9 +20,9 @@ export const userLogin = (req, res, next) => {
       const { _id } = user;
       const token = JWT.signToken(_id);
       res.cookie('access_token', token, { httpOnly: true, sameSite: true });
+      console.log('USER LOGIN', _id);
       res.status(OK).json({ isAuthenticated: true, user });
     }
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -34,7 +33,6 @@ export const userLogout = (req, res, next) => {
   try {
     res.clearCookie('access_token');
     res.status(OK).json({ user: {}, success: true });
-    next();
   } catch (error) {
     res.status(ERR).json({ message: error.message, success: false });
   }
@@ -45,7 +43,6 @@ export const getUser = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.getUser(id);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -56,7 +53,6 @@ export const userAuth = async (req, res, next) => {
   try {
     const results = { isAuthenticated: true, user: req.user };
     res.status(OK).json(results);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -68,7 +64,6 @@ export const updateUser = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.updateUser(id, req.body);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -80,7 +75,6 @@ export const deleteUser = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.deleteUser(id);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;

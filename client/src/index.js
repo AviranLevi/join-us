@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 //components
 import App from './App';
@@ -30,11 +30,11 @@ ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <Router>
-        <Route exact path='*'>
-          <Redirect to='/home/dashboard' />
-        </Route>
-        <Route path='/home' component={App} />
-        <Route exact path='/project/:id' render={({ match }) => <UserLandPage match={match} />} />
+        <Switch>
+          <Route exact path='/project/:id' render={({ match }) => <UserLandPage match={match} />} />
+          <Route path='/home' component={App} />
+          <Redirect from='*' to='/home/dashboard' />
+        </Switch>
       </Router>
     </React.StrictMode>
   </Provider>,

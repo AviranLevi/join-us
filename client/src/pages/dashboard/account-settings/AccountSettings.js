@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Title from '../../../components/title/Title';
 import * as actions from '../../../stores/actions';
-import AcountInput from '../../../components/acount-input/AcountInput';
+import AccountInput from '../../../components/account-input/AccountInput';
 import Icon from '../../../components/icon/icon';
 import { icons } from '../../../constant/icons';
 import Button from '../../../components/button/Button';
 
-const AcountSettings = (props) => {
+const AccountSettings = (props) => {
   const { user, features } = props;
   return (
     <div className='acount-settings fade-in'>
@@ -16,27 +16,27 @@ const AcountSettings = (props) => {
 
       <div className='acount-info'>
         <Title text='Private Information' classes='bold-text' />
-        <AcountInput title='Name' value={user.name} changeAction={props.userName} edit={features.editUser} />
-        <AcountInput title='Email' value={user.email} changeAction={props.userEmail} edit={features.editUser} />
-        <AcountInput type='password' title='Password' value={user.password} edit={features.editUser} />
+        <AccountInput title='Name' value={user.name} changeAction={props.userName} edit={features.editUser} />
+        <AccountInput title='Email' value={user.email} changeAction={props.userEmail} edit={features.editUser} />
+        <AccountInput type='password' title='Password' value={user.password} edit={features.editUser} />
 
         <Title text='Your Social Links' classes='bold-text' />
-        <AcountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
-        <AcountInput
+        <AccountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
+        <AccountInput
           title='Instagram'
           value={user.instagram}
           edit={features.editUser}
           changeAction={props.userInstagram}
         />
-        <AcountInput title='TikTok' value={user.tiktok} edit={features.editUser} changeAction={props.userTiktok} />
-        <AcountInput
+        <AccountInput title='TikTok' value={user.tiktok} edit={features.editUser} changeAction={props.userTiktok} />
+        <AccountInput
           title='Facebook'
           value={user.facebook}
           edit={features.editUser}
           changeAction={props.userFacebook}
         />
-        <AcountInput title='YouTube' value={user.youtube} edit={features.editUser} changeAction={props.userYouTube} />
-        <AcountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} />
+        <AccountInput title='YouTube' value={user.youtube} edit={features.editUser} changeAction={props.userYouTube} />
+        <AccountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} />
       </div>
 
       <Button text={'Save'} classes='save-profile-btn' disabled={features.editUser} />
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch) => ({
   editUserInfo: () => dispatch(actions.editUserInfo()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AcountSettings);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountSettings);

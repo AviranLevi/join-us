@@ -13,7 +13,7 @@ const SignUp = (props) => {
   const { signUp } = errors;
 
   return (
-    <form className='sign-up fade-in rounded-border' onSubmit={props.createNewUser}>
+    <div className='sign-up fade-in rounded-border' onSubmit={props.createNewUser}>
       <Icon icon={icons.close} classes='close-icon bold-black-text' action={props.closeSignUp} />
       <div className='sign-up-content'>
         <Title text='Signup' classes='bold-text' />
@@ -45,7 +45,7 @@ const SignUp = (props) => {
 
         <Button text='Sign-up' classes='bold-text' action={props.createNewUser} />
       </div>
-    </form>
+    </div>
   );
 };
 

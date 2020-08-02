@@ -67,7 +67,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, projects };
 
     case actionType.USER_LOG_OUT:
-      return state;
+      return initialState;
 
     default:
       return state;

@@ -7,7 +7,6 @@ export const createProject = async (req, res, next) => {
   try {
     const result = await service.createProject(req.body);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -20,7 +19,6 @@ export const getProject = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.getProject(id);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -32,7 +30,6 @@ export const getUserProjects = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.getUserProjects(id);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -45,7 +42,6 @@ export const updateProject = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.updateProject(id, req.body);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
@@ -58,7 +54,6 @@ export const deleteProject = async (req, res, next) => {
     const { id } = req.params;
     const result = await service.deleteProject(id);
     res.status(OK).json(result);
-    next();
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
