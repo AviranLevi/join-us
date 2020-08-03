@@ -12,6 +12,17 @@ export const getUserProjects = (userId) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+export const uploadImage = (file) => (dispatch) => {
+  if (file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    axios
+      .post('/api/user/image', formData, {})
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
+};
+
 export const userName = (name) => (dispatch) => {
   dispatch({ type: actionType.USER_NAME, payload: name });
   const nameIsValid = validator.isLength(name, { min: 3, max: 20 });

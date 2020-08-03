@@ -1,10 +1,24 @@
 import * as db from '../db/user';
+import cloudinary from 'cloudinary';
+import { cloudinaryINFO } from '../config';
 
 //CREATE
 export const createUser = async (data) => {
   try {
-    const user = await db.createUser(data);
+    const { email } = data;
+    const extractUserName = email.split('@');
+    const userName = extractUserName[0];
+    const userToDB = Object.assign({ userName }, data);
+    const user = await db.createUser(userToDB);
     return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const uploadImage = async (file) => {
+  try {
+    //upload using cloudinary api
   } catch (error) {
     throw error;
   }

@@ -15,6 +15,7 @@ export const USER_LOG_IN = 'USER_LOG_IN';
 export const USER_LOG_OUT = 'USER_LOG_OUT';
 export const USER_SUBMIT = 'USER_SUBMIT';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
+export const USER_IMAGE_UPLOAD = 'USER_IMAGE_UPLOAD';
 
 //project
 export const TRACK_DATA = 'TRACK_DATA';

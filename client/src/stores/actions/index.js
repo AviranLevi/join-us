@@ -10,6 +10,7 @@ export {
   userYouTube,
   userWebsite,
   getUserProjects,
+  uploadImage,
 } from './user';
 
 export {

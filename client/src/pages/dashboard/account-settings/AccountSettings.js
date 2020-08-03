@@ -17,7 +17,13 @@ const AccountSettings = (props) => {
         <Title text='Private Information' classes='bold-text' />
         <AccountInput title='Name' value={user.name} changeAction={props.userName} edit={features.editUser} />
         <AccountInput title='Email' value={user.email} changeAction={props.userEmail} edit={features.editUser} />
-        <AccountInput type='file' title='Profile Picture' value={user.profilePicture} edit={features.editUser} />
+        <AccountInput
+          type='file'
+          title='Profile Picture'
+          value={user.profilePicture}
+          edit={features.editUser}
+          changeAction={props.uploadImage}
+        />
 
         {/* <Title text='Your Social Links' classes='bold-text' />
         <AccountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
@@ -37,7 +43,6 @@ const AccountSettings = (props) => {
         <AccountInput title='YouTube' value={user.youtube} edit={features.editUser} changeAction={props.userYouTube} />
         <AccountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} /> */}
       </div>
-
       <Button text={'Save'} classes='save-profile-btn' disabled={features.editUser} />
     </div>
   );
@@ -49,12 +54,13 @@ const mapDispatchToProps = (dispatch) => ({
   userName: (e) => dispatch(actions.userName(e.target.value)),
   userEmail: (e) => dispatch(actions.userEmail(e.target.value)),
   userPassword: (e) => dispatch(actions.userPassword(e.target.value)),
-  userSpotify: (e) => dispatch(actions.userSpotify(e.target.value)),
-  userInstagram: (e) => dispatch(actions.userInstagram(e.target.value)),
-  userTiktok: (e) => dispatch(actions.userTiktok(e.target.value)),
-  userFacebook: (e) => dispatch(actions.userFacebook(e.target.value)),
-  userYouTube: (e) => dispatch(actions.userYouTube(e.target.value)),
-  userWebsite: (e) => dispatch(actions.userWebsite(e.target.value)),
+  uploadImage: (e) => dispatch(actions.uploadImage(e.target.files[0])),
+  // userSpotify: (e) => dispatch(actions.userSpotify(e.target.value)),
+  // userInstagram: (e) => dispatch(actions.userInstagram(e.target.value)),
+  // userTiktok: (e) => dispatch(actions.userTiktok(e.target.value)),
+  // userFacebook: (e) => dispatch(actions.userFacebook(e.target.value)),
+  // userYouTube: (e) => dispatch(actions.userYouTube(e.target.value)),
+  // userWebsite: (e) => dispatch(actions.userWebsite(e.target.value)),
   editUserInfo: () => dispatch(actions.editUserInfo()),
 });
 

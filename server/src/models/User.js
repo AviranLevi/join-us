@@ -8,6 +8,12 @@ const ObjectId = Schema.Types.ObjectId;
 const currentDate = moment().format('MMM Do YYYY');
 
 const UserSchema = new Schema({
+  userName: {
+    type: String,
+    required: [true, `User name is required`],
+    minlength: 3,
+    maxlength: 30,
+  },
   name: {
     type: String,
     required: [true, `User name is required`],
