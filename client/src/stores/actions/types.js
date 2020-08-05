@@ -16,6 +16,7 @@ export const USER_LOG_OUT = 'USER_LOG_OUT';
 export const USER_SUBMIT = 'USER_SUBMIT';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const USER_IMAGE_UPLOAD = 'USER_IMAGE_UPLOAD';
+export const USER_ALREADY_EXISTS = 'USER_ALREADY_EXISTS';
 
 //project//
 //music

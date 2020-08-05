@@ -7,6 +7,7 @@ const initialState = {
     password: false,
     confirmPassword: false,
     phone: false,
+    alreadyExists: false,
   },
   login: {
     notFound: false,
@@ -46,6 +47,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.USER_NOT_FOUND:
       return { ...state, login: { ...state.login, notFound: action.payload } };
+
+    case actionType.USER_ALREADY_EXISTS:
+      return { ...state, signUp: { ...state.signUp, alreadyExists: action.payload } };
 
     case actionType.SPOTIFY_LINK_ERROR:
       return { ...state, project: { ...state.project, spotify: action.payload } };

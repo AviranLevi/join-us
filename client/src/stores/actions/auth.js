@@ -9,8 +9,12 @@ export const createNewUser = () => (dispatch, getState) => {
       .post('/api/user', { name, email, password })
       .then((res) => {
         const { data } = res;
-        if (data) {
+        const { error } = data;
+        if (error) {
+          dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: true });
+        } else {
           dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
+          dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: false });
           dispatch({ type: actionType.OPEN_LOGIN_TOAST, payload: true });
         }
       })
@@ -30,6 +34,9 @@ export const userLogin = () => (dispatch, getState) => {
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
+      }
+      if (data.error) {
+        dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: true });
       }
     })
     .catch((err) => {

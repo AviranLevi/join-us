@@ -43,6 +43,8 @@ const SignUp = (props) => {
           {signUp.confirmPassword ? <ErrorMessage message='*Passwords are not matched' /> : null}
         </div>
 
+        {signUp.alreadyExists ? <ErrorMessage message='User already exists, please try again' /> : null}
+
         <Button text='Sign-up' classes='bold-text transition' action={props.createNewUser} />
       </div>
     </div>
