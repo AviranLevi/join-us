@@ -15,7 +15,7 @@ const MusicLinks = (props) => {
 
       <div className='music-link center-items'>
         <UserLinkInput value={musicLinks.spotify} icon={icons.spotify} changeAction={props.spotifyLink} />
-        {errors.project.spotify ? <ErrorMessage classes='link-error' message='Spotify link required!' /> : null}
+        {errors.project.spotify ? <ErrorMessage classes='link-error' message='Valid Spotify link required!' /> : null}
       </div>
 
       <div className='music-link center-items'>

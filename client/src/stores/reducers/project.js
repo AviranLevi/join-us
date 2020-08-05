@@ -46,6 +46,9 @@ const rootReducer = (state = initialState, action) => {
     case actionType.YOUTUBE_LINK:
       return { ...state, musicLinks: { ...state.musicLinks, youtube: action.payload } };
 
+    case actionType.TIDAL_LINK:
+      return { ...state, musicLinks: { ...state.musicLinks, tidal: action.payload } };
+
     case actionType.TIKTOK_LINK:
       return { ...state, socialLinks: { ...state.socialLinks, tiktok: action.payload } };
 

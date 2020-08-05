@@ -39,6 +39,9 @@ const ProjectSchema = new Schema({
   soundcloud: {
     type: String,
   },
+  tidal: {
+    type: String,
+  },
   instagram: {
     type: String,
   },
@@ -58,6 +61,9 @@ const ProjectSchema = new Schema({
   createdAt: {
     type: String,
     default: currentDate,
+  },
+  updatedAt: {
+    type: String,
   },
 });
 

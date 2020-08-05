@@ -21,17 +21,17 @@ const SocialLinks = (props) => {
       </div>
 
       <div className='social-link center-items'>
-        <UserLinkInput icon={icons.facebook} changeAction={props.facebookLink} />
+        <UserLinkInput value={socialLinks.facebook} icon={icons.facebook} changeAction={props.facebookLink} />
         {errors.project.facebook ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
 
       <div className='social-link center-items'>
-        <UserLinkInput value={project.tiktok} icon={icons.tiktok} changeAction={props.tiktokLink} />
+        <UserLinkInput value={socialLinks.tiktok} icon={icons.tiktok} changeAction={props.tiktokLink} />
         {errors.project.tiktok ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
 
       <div className='social-link center-items'>
-        <UserLinkInput value={project.website ? project.website : user.website} changeAction={props.websiteLink} />
+        <UserLinkInput value={socialLinks.website} changeAction={props.websiteLink} />
         {errors.project.website ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
     </div>

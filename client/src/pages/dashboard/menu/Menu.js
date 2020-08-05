@@ -9,7 +9,7 @@ const Menu = (props) => {
   return (
     <div className='menu slide-from-left'>
       <Link to='/home/dashboard/new-project'>
-        <Button text='New Page' icon={icons.create} classes='bold-text transition' />
+        <Button text='Create New Page' classes='bold-text transition new-project-btn' />
       </Link>
       <Link to={`/home/profile/${props.user.id}`}>
         <Button text='My Profile' classes='bold-text transition' />

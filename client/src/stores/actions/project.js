@@ -1,15 +1,30 @@
 import axios from 'axios';
 import validator from 'validator';
 import * as actionType from './types';
+import { findErrors } from '../../utils/general';
 
 export const getTrackData = () => (dispatch, getState) => {
   const { project, user, errors } = getState();
-  const { spotify, appleMusic, youtube, soundcloud, deezer } = project.musicLinks;
+  const { spotify, appleMusic, youtube, soundcloud, deezer, tidal } = project.musicLinks;
   const { tiktok, instagram, facebook, website } = project.socialLinks;
   const { id } = user;
-  const userProject = { id, spotify, appleMusic, tiktok, youtube, instagram, facebook, soundcloud, deezer, website };
+  const userProject = {
+    id,
+    spotify,
+    appleMusic,
+    tiktok,
+    youtube,
+    instagram,
+    facebook,
+    soundcloud,
+    deezer,
+    website,
+    tidal,
+  };
+
   const noErrors = findErrors(errors.project);
 
+  console.log(userProject);
   if (userProject.spotify && noErrors) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
     axios
@@ -132,13 +147,4 @@ export const getTidalLink = (url) => (dispatch) => {
 export const resetProjectState = () => (dispatch) => {
   dispatch({ type: actionType.RESET_PROJECT_STATE });
   dispatch({ type: actionType.REDIRECT });
-};
-
-const findErrors = (errorsObj) => {
-  const errors = Object.keys(errorsObj).map((key) => (errorsObj[key] ? true : false));
-  const err = errors.find((error) => error);
-  if (err) {
-    return false;
-  }
-  return true;
 };
