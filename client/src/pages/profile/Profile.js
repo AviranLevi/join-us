@@ -6,6 +6,7 @@ import { icons } from '../../constant/icons';
 import Icon from '../../components/icon/icon';
 import ProfileSocialLinks from './profile-social-links/ProfileSocialLinks';
 import ProfileInfo from './profile-info/ProfileInfo';
+import { Redirect } from 'react-router-dom';
 
 const Profile = (props) => {
   useEffect(() => {
@@ -13,6 +14,9 @@ const Profile = (props) => {
     props.getUserProjects(id);
   }, [props.getUserProjects]);
 
+  if (!props.loggedIn) {
+    return <Redirect to='/home/login' />;
+  }
   return (
     <div className='profile center-items fade-in'>
       {props.profileImage ? (

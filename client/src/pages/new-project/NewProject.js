@@ -10,7 +10,6 @@ import SocialLinks from './social-links/SocialLinks';
 
 const NewProject = (props) => {
   const { user, features, project } = props;
-  console.log(project);
   if (!user.loggedIn) {
     return <Redirect to='/home/login' />;
   }

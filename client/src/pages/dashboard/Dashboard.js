@@ -17,6 +17,7 @@ const Dashboard = (props) => {
     props.userAuthenticated();
   }, []);
   const { user } = props;
+
   return (
     <div className='home center-items'>
       <Header />
