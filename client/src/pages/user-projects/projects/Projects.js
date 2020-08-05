@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from '../../../../components/title/Title';
-import Project from '../../../../components/project/Project';
+import Title from '../../../components/title/Title';
+import Project from '../../../components/project/Project';
 
 const Projects = (props) => {
   const { user } = props;

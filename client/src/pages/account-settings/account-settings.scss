@@ -1,5 +1,5 @@
 .acount-settings {
-  color: $font-color;
+  color: $title-color;
   text-align: start;
   position: relative;
   display: grid;
@@ -12,7 +12,7 @@
   .edit-profile-btn {
     position: absolute;
     top: 0;
-    color: $font-color;
+    color: $title-color;
     font-size: 40px;
     right: 0;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../../../../components/title/Title';
+import Title from '../../../components/title/Title';
 
 const NoProjects = () => (
   <div className='no-projects fade-in'>

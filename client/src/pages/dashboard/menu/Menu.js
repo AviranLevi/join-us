@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../../stores/actions/';
+import * as actions from '../../../stores/actions';
 import Button from '../../../components/button/Button';
 import { icons } from '../../../constant/icons';
 import { Link } from 'react-router-dom';

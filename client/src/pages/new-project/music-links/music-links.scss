@@ -1,0 +1,21 @@
+.music-links {
+  margin: 10px;
+  grid-gap: 20px;
+
+  h1 {
+    justify-self: start;
+    margin-left: 50px;
+  }
+
+  .music-link {
+    .link-error {
+      justify-self: start;
+      margin: 10px 0 0 50px;
+    }
+    .tidal-icon {
+      height: 30px;
+      width: 30px;
+      margin-left: 2px;
+    }
+  }
+}

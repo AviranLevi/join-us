@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from '../../../components/title/Title';
-import * as actions from '../../../stores/actions';
-import AccountInput from '../../../components/account-input/AccountInput';
-import { icons } from '../../../constant/icons';
-import Button from '../../../components/button/Button';
+import Title from '../../components/title/Title';
+import * as actions from '../../stores/actions';
+import AccountInput from '../../components/account-input/AccountInput';
+import { icons } from '../../constant/icons';
+import Button from '../../components/button/Button';
 
 const AccountSettings = (props) => {
   const { user, features } = props;

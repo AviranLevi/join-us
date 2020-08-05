@@ -6,11 +6,11 @@ import * as actions from '../../stores/actions/';
 import Home from '../home/Home';
 import Header from '../../components/header/Header';
 import Menu from './menu/Menu';
-import NewProject from './new-project/NewProject';
-import UserProjects from './user-projects/UserProjects';
+import NewProject from '../new-project/NewProject';
+import UserProjects from '../user-projects/UserProjects';
 import Footer from '../../components/footer/Footer';
-import Profile from './profile/Profile';
-import AccountSettings from './account-settings/AccountSettings';
+import Profile from '../profile/Profile';
+import AccountSettings from '../account-settings/AccountSettings';
 
 const Dashboard = (props) => {
   useEffect(() => {

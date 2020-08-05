@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../../stores/actions/';
+import * as actions from '../../stores/actions';
 import Projects from './projects/Projects';
 import NoProjects from './no-projects/NoProjects';
 import { Redirect } from 'react-router-dom';

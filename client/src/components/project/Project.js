@@ -33,6 +33,7 @@ const Project = ({ songId, title, artists = [], createdDate, coverImage }) => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    opacity: '0.7',
   };
 
   return (

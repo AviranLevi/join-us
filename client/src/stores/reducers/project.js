@@ -7,15 +7,20 @@ const initialState = {
   artists: [],
   trackTitle: '',
   audioPreview: '',
-  spotify: '',
-  appleMusic: '',
-  tiktok: '',
-  youtube: '',
-  instagram: '',
-  facebook: '',
-  soundcloud: '',
-  deezer: '',
-  website: '',
+  musicLinks: {
+    spotify: '',
+    appleMusic: '',
+    youtube: '',
+    deezer: '',
+    soundcloud: '',
+    tidal: '',
+  },
+  socialLinks: {
+    instagram: '',
+    tiktok: '',
+    facebook: '',
+    website: '',
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -27,34 +32,35 @@ const rootReducer = (state = initialState, action) => {
         projectId: _id,
       };
     case actionType.SPOTIFY_LINK:
-      return { ...state, spotify: action.payload };
+      return { ...state, musicLinks: { ...state.musicLinks, spotify: action.payload } };
 
     case actionType.APPLE_MUSIC_LINK:
-      return { ...state, appleMusic: action.payload };
-
-    case actionType.TIKTOK_LINK:
-      return { ...state, tiktok: action.payload };
-
-    case actionType.YOUTUBE_LINK:
-      return { ...state, youtube: action.payload };
-
-    case actionType.INSTAGRAM_LINK:
-      return { ...state, instagram: action.payload };
-
-    case actionType.FACEBOOK_LINK:
-      return { ...state, facebook: action.payload };
+      return { ...state, musicLinks: { ...state.musicLinks, appleMusic: action.payload } };
 
     case actionType.SOUNDCLOUD_LINK:
-      return { ...state, soundcloud: action.payload };
+      return { ...state, musicLinks: { ...state.musicLinks, soundcloud: action.payload } };
 
     case actionType.DEEZER_LINK:
-      return { ...state, deezer: action.payload };
+      return { ...state, musicLinks: { ...state.musicLinks, deezer: action.payload } };
+
+    case actionType.YOUTUBE_LINK:
+      return { ...state, musicLinks: { ...state.musicLinks, youtube: action.payload } };
+
+    case actionType.TIKTOK_LINK:
+      return { ...state, socialLinks: { ...state.socialLinks, tiktok: action.payload } };
+
+    case actionType.INSTAGRAM_LINK:
+      return { ...state, socialLinks: { ...state.socialLinks, instagram: action.payload } };
+
+    case actionType.FACEBOOK_LINK:
+      return { ...state, socialLinks: { ...state.socialLinks, facebook: action.payload } };
 
     case actionType.WEBSITE_LINK:
-      return { ...state, website: action.payload };
+      return { ...state, socialLinks: { ...state.socialLinks, website: action.payload } };
 
     case actionType.RESET_PROJECT_STATE:
       return initialState;
+
     default:
       return state;
   }

@@ -3,7 +3,6 @@
   width: 100%;
   grid-template-columns: 70% 30%;
   position: relative;
-
   .logo {
     justify-self: start;
     margin-left: 10%;
@@ -20,7 +19,7 @@
     width: 100%;
 
     button {
-      color: $font-color;
+      color: $title-color;
       font-size: 30px;
 
       &:hover {
@@ -35,6 +34,7 @@
       margin: 0 60px;
       width: auto;
       grid-gap: 20px;
+      color: $title-color;
 
       .profile-header-name {
         font-size: 25px;
@@ -50,7 +50,7 @@
         border-radius: 50%;
         object-fit: cover;
         object-position: center;
-        border: solid $font-color 3px;
+        border: solid $title-color 2px;
         height: 60px;
         width: 60px;
       }

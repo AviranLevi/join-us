@@ -43,7 +43,7 @@ const SignUp = (props) => {
           {signUp.confirmPassword ? <ErrorMessage message='*Passwords are not matched' /> : null}
         </div>
 
-        <Button text='Sign-up' classes='bold-text' action={props.createNewUser} />
+        <Button text='Sign-up' classes='bold-text transition' action={props.createNewUser} />
       </div>
     </div>
   );

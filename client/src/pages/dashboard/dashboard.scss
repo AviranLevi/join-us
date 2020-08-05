@@ -1,26 +1,12 @@
 .dashboard {
   position: relative;
   width: 100vw;
-  min-height: 75vh;
+  min-height: 70vh;
   text-align: center;
   grid-template-columns: 1fr 3fr 1fr;
   display: grid;
 
   .user-workspace {
     position: relative;
-  }
-
-  .execute-btn {
-    width: 300px;
-    font-size: 20px;
-    color: $primary-color;
-    padding: 15px;
-    background: $font-color;
-    border-radius: 25px;
-    margin: 40px 0;
-
-    &:hover {
-      background: $green;
-    }
   }
 }

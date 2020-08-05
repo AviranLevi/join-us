@@ -1,4 +1,5 @@
 import React from 'react';
+import Tidal from '../assets/images/tidal-icon.png';
 
 export const icons = {
   plus: <i className='fas fa-plus'></i>,
@@ -21,7 +22,8 @@ export const icons = {
   spotify: <i className='fab fa-spotify'></i>,
   appleMusic: <i className='fab fa-apple'></i>,
   deezer: <i className='fab fa-deezer'></i>,
-  youTube: <i className='fab fa-youtube'></i>,
+  tidal: <img src={Tidal} alt='Tidal' className='tidal-icon' />,
+  youtube: <i className='fab fa-youtube'></i>,
   tiktok: <i className='fab fa-tiktok'></i>,
   soundcloud: <i className='fab fa-soundcloud'></i>,
   website: <i className='fas fa-globe-africa'></i>,

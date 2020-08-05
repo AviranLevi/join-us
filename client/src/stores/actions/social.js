@@ -1,7 +1,6 @@
 import * as actionType from './types';
 
 export const facebookLogin = (data) => (dispatch) => {
-  console.log(data);
   const { name, email, picture } = data;
   if ((name, email)) {
     dispatch({

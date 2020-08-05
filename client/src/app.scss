@@ -6,17 +6,19 @@
 
 @import './pages/home/home';
 @import './pages/dashboard/dashboard.scss';
-@import './pages/dashboard/new-project/new-project';
+@import './pages/new-project/new-project';
 @import './pages/user-land-page/user-land-page';
 @import './pages/login/login';
 @import './pages/sign-up/sign-up';
 @import './pages/dashboard/menu/menu';
-@import './pages/dashboard/user-projects/no-projects/no-projects';
-@import './pages/dashboard/user-projects/projects/projects';
-@import './pages/dashboard/profile/profile';
-@import './pages/dashboard/profile/profile-info/profile-info';
-@import './pages/dashboard/profile/profile-social-links/profile-social-links';
-@import './pages/dashboard/account-settings/account-settings.scss';
+@import './pages/user-projects/no-projects/no-projects';
+@import './pages/user-projects/projects/projects';
+@import './pages/profile/profile';
+@import './pages/profile/profile-info/profile-info';
+@import './pages/profile/profile-social-links/profile-social-links';
+@import './pages/account-settings/account-settings.scss';
+@import './pages/new-project/music-links/music-links';
+@import './pages/new-project/social-links/social-links';
 
 @import './components/header/header';
 @import './components/footer/footer';

@@ -1,0 +1,29 @@
+.user-new-project {
+  height: inherit;
+  color: $title-color;
+  grid-template-rows: 1fr 4fr;
+  position: relative;
+
+  .user-new-project-title {
+    font-size: 40px;
+  }
+
+  .project-links {
+    margin: 30px 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .execute-btn {
+    width: 300px;
+    font-size: 20px;
+    color: $primary-color;
+    padding: 15px;
+    background: $title-color;
+    border-radius: 20px;
+    margin: 40px 0;
+
+    &:hover {
+      background: $font-color;
+    }
+  }
+}

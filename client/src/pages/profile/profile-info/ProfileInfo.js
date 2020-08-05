@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from '../../../../components/title/Title';
+import Title from '../../../components/title/Title';
 
 const ProfileInfo = (props) => {
   return (

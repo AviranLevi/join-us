@@ -85,7 +85,7 @@ const UserLandPage = (props) => {
                 <ArtistLink icon={icons.appleMusic} url={projectData.appleMusic} classes='apple' />
               ) : null}
               {projectData.youtube ? (
-                <ArtistLink icon={icons.youTube} url={projectData.youtube} classes='youtube' />
+                <ArtistLink icon={icons.youtube} url={projectData.youtube} classes='youtube' />
               ) : null}
               {projectData.deezer ? <ArtistLink icon={icons.deezer} url={projectData.deezer} classes='deezer' /> : null}
               {projectData.soundcloud ? (

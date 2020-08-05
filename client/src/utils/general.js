@@ -21,7 +21,7 @@ export const getSocialIcon = (str) => {
       return icons.deezer;
     }
     case socialMedia.YOUTUBE: {
-      return icons.youTube;
+      return icons.youtube;
     }
     case socialMedia.TIKTOK: {
       return icons.tiktok;
