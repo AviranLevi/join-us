@@ -12,7 +12,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionType.OPEN_LOGIN_TOAST:
+    case actionType.LOGIN_TOAST:
       return { ...state, loginToast: action.payload, signUpToast: false };
 
     case actionType.CLOSE_LOGIN_TOAST:

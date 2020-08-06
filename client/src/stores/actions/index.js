@@ -29,7 +29,7 @@ export {
 } from './project';
 
 export {
-  openLoginToast,
+  loginToast,
   closeLoginToast,
   openSignUpToast,
   closeSignUpToast,

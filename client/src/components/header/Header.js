@@ -28,7 +28,7 @@ const Header = (props) => {
 const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-  openLogin: () => dispatch(actions.openLoginToast()),
+  openLogin: () => dispatch(actions.loginToast(true)),
   openSignUp: () => dispatch(actions.openSignUpToast()),
 });
 

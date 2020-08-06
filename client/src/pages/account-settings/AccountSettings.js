@@ -25,6 +25,7 @@ const AccountSettings = (props) => {
           changeAction={props.uploadImage}
         />
 
+        <Button text='Delete User' />
         {/* <Title text='Your Social Links' classes='bold-text' />
         <AccountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
         <AccountInput

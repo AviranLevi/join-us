@@ -1,8 +1,8 @@
 import * as actionType from './types';
 
-export const openLoginToast = () => ({
-  type: actionType.OPEN_LOGIN_TOAST,
-  payload: true,
+export const loginToast = (bool) => ({
+  type: actionType.LOGIN_TOAST,
+  payload: bool,
 });
 
 export const closeLoginToast = () => ({
@@ -25,6 +25,6 @@ export const editUserInfo = () => ({
 });
 
 export const closeErrorToast = () => ({
-  type: actionType.USER_NOT_FOUND,
+  type: actionType.CLOSE_ERROR_TOAST,
   payload: false,
 });

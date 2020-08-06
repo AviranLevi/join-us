@@ -12,9 +12,7 @@ const LoginManual = (props) => (
       <Title text='Login' classes='bold-black-text login-title' />
       <Input title='Email' classes='username-input' changeAction={props.userEmail} />
       <Input title='Password' type='password' classes='pass-input' changeAction={props.userPassword} />
-      {props.errors.login.notFound ? (
-        <ErrorMessage message='Email or password are incorrect.' action={props.closeErrorToast} />
-      ) : null}
+      {props.errors.login.notFound ? <ErrorMessage message='Email or password are incorrect.' /> : null}
       <Button text='Login' classes='bold-black-text login-btn rounded-border' action={props.userLogin} />
     </div>
   </div>

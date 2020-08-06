@@ -1,6 +1,7 @@
 import * as actionType from '../actions/types';
 
 const initialState = {
+  toast: false,
   signUp: {
     name: false,
     email: false,
@@ -80,6 +81,10 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.TIDAL_LINK_ERROR:
       return { ...state, project: { ...state.project, tidal: action.payload } };
+
+    case actionType.CLOSE_ERROR_TOAST:
+      return { ...state, toast: action.payload };
+
     default:
       return state;
   }

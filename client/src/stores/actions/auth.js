@@ -15,7 +15,7 @@ export const createNewUser = () => (dispatch, getState) => {
         } else {
           dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
           dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: false });
-          dispatch({ type: actionType.OPEN_LOGIN_TOAST, payload: true });
+          dispatch({ type: actionType.LOGIN_TOAST, payload: true });
         }
       })
       .catch((err) => console.log(err));
