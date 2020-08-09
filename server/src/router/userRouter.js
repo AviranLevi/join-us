@@ -13,6 +13,6 @@ router.get('/logout', passport.authenticate('jwt', { session: false }), routes.u
 router.get('/auth', passport.authenticate('jwt', { session: false }), routes.userAuth);
 router.get('/:id', routes.getUser);
 router.patch('/:id', routes.updateUser);
-router.delete('/:id', routes.deleteUser);
+router.delete('/:id', passport.authenticate('jwt', { session: false }), routes.deleteUser);
 
 export default router;

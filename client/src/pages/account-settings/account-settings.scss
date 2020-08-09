@@ -17,13 +17,13 @@
     right: 0;
   }
 
-  .acount-info {
+  .account-info {
     font-size: 25px;
     display: grid;
     grid-gap: 30px;
     margin-bottom: 30px;
 
-    .acount-input {
+    .account-input {
       display: grid;
       grid-template-columns: 1fr 3fr;
 
@@ -39,6 +39,18 @@
         &:disabled {
           opacity: 0.8;
         }
+      }
+    }
+    .delete-user-btn {
+      color: $font-color;
+      font-size: 20px;
+      background: $red;
+      justify-self: start;
+      padding: 10px;
+      border-radius: 4px;
+      opacity: 1;
+      &:hover {
+        opacity: 0.8;
       }
     }
   }

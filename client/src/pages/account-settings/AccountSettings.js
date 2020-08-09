@@ -13,7 +13,7 @@ const AccountSettings = (props) => {
       <Title text='Acount Settings' classes='bold-text acount-settings-title' />
       <Button icon={icons.edit} classes='edit-profile-btn' action={props.editUserInfo} />
 
-      <div className='acount-info'>
+      <div className='account-info'>
         <Title text='Private Information' classes='bold-text' />
         <AccountInput title='Name' value={user.name} changeAction={props.userName} edit={features.editUser} />
         <AccountInput title='Email' value={user.email} changeAction={props.userEmail} edit={features.editUser} />
@@ -25,7 +25,7 @@ const AccountSettings = (props) => {
           changeAction={props.uploadImage}
         />
 
-        <Button text='Delete User' />
+        <Button text='Delete User' classes='delete-user-btn transition' />
         {/* <Title text='Your Social Links' classes='bold-text' />
         <AccountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
         <AccountInput

@@ -12,10 +12,11 @@ export const createProject = async (data) => {
         const projectFromDB = await db.createProject(projectToDB);
         return projectFromDB;
       }
-      return 'SPOTIFY ID OR URL INVALID';
+      return { error: true, message: 'SPOTIFY ID OR URL INVALID' };
     }
-    return 'SPTOIFY LINK IS REQUIRED';
+    return { error: true, message: 'SPTOIFY LINK IS REQUIRED' };
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -33,6 +34,7 @@ export const getProject = async (id) => {
     }
     return [];
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -42,6 +44,7 @@ export const getUserProjects = async (userId) => {
     const projects = await db.getUserProjects(userId);
     return projects;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -52,6 +55,7 @@ export const updateProject = async (id, data) => {
     const response = await db.updateProject(id, data);
     return response;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -65,6 +69,7 @@ export const deleteProject = async (id) => {
     }
     return { deleted: projectDeleted, message: 'Something was wrong, try again later' };
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };

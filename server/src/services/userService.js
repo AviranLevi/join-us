@@ -12,6 +12,7 @@ export const createUser = async (data) => {
     const user = await db.createUser(userToDB);
     return user;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -20,6 +21,7 @@ export const uploadImage = async (file) => {
   try {
     //upload using cloudinary api
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -30,6 +32,7 @@ export const getUser = async (id) => {
     const response = await db.getUser(id);
     return response;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -40,6 +43,7 @@ export const updateUser = async (id, data) => {
     const response = await db.updateUser(id, data);
     return response;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -47,9 +51,13 @@ export const updateUser = async (id, data) => {
 //DELETE
 export const deleteUser = async (id) => {
   try {
-    const response = await db.deleteUser(id);
-    return response;
+    const userDeleted = await db.deleteUser(id);
+    if (userDeleted) {
+      return { success: userDeleted, message: 'User has been deleted' };
+    }
+    return { success: userDeleted, message: 'Try again later' };
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };

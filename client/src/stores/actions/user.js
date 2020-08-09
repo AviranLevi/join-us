@@ -78,3 +78,15 @@ export const userFacebook = (url) => ({ type: actionType.USER_FACEBOOK, payload:
 export const userYouTube = (url) => ({ type: actionType.USER_YOUTUBE, payload: url });
 
 export const userWebsite = (url) => ({ type: actionType.USER_WEBSITE, payload: url });
+
+export const deleteUser = (userId) => (dispatch) => {
+  axios
+    .delete(`api/user/${userId}`)
+    .then((res) => {
+      const { data } = res;
+      if (data.success) {
+        dispatch({ type: actionType.USER_LOG_OUT });
+      }
+    })
+    .catch((err) => console.log(err));
+};

@@ -89,8 +89,9 @@ export const userLogout = (req, res, next) => {
 export const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const result = await service.deleteUser(id);
-    res.status(OK).json(result);
+    console.log(id);
+    // const result = await service.deleteUser(id);
+    res.status(OK).json({});
   } catch (error) {
     res.status(ERR).json(error);
     throw error;

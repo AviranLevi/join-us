@@ -26,19 +26,23 @@ export const getUser = (id) => {
   }
 };
 
-export const updateUser = (id, data) => {
+export const updateUser = async (id, data) => {
   try {
-    const user = User.findOneAndUpdate(id, data);
+    const user = await User.findOneAndUpdate(id, data);
     return user;
   } catch (error) {
     throw error;
   }
 };
 
-export const deleteUser = (id) => {
+export const deleteUser = async (id) => {
   try {
-    const user = User.deleteOne(id);
-    return user;
+    const user = await User.deleteOne(id);
+    const { deletedCount } = user;
+    if (deletedCount === 1) {
+      return true;
+    }
+    return false;
   } catch (error) {
     throw error;
   }

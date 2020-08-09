@@ -11,6 +11,7 @@ export {
   userWebsite,
   getUserProjects,
   uploadImage,
+  deleteUser,
 } from './user';
 
 export {
