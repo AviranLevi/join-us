@@ -28,3 +28,8 @@ export const closeErrorToast = () => ({
   type: actionType.CLOSE_ERROR_TOAST,
   payload: false,
 });
+
+export const deleteUserToast = (bool) => ({
+  type: actionType.DELETE_USER_TOAST_TOGGLE,
+  payload: bool,
+});

@@ -17,6 +17,7 @@ export const USER_SUBMIT = 'USER_SUBMIT';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const USER_IMAGE_UPLOAD = 'USER_IMAGE_UPLOAD';
 export const USER_ALREADY_EXISTS = 'USER_ALREADY_EXISTS';
+export const DELETE_USER = 'DELETE_USER';
 
 //project//
 //music
@@ -48,6 +49,7 @@ export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const TRACK_DATA_LOADING = 'TRACK_DATA_LOADING';
 export const REDIRECT = 'REDIRECT';
 export const EDIT_USER_INFO = 'EDIT_USER_INFO';
+export const DELETE_USER_TOAST_TOGGLE = 'DELETE_USER_TOAST_TOGGLE';
 
 //social
 export const FACEBOOK_LOGIN = 'FACEBOOK_LOGIN';

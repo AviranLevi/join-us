@@ -67,24 +67,57 @@ export const userConfirmPassword = (confirmPassword) => (dispatch, getState) => 
   }
 };
 
-export const userSpotify = (url) => ({ type: actionType.USER_SPOTIFY, payload: url });
+export const userSpotify = (url) => ({
+  type: actionType.USER_SPOTIFY,
+  payload: url,
+});
 
-export const userInstagram = (url) => ({ type: actionType.USER_INSTAGRAM, payload: url });
+export const userInstagram = (url) => ({
+  type: actionType.USER_INSTAGRAM,
+  payload: url,
+});
 
-export const userTiktok = (url) => ({ type: actionType.USER_TIKTOK, payload: url });
+export const userTiktok = (url) => ({
+  type: actionType.USER_TIKTOK,
+  payload: url,
+});
 
-export const userFacebook = (url) => ({ type: actionType.USER_FACEBOOK, payload: url });
+export const userFacebook = (url) => ({
+  type: actionType.USER_FACEBOOK,
+  payload: url,
+});
 
-export const userYouTube = (url) => ({ type: actionType.USER_YOUTUBE, payload: url });
+export const userYouTube = (url) => ({
+  type: actionType.USER_YOUTUBE,
+  payload: url,
+});
 
-export const userWebsite = (url) => ({ type: actionType.USER_WEBSITE, payload: url });
+export const userWebsite = (url) => ({
+  type: actionType.USER_WEBSITE,
+  payload: url,
+});
 
-export const deleteUser = (userId) => (dispatch) => {
+//*on progress
+export const updateUserInfo = () => (dispatch, getState) => {
+  const updatedUser = getState().user;
+  const { id } = updatedUser;
   axios
-    .delete(`api/user/${userId}`)
+    .patch(`/api/user/${id}`, updatedUser)
     .then((res) => {
       const { data } = res;
-      if (data.success) {
+      console.log(data);
+    })
+    .catch((err) => console.log(err));
+};
+
+export const deleteUser = () => (dispatch, getState) => {
+  const { id } = getState().user;
+  axios
+    .delete(`/api/user/${id}`)
+    .then((res) => {
+      const { data } = res;
+      const { success } = data;
+      if (success) {
         dispatch({ type: actionType.USER_LOG_OUT });
       }
     })

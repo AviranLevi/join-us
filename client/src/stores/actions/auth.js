@@ -66,7 +66,6 @@ export const userAuthenticated = () => (dispatch) => {
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
       }
-      return { isAuthenticated: false, user: {} };
     })
     .catch((err) => console.log(err));
 };

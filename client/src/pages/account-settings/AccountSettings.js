@@ -1,13 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from '../../components/title/Title';
+import { Redirect } from 'react-router-dom';
 import * as actions from '../../stores/actions';
-import AccountInput from '../../components/account-input/AccountInput';
 import { icons } from '../../constant/icons';
+
+import Title from '../../components/title/Title';
+import AccountInput from '../../components/account-input/AccountInput';
 import Button from '../../components/button/Button';
+import AccountSocial from './AccountSocial/AccountSocial';
+import Toast from '../../components/toast/Toast';
 
 const AccountSettings = (props) => {
   const { user, features } = props;
+  if (!user.loggedIn) {
+    return <Redirect to='/home/login' />;
+  }
   return (
     <div className='acount-settings fade-in'>
       <Title text='Acount Settings' classes='bold-text acount-settings-title' />
@@ -25,26 +32,19 @@ const AccountSettings = (props) => {
           changeAction={props.uploadImage}
         />
 
-        <Button text='Delete User' classes='delete-user-btn transition' />
-        {/* <Title text='Your Social Links' classes='bold-text' />
-        <AccountInput title='Spotify' value={user.spotify} edit={features.editUser} changeAction={props.userSpotify} />
-        <AccountInput
-          title='Instagram'
-          value={user.instagram}
-          edit={features.editUser}
-          changeAction={props.userInstagram}
-        />
-        <AccountInput title='TikTok' value={user.tiktok} edit={features.editUser} changeAction={props.userTiktok} />
-        <AccountInput
-          title='Facebook'
-          value={user.facebook}
-          edit={features.editUser}
-          changeAction={props.userFacebook}
-        />
-        <AccountInput title='YouTube' value={user.youtube} edit={features.editUser} changeAction={props.userYouTube} />
-        <AccountInput title='Website' value={user.website} edit={features.editUser} changeAction={props.userWebsite} /> */}
+        {/* <AccountSocial /> */}
+
+        <Button text='Delete User' classes='delete-user-btn transition' action={props.openDeleteUserToast} />
       </div>
       <Button text={'Save'} classes='save-profile-btn' disabled={features.editUser} />
+
+      {features.deleteUserToast.open ? (
+        <Toast
+          message='Are you sure about it? :('
+          agreeAction={props.deleteUser}
+          closeAction={props.closeDeleteUserToast}
+        />
+      ) : null}
     </div>
   );
 };
@@ -56,12 +56,9 @@ const mapDispatchToProps = (dispatch) => ({
   userEmail: (e) => dispatch(actions.userEmail(e.target.value)),
   userPassword: (e) => dispatch(actions.userPassword(e.target.value)),
   uploadImage: (e) => dispatch(actions.uploadImage(e.target.files[0])),
-  // userSpotify: (e) => dispatch(actions.userSpotify(e.target.value)),
-  // userInstagram: (e) => dispatch(actions.userInstagram(e.target.value)),
-  // userTiktok: (e) => dispatch(actions.userTiktok(e.target.value)),
-  // userFacebook: (e) => dispatch(actions.userFacebook(e.target.value)),
-  // userYouTube: (e) => dispatch(actions.userYouTube(e.target.value)),
-  // userWebsite: (e) => dispatch(actions.userWebsite(e.target.value)),
+  openDeleteUserToast: () => dispatch(actions.deleteUserToast(true)),
+  closeDeleteUserToast: () => dispatch(actions.deleteUserToast(false)),
+  deleteUser: () => dispatch(actions.deleteUser()),
   editUserInfo: () => dispatch(actions.editUserInfo()),
 });
 

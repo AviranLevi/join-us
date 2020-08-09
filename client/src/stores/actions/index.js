@@ -36,6 +36,7 @@ export {
   closeSignUpToast,
   editUserInfo,
   closeErrorToast,
+  deleteUserToast,
 } from './feature';
 
 export { createNewUser, userLogin, userLogout, userAuthenticated } from './auth';

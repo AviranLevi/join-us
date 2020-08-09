@@ -1,0 +1,45 @@
+.toast {
+  position: absolute;
+  background-color: $font-color;
+  padding: 60px 80px;
+  top: 36%;
+  left: 28%;
+  border-radius: 25px;
+  font-size: 30px;
+  grid-gap: 30px;
+
+  .toast-close-btn {
+    position: absolute;
+    color: $primary-color;
+    font-size: 25px;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    &:hover {
+      color: $title-color;
+    }
+  }
+
+  .toast-decision-btns {
+    button {
+      margin: 0 5px;
+      background: $primary-color;
+      color: $font-color;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    .accept-btn {
+      &:hover {
+        background: $red;
+      }
+    }
+
+    .cancel-btn {
+      &:hover {
+        background: $title-color;
+      }
+    }
+  }
+}

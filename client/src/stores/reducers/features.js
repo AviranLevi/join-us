@@ -8,6 +8,10 @@ const initialState = {
   redirect: false,
   editUser: false,
   createUser: false,
+  deleteUserToast: {
+    open: false,
+    accept: false,
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -35,6 +39,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.CREATE_NEW_USER:
       return { ...state, createUser: true };
+
+    case actionType.DELETE_USER_TOAST_TOGGLE:
+      return { ...state, deleteUserToast: { ...state.deleteUserToast, open: action.payload } };
 
     default:
       return state;

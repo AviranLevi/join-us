@@ -3,6 +3,7 @@ import * as actionType from '../actions/types';
 const initialState = {
   id: '',
   loggedIn: false,
+  userName: '',
   name: '',
   password: '',
   confirmPassword: '',
@@ -31,6 +32,7 @@ const rootReducer = (state = initialState, action) => {
         name: payload.name,
         email: payload.email,
         projects: payload.projects,
+        userName: payload.userName,
         createdAt: payload.createdAt,
       };
 
