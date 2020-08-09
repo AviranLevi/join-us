@@ -91,6 +91,8 @@ const UserLandPage = (props) => {
               {projectData.soundcloud ? (
                 <ArtistLink icon={icons.soundcloud} url={projectData.soundcloud} classes='soundcloud' />
               ) : null}
+
+              {projectData.tidal ? <ArtistLink icon={icons.tidal} url={projectData.tidal} classes='tidal' /> : null}
             </div>
           </div>
 
