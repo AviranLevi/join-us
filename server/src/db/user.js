@@ -35,7 +35,7 @@ export const updateUser = async (userId, data) => {
       return dbResponses.emailAlreadyInUse;
     }
 
-    const user = await User.findOneAndUpdate(userId, data);
+    const user = await User.findOneAndUpdate(userId, data, { new: true });
     return user;
   } catch (error) {
     throw error;

@@ -146,7 +146,7 @@ export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
       .patch(`/api/user/${id}`, updatedUserInfo)
       .then((res) => {
         const { data } = res;
-        console.log(data);
+        dispatch({ type: actionType.USER_LOG_IN, payload: data });
       })
       .catch((err) => console.log(err));
   }
