@@ -2,7 +2,6 @@ import * as service from '../../services/userService';
 import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
 import * as JWT from '../../utils/jwt';
-import multer from 'multer';
 import { upload } from '../../utils/upload';
 
 export const createUser = async (req, res, next) => {

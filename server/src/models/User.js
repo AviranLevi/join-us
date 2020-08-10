@@ -10,9 +10,8 @@ const currentDate = moment().format('MMM Do YYYY');
 const UserSchema = new Schema({
   userName: {
     type: String,
+    unique: true,
     required: [true, `User name is required`],
-    minlength: 3,
-    maxlength: 30,
   },
   name: {
     type: String,
@@ -23,7 +22,6 @@ const UserSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
     validate: [isEmail, 'Email is invalid'],
   },
   password: {

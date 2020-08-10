@@ -27,9 +27,15 @@ export const getUser = (id) => {
   }
 };
 
-export const updateUser = async (id, data) => {
+export const updateUser = async (userId, data) => {
   try {
-    const user = await User.findOneAndUpdate(id, data, { new: true });
+    const { email } = data;
+    const emailAlreadyUsed = await User.findOne({ email });
+    if (emailAlreadyUsed && emailAlreadyUsed._id.toString() !== userId) {
+      return dbResponses.emailAlreadyInUse;
+    }
+
+    const user = await User.findOneAndUpdate(userId, data);
     return user;
   } catch (error) {
     throw error;

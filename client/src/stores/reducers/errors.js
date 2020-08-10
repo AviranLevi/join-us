@@ -7,7 +7,6 @@ const initialState = {
     email: false,
     password: false,
     confirmPassword: false,
-    phone: false,
     alreadyExists: false,
   },
   login: {
@@ -27,10 +26,18 @@ const initialState = {
     facebook: false,
     website: false,
   },
+  updateUser: {
+    name: false,
+    email: false,
+    oldPassword: false,
+    password: false,
+    confirmPassword: false,
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    //signup
     case actionType.USER_NAME_ERROR:
       return { ...state, signUp: { ...state.signUp, name: action.payload } };
 
@@ -43,15 +50,13 @@ const rootReducer = (state = initialState, action) => {
     case actionType.USER_CONFIRM_PASSWORD_ERROR:
       return { ...state, signUp: { ...state.signUp, confirmPassword: action.payload } };
 
-    case actionType.USER_PHONE_ERROR:
-      return { ...state, signUp: { ...state.signUp, phone: action.payload } };
-
     case actionType.USER_NOT_FOUND:
       return { ...state, login: { ...state.login, notFound: action.payload } };
 
     case actionType.USER_ALREADY_EXISTS:
       return { ...state, signUp: { ...state.signUp, alreadyExists: action.payload } };
 
+    //project
     case actionType.SPOTIFY_LINK_ERROR:
       return { ...state, project: { ...state.project, spotify: action.payload } };
 
@@ -82,6 +87,23 @@ const rootReducer = (state = initialState, action) => {
     case actionType.TIDAL_LINK_ERROR:
       return { ...state, project: { ...state.project, tidal: action.payload } };
 
+    //update user
+    case actionType.UPDATE_USER_NAME_ERROR:
+      return { ...state, updateUser: { ...state.updateUser, name: action.payload } };
+
+    case actionType.UPDATE_USER_EMAIL_ERROR:
+      return { ...state, updateUser: { ...state.updateUser, email: action.payload } };
+
+    case actionType.UPDATE_USER_OLD_PASSWORD_ERROR:
+      return { ...state, updateUser: { ...state.updateUser, oldPassword: action.payload } };
+
+    case actionType.UPDATE_USER_PASSWORD_ERROR:
+      return { ...state, updateUser: { ...state.updateUser, password: action.payload } };
+
+    case actionType.UPDATE_USER_CONFIRM_PASSWORD_ERROR:
+      return { ...state, updateUser: { ...state.updateUser, confirmPassword: action.payload } };
+
+    //general
     case actionType.CLOSE_ERROR_TOAST:
       return { ...state, toast: action.payload };
 

@@ -17,4 +17,8 @@ export const dbResponses = {
     error: true,
     message: 'User already exists',
   },
+  emailAlreadyInUse: {
+    error: true,
+    message: 'Email already in use',
+  },
 };

@@ -29,7 +29,7 @@ const Dashboard = (props) => {
             <Route exact path='/home/dashboard' component={UserProjects} />
             <Route exact path='/home/profile/:id' component={Profile} />
             <Route exact path='/home/dashboard/new-project' component={NewProject} />
-            <Route exact path='/home/dashboard/settings' component={AccountSettings} />
+            <Route exact path='/home/account-settings' component={AccountSettings} />
           </Switch>
         </div>
       </div>

@@ -8,7 +8,7 @@ import ErrorMessage from '../../../components/error-message/ErrorMessage';
 import Title from '../../../components/title/Title';
 
 const SocialLinks = (props) => {
-  const { project, errors, user } = props;
+  const { project, errors } = props;
   const { socialLinks } = project;
 
   return (

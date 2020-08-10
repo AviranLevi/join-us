@@ -1,6 +1,7 @@
 import axios from 'axios';
 import validator from 'validator';
 import * as actionType from './types';
+import { findErrors } from '../../utils/general';
 
 export const getUserProjects = (userId) => (dispatch) => {
   axios
@@ -46,8 +47,8 @@ export const userEmail = (email) => (dispatch) => {
 };
 
 export const userPassword = (password) => (dispatch) => {
-  const passwordIsValid = validator.isLength(password, { min: 6, max: 25 });
   dispatch({ type: actionType.USER_PASSWORD, payload: password });
+  const passwordIsValid = validator.isLength(password, { min: 6, max: 25 });
 
   if (passwordIsValid) {
     dispatch({ type: actionType.USER_PASSWORD_ERROR, payload: false });
@@ -98,16 +99,57 @@ export const userWebsite = (url) => ({
 });
 
 //*on progress
-export const updateUserInfo = () => (dispatch, getState) => {
-  const updatedUser = getState().user;
-  const { id } = updatedUser;
-  axios
-    .patch(`/api/user/${id}`, updatedUser)
-    .then((res) => {
-      const { data } = res;
-      console.log(data);
-    })
-    .catch((err) => console.log(err));
+export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
+  const { name, email, oldPassword, password, confirmPassword } = updatedUserInfo;
+  const nameIsValid = validator.isLength(name, { min: 3, max: 20 });
+  const emailIsValid = validator.isEmail(email);
+  const passwordIsValid = validator.isLength(password, { min: 6, max: 25 });
+  const { id } = getState().user;
+
+  if (name) {
+    if (nameIsValid) {
+      dispatch({ type: actionType.UPDATE_USER_NAME_ERROR, payload: false });
+    } else {
+      dispatch({ type: actionType.UPDATE_USER_NAME_ERROR, payload: true });
+    }
+  }
+
+  if (email) {
+    if (emailIsValid) {
+      dispatch({ type: actionType.UPDATE_USER_EMAIL_ERROR, payload: false });
+    } else {
+      dispatch({ type: actionType.UPDATE_USER_EMAIL_ERROR, payload: true });
+    }
+  }
+
+  if (password) {
+    if (passwordIsValid) {
+      dispatch({ type: actionType.UPDATE_USER_PASSWORD_ERROR, payload: false });
+    } else {
+      dispatch({ type: actionType.UPDATE_USER_PASSWORD_ERROR, payload: true });
+    }
+  }
+
+  if (confirmPassword) {
+    if (passwordIsValid && password === confirmPassword) {
+      dispatch({ type: actionType.UPDATE_USER_CONFIRM_PASSWORD_ERROR, payload: false });
+    } else {
+      dispatch({ type: actionType.UPDATE_USER_CONFIRM_PASSWORD_ERROR, payload: true });
+    }
+  }
+
+  const errs = getState().errors;
+  const noErrors = findErrors(errs.updateUser);
+
+  if (noErrors) {
+    axios
+      .patch(`/api/user/${id}`, updatedUserInfo)
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  }
 };
 
 export const deleteUser = () => (dispatch, getState) => {

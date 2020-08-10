@@ -24,7 +24,6 @@ export const getTrackData = () => (dispatch, getState) => {
 
   const noErrors = findErrors(errors.project);
 
-  console.log(userProject);
   if (userProject.spotify && noErrors) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
     axios

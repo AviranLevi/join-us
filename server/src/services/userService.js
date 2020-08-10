@@ -1,13 +1,15 @@
 import * as db from '../db/user';
 import cloudinary from 'cloudinary';
 import { cloudinaryINFO } from '../config';
+import { removeEmptyValuesFromObj } from '../utils/general';
 
 //CREATE
 export const createUser = async (data) => {
   try {
     const { email } = data;
     const extractUserName = email.split('@');
-    const userName = extractUserName[0];
+    const userName = extractUserName[0] + Math.floor(Math.random() * 1000000000).toString();
+    console.log(userName);
     const userToDB = Object.assign({ userName }, data);
     const user = await db.createUser(userToDB);
     return user;
@@ -40,7 +42,8 @@ export const getUser = async (id) => {
 //UPDATE
 export const updateUser = async (id, data) => {
   try {
-    const response = await db.updateUser(id, data);
+    const updatedInfoToDB = removeEmptyValuesFromObj(data);
+    const response = await db.updateUser(id, updatedInfoToDB);
     return response;
   } catch (error) {
     console.log(error);
