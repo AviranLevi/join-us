@@ -18,9 +18,9 @@ export const createUser = async (data) => {
   }
 };
 
-export const getUser = (id) => {
+export const getUser = async (id) => {
   try {
-    const user = User.find({ id });
+    const user = await User.findById(id);
     return user;
   } catch (error) {
     throw error;

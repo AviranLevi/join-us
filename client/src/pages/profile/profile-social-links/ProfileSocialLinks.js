@@ -14,6 +14,6 @@ const ProfileSocialLinks = (props) => (
   </div>
 );
 
-const mapStateToProps = (state = {}) => state.user;
+const mapStateToProps = (state = {}) => state.profile;
 
 export default connect(mapStateToProps)(ProfileSocialLinks);

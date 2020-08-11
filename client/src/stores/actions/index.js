@@ -41,3 +41,5 @@ export {
 } from './feature';
 
 export { createNewUser, userLogin, userLogout, userAuthenticated } from './auth';
+
+export { getUserProfile } from './profile';

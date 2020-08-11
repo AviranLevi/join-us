@@ -83,3 +83,6 @@ export const WEBSITE_LINK_ERROR = 'WEBSITE_LINK_ERROR';
 export const TIDAL_LINK_ERROR = 'TIDAL_LINK_ERROR';
 
 export const CLOSE_ERROR_TOAST = 'CLOSE_ERROR_TOAST';
+
+//profile
+export const PROFILE_DATA = 'PROFILE_DATA';

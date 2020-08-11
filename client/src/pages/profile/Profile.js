@@ -9,18 +9,19 @@ import ProfileInfo from './profile-info/ProfileInfo';
 import { Redirect } from 'react-router-dom';
 
 const Profile = (props) => {
+  const { user, profile } = props;
   useEffect(() => {
     const { id } = props.match.params;
-    props.getUserProjects(id);
-  }, [props.getUserProjects]);
+    props.getUserProfile(id);
+  }, [props.getUserProfile]);
 
-  if (!props.loggedIn) {
+  if (!user.loggedIn) {
     return <Redirect to='/home/login' />;
   }
   return (
     <div className='profile center-items fade-in'>
-      {props.profileImage ? (
-        <img className='profile-image' src={props.profileImage} alt={props.name} />
+      {profile.profileImage ? (
+        <img className='profile-image' src={profile.profileImage} alt={profile.name} />
       ) : (
         <div className='profile-image-icon'>
           <Icon icon={icons.image} />
@@ -28,7 +29,7 @@ const Profile = (props) => {
       )}
 
       <div className='profile-content'>
-        <Title text={props.name} classes='bold-text profile-name' />
+        <Title text={profile.name} classes='bold-text profile-name' />
         <ProfileInfo />
         <ProfileSocialLinks />
       </div>
@@ -36,10 +37,10 @@ const Profile = (props) => {
   );
 };
 
-const mapStateToProps = (state = {}) => state.user;
+const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-  getUserProjects: (id) => dispatch(actions.getUserProjects(id)),
+  getUserProfile: (id) => dispatch(actions.getUserProfile(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

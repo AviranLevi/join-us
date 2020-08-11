@@ -8,10 +8,12 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 //components
 import App from './App';
 import UserLandPage from './pages/user-land-page/UserLandPage';
+import Profile from './pages/profile/Profile';
 
 //stores
-import FeaturesStore from './stores/reducers/features';
 import UserStore from './stores/reducers/user';
+import ProfileStore from './stores/reducers/profile';
+import FeaturesStore from './stores/reducers/features';
 import ProjectStore from './stores/reducers/project';
 import ErrorStore from './stores/reducers/errors';
 
@@ -23,6 +25,7 @@ const reducer = combineReducers({
   features: FeaturesStore,
   project: ProjectStore,
   errors: ErrorStore,
+  profile: ProfileStore,
 });
 const store = createStore(reducer, enhancer);
 

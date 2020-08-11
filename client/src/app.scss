@@ -5,12 +5,11 @@
 @import './assets/animation';
 
 @import './pages/home/home';
-@import './pages/dashboard/dashboard.scss';
 @import './pages/new-project/new-project';
 @import './pages/user-land-page/user-land-page';
 @import './pages/login/login';
 @import './pages/sign-up/sign-up';
-@import './pages/dashboard/menu/menu';
+@import './pages/menu/menu';
 @import './pages/user-projects/no-projects/no-projects';
 @import './pages/user-projects/projects/projects';
 @import './pages/profile/profile';
@@ -33,3 +32,20 @@
 @import './components/project/project';
 @import './components/error-message/error-message.scss';
 @import './components/toast/toast.scss';
+
+.app {
+  .home {
+    .dashboard {
+      position: relative;
+      width: 100vw;
+      min-height: 70vh;
+      text-align: center;
+      grid-template-columns: 1fr 3fr 1fr;
+      display: grid;
+
+      .user-workspace {
+        position: relative;
+      }
+    }
+  }
+}
