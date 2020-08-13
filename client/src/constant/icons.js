@@ -15,6 +15,7 @@ export const icons = {
   remove: <i className='fas fa-trash-alt'></i>,
   image: <i className='far fa-images'></i>,
   settings: <i className='fas fa-cog'></i>,
+  profile: <i className='fas fa-user-circle profile-icon'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,

@@ -148,7 +148,17 @@ export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
       .patch(`/api/user/${id}`, updatedUserInfo)
       .then((res) => {
         const { data } = res;
-        dispatch({ type: actionType.USER_LOG_IN, payload: data });
+        const { error } = data;
+        console.log(data);
+        if (error) {
+          console.log(error);
+          dispatch({ type: actionType.UPDATE_EMAIL_ALREADY_IN_USE_ERROR, payload: true });
+        } else {
+          console.log('here');
+          dispatch({ type: actionType.UPDATE_USER, payload: data });
+          dispatch({ type: actionType.UPDATE_USER_STATUS_TOAST, payload: true });
+          dispatch({ type: actionType.UPDATE_EMAIL_ALREADY_IN_USE_ERROR, payload: false });
+        }
       })
       .catch((err) => console.log(err));
   }

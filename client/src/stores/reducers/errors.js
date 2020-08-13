@@ -29,6 +29,7 @@ const initialState = {
   updateUser: {
     name: false,
     email: false,
+    emailAlreadyInUse: false,
     oldPassword: false,
     password: false,
     confirmPassword: false,
@@ -93,6 +94,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.UPDATE_USER_EMAIL_ERROR:
       return { ...state, updateUser: { ...state.updateUser, email: action.payload } };
+
+    case actionType.UPDATE_EMAIL_ALREADY_IN_USE_ERROR:
+      return { ...state, updateUser: { ...state.updateUser, emailAlreadyInUse: action.payload } };
 
     case actionType.UPDATE_USER_OLD_PASSWORD_ERROR:
       return { ...state, updateUser: { ...state.updateUser, oldPassword: action.payload } };

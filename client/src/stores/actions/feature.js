@@ -33,3 +33,8 @@ export const deleteUserToast = (bool) => ({
   type: actionType.DELETE_USER_TOAST_TOGGLE,
   payload: bool,
 });
+
+export const updateUserToast = (bool) => ({
+  type: actionType.UPDATE_USER_STATUS_TOAST,
+  payload: bool,
+});

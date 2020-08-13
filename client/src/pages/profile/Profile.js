@@ -23,8 +23,8 @@ const Profile = (props) => {
       {profile.profileImage ? (
         <img className='profile-image' src={profile.profileImage} alt={profile.name} />
       ) : (
-        <div className='profile-image-icon'>
-          <Icon icon={icons.image} />
+        <div className='profile-image-icon center-items'>
+          <Icon icon={icons.profile} />
         </div>
       )}
 

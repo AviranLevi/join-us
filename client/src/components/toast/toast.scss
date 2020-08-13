@@ -2,11 +2,10 @@
   position: absolute;
   background-color: $font-color;
   padding: 60px 80px;
-  top: 36%;
-  left: 28%;
   border-radius: 25px;
   font-size: 30px;
   grid-gap: 30px;
+  box-shadow: 0px 0px 40px 1px $dark-color;
 
   .toast-close-btn {
     position: absolute;

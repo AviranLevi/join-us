@@ -32,7 +32,7 @@ const AccountPrivate = (props) => {
 
       <AccountInput name='email' title='Email' value={state.email} changeAction={handleOnChange} edit={edit} />
       {updateUser.email ? <ErrorMessage message='*Please insert valid email' /> : null}
-
+      {updateUser.emailAlreadyInUse ? <ErrorMessage message='*Email already in use' /> : null}
       {/* <AccountInput
         name='oldPassword'
         title='Old Password'
@@ -71,7 +71,6 @@ const AccountPrivate = (props) => {
         changeAction={handleOnChange}
         edit={edit}
       />
-
       <Button
         text={'Save'}
         classes='save-profile-btn transition'

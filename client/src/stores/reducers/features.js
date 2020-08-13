@@ -5,6 +5,7 @@ const initialState = {
   signUpToast: false,
   createNewUser: false,
   trackDataLoading: false,
+  updateUserSuccessToast: false,
   redirect: false,
   editUser: false,
   createUser: false,
@@ -39,6 +40,9 @@ const rootReducer = (state = initialState, action) => {
 
     case actionType.CREATE_NEW_USER:
       return { ...state, createUser: true };
+
+    case actionType.UPDATE_USER_STATUS_TOAST:
+      return { ...state, updateUserSuccessToast: action.payload };
 
     case actionType.DELETE_USER_TOAST_TOGGLE:
       return { ...state, deleteUserToast: { ...state.deleteUserToast, open: action.payload } };

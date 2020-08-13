@@ -30,9 +30,19 @@ const AccountSettings = (props) => {
         <Button text='Delete User' classes='delete-user-btn' action={props.openDeleteUserToast} />
       </div>
 
+      {features.updateUserSuccessToast ? (
+        <Toast
+          message='Saved! 🎉'
+          userDecisions={false}
+          closeAction={props.closeSavedUpdateToast}
+          classes='save-success-toast'
+        />
+      ) : null}
+
       {features.deleteUserToast.open ? (
         <Toast
           message='Are you sure about it? :('
+          classes='delete-user-toast'
           agreeAction={props.deleteUser}
           closeAction={props.closeDeleteUserToast}
         />
@@ -47,6 +57,7 @@ const mapDispatchToProps = (dispatch) => ({
   openDeleteUserToast: () => dispatch(actions.deleteUserToast(true)),
   closeDeleteUserToast: () => dispatch(actions.deleteUserToast(false)),
   deleteUser: () => dispatch(actions.deleteUser()),
+  closeSavedUpdateToast: () => dispatch(actions.updateUserToast(false)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountSettings);

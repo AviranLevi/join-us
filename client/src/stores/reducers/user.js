@@ -23,15 +23,14 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.USER_LOG_IN:
-      const { payload } = action;
       return {
         ...state,
         loggedIn: true,
-        id: payload._id,
-        name: payload.name,
-        email: payload.email,
-        userName: payload.userName,
-        createdAt: payload.createdAt,
+        id: action.payload._id,
+        name: action.payload.name,
+        email: action.payload.email,
+        userName: action.payload.userName,
+        createdAt: action.payload.createdAt,
       };
 
     case actionType.USER_NAME:
@@ -66,6 +65,14 @@ const rootReducer = (state = initialState, action) => {
       const removedProject = state.projects.findIndex((project) => project.projectId === action.payload);
       const projects = state.projects.slice(removedProject, 1);
       return { ...state, projects };
+
+    case actionType.UPDATE_USER:
+      return {
+        ...state,
+        name: action.payload.name,
+        email: action.payload.email,
+        profileImage: action.payload.profileImage,
+      };
 
     case actionType.USER_LOG_OUT:
       return initialState;

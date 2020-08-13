@@ -1,6 +1,6 @@
 .profile {
   color: $title-color;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   height: 100%;
 
   .profile-image {
@@ -20,5 +20,12 @@
       font-size: 60px;
       align-self: center;
     }
+  }
+  .profile-image-icon {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    border: 2px solid $title-color;
+    font-size: 300px;
   }
 }
