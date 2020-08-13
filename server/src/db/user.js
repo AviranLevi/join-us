@@ -21,7 +21,6 @@ export const createUser = async (data) => {
 export const getUser = async (id) => {
   try {
     const user = await User.findById(id);
-    console.log(user);
     const projects = await Project.find({ userId: id });
     return { user, projects };
   } catch (error) {
