@@ -21,7 +21,9 @@ export const createUser = async (data) => {
 export const getUser = async (id) => {
   try {
     const user = await User.findById(id);
-    return user;
+    console.log(user);
+    const projects = await Project.find({ userId: id });
+    return { user, projects };
   } catch (error) {
     throw error;
   }
@@ -31,11 +33,12 @@ export const updateUser = async (userId, data) => {
   try {
     const { email } = data;
     const emailAlreadyUsed = await User.findOne({ email });
+
     if (emailAlreadyUsed && emailAlreadyUsed._id.toString() !== userId) {
       return dbResponses.emailAlreadyInUse;
-    }
+    } else if (emailAlreadyUsed) delete data.email;
 
-    const user = await User.findOneAndUpdate(userId, data, { new: true });
+    const user = await User.findOneAndUpdate({ _id: userId }, data, { new: true });
     return user;
   } catch (error) {
     throw error;

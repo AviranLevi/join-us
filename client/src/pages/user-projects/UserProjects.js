@@ -16,7 +16,7 @@ const UserProjects = (props) => {
     return <Redirect to='/home/login' />;
   }
 
-  return <div className='user-projects'>{props.user.projects.length !== 0 ? <Projects /> : <NoProjects />}</div>;
+  return <div className='user-projects'>{user.projects.length !== 0 ? <Projects /> : <NoProjects />}</div>;
 };
 
 const mapStateToProps = (state = {}) => state;

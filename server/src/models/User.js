@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs';
 import { isEmail } from 'validator';
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
 const currentDate = moment().format('MMM Do YYYY');
 
 const UserSchema = new Schema({
@@ -33,7 +32,6 @@ const UserSchema = new Schema({
   profileImage: {
     type: String,
   },
-  projects: [{ type: ObjectId, ref: 'Project' }],
   socialMedia: {
     type: [String],
   },

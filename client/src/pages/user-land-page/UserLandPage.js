@@ -110,7 +110,7 @@ const UserLandPage = (props) => {
           </div>
         </div>
 
-        <Link to='/home/dashboard' target='_blank'>
+        <Link to='/home/dashboard' className='join-us-link' target='_blank'>
           Powered by JoinUS
         </Link>
       </div>

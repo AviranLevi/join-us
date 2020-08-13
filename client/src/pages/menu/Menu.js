@@ -10,9 +10,9 @@ const Menu = (props) => {
       <Link to='/home/dashboard/new-project'>
         <Button text='Create New Page' classes='bold-text transition new-project-btn' />
       </Link>
-      <Link to={`/home/profile/${props.user.id}`}>
+      {/* <Link to={`/home/profile/${props.user.id}`}>
         <Button text='My Profile' classes='bold-text transition' />
-      </Link>
+      </Link> */}
       <Link to='/home/dashboard'>
         <Button text={'My Projects'} classes='bold-text transition' />
       </Link>

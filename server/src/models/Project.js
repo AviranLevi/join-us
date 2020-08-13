@@ -55,7 +55,8 @@ const ProjectSchema = new Schema({
     type: String,
   },
   userId: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'User',
     required: [true, 'User Id is missing.'],
   },
   createdAt: {

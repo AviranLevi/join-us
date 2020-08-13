@@ -20,7 +20,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         name: payload.name,
-        projects: payload.projects,
+        projects: payload.projects || [],
         createdAt: payload.createdAt,
         profileImage: payload.profileImage,
         spotify: payload.spotify,

@@ -3,6 +3,8 @@ import validator from 'validator';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
 
+export const getUser = (userId) => (dispatch) => {};
+
 export const getUserProjects = (userId) => (dispatch) => {
   axios
     .get(`/api/project/user/${userId}`)

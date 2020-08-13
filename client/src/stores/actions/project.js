@@ -56,7 +56,7 @@ export const getSpotifyLink = (url) => (dispatch) => {
 export const getAppleMusicLink = (url) => (dispatch) => {
   dispatch({ type: actionType.APPLE_MUSIC_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.APPLE_MUSIC_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.APPLE_MUSIC_LINK_ERROR, payload: true });
@@ -66,7 +66,7 @@ export const getAppleMusicLink = (url) => (dispatch) => {
 export const getTiktokLink = (url) => (dispatch) => {
   dispatch({ type: actionType.TIKTOK_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.TIKTOK_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.TIKTOK_LINK_ERROR, payload: true });
@@ -76,7 +76,7 @@ export const getTiktokLink = (url) => (dispatch) => {
 export const getYoutubeLink = (url) => (dispatch) => {
   dispatch({ type: actionType.YOUTUBE_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.YOUTUBE_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.YOUTUBE_LINK_ERROR, payload: true });
@@ -86,7 +86,7 @@ export const getYoutubeLink = (url) => (dispatch) => {
 export const getInstagramLink = (url) => (dispatch) => {
   dispatch({ type: actionType.INSTAGRAM_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.INSTAGRAM_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.INSTAGRAM_LINK_ERROR, payload: true });
@@ -96,7 +96,7 @@ export const getInstagramLink = (url) => (dispatch) => {
 export const getFacebookLink = (url) => (dispatch) => {
   dispatch({ type: actionType.FACEBOOK_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.FACEBOOK_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.FACEBOOK_LINK_ERROR, payload: true });
@@ -106,7 +106,7 @@ export const getFacebookLink = (url) => (dispatch) => {
 export const getSoundCloudLink = (url) => (dispatch) => {
   dispatch({ type: actionType.SOUNDCLOUD_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.SOUNDCLOUD_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.SOUNDCLOUD_LINK_ERROR, payload: true });
@@ -116,7 +116,7 @@ export const getSoundCloudLink = (url) => (dispatch) => {
 export const getDeezerLink = (url) => (dispatch) => {
   dispatch({ type: actionType.DEEZER_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.DEEZER_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.DEEZER_LINK_ERROR, payload: true });
@@ -126,7 +126,7 @@ export const getDeezerLink = (url) => (dispatch) => {
 export const getWebsiteLink = (url) => (dispatch) => {
   dispatch({ type: actionType.WEBSITE_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.WEBSITE_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.WEBSITE_LINK_ERROR, payload: true });
@@ -136,7 +136,7 @@ export const getWebsiteLink = (url) => (dispatch) => {
 export const getTidalLink = (url) => (dispatch) => {
   dispatch({ type: actionType.TIDAL_LINK, payload: url });
   const validURL = validator.isURL(url);
-  if (validURL) {
+  if (validURL || url === '') {
     dispatch({ type: actionType.TIDAL_LINK_ERROR, payload: false });
   } else {
     dispatch({ type: actionType.TIDAL_LINK_ERROR, payload: true });

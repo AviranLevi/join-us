@@ -8,8 +8,7 @@ const initialState = {
   password: '',
   confirmPassword: '',
   email: '',
-  profileImage:
-    'https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+  profileImage: '',
   projects: [],
   spotify: '',
   instagram: '',
@@ -31,7 +30,6 @@ const rootReducer = (state = initialState, action) => {
         id: payload._id,
         name: payload.name,
         email: payload.email,
-        projects: payload.projects,
         userName: payload.userName,
         createdAt: payload.createdAt,
       };

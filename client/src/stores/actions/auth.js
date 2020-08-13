@@ -63,8 +63,8 @@ export const userAuthenticated = () => (dispatch) => {
       if (res.status !== 401) {
         const { data } = res;
         const { user } = data;
+        console.log(data);
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
-        dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
       }
     })
     .catch((err) => console.log(err));
