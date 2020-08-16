@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as actions from '../../../stores/actions';
+import * as joinUsAPI from '../../../api/joinUsApi';
 
 import AccountInput from '../../../components/account-input/AccountInput';
 import Button from '../../../components/button/Button';
@@ -16,10 +17,13 @@ const AccountPrivate = (props) => {
     oldPassword: '',
     password: '',
     confirmPassword: '',
-    profilePicture: user.profilePicture,
   });
 
+  const [file, setFile] = useState({});
+  console.log(file);
   const handleOnChange = (e) => setState({ ...state, [e.target.name]: e.target.value });
+
+  const handleFile = (e) => setFile(e.target.files[0]);
 
   if (!user.loggedIn) {
     return <Redirect to='/home/login' />;
@@ -33,48 +37,20 @@ const AccountPrivate = (props) => {
       <AccountInput name='email' title='Email' value={state.email} changeAction={handleOnChange} edit={edit} />
       {updateUser.email ? <ErrorMessage message='*Please insert valid email' /> : null}
       {updateUser.emailAlreadyInUse ? <ErrorMessage message='*Email already in use' /> : null}
-      {/* <AccountInput
-        name='oldPassword'
-        title='Old Password'
-        type='password'
-        value={state.oldPassword}
-        changeAction={handleOnChange}
-        edit={edit}
-      />
-      {updateUser.oldPassword ? <ErrorMessage message='*Old password incorrect' /> : null}
-
-      <AccountInput
-        name='password'
-        title='New Password'
-        type='password'
-        value={state.password}
-        changeAction={handleOnChange}
-        edit={edit}
-      />
-      {updateUser.password ? <ErrorMessage message='*Password is not valid (minimun 6 characters)' /> : null}
-
-      <AccountInput
-        name='confirmPassword'
-        title='Confirm Password'
-        type='password'
-        value={state.confirmPassword}
-        changeAction={handleOnChange}
-        edit={edit}
-      />
-      {updateUser.confirmPassword ? <ErrorMessage message='*Passwords are not matched!' /> : null} */}
 
       <AccountInput
         name='profilePicture'
         type='file'
         title='Profile Picture'
         value={state.profilePicture}
-        changeAction={props.uploadImage}
+        changeAction={handleFile}
         edit={edit}
       />
+
       <Button
         text={'Save'}
         classes='save-profile-btn transition'
-        action={() => props.updateUser(state)}
+        action={() => props.updateUser({ ...state, file })}
         disabled={!edit}
       />
     </div>
@@ -85,7 +61,7 @@ const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
   updateUser: (data) => dispatch(actions.updateUserInfo(data)),
-  uploadImage: (e) => dispatch(actions.uploadImage(e.target.files[0])),
+  // uploadImage: (e) => dispatch(actions.uploadImage(e.target.files[0])),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountPrivate);
