@@ -1,6 +1,5 @@
 import * as db from '../db/user';
-import cloudinary from 'cloudinary';
-import { cloudinaryINFO } from '../config';
+import { cloud } from '../utils/cloudinary';
 import { removeEmptyValuesFromObj } from '../utils/general';
 
 //CREATE
@@ -9,7 +8,6 @@ export const createUser = async (data) => {
     const { email } = data;
     const extractUserName = email.split('@');
     const userName = extractUserName[0] + Math.floor(Math.random() * 1000000000).toString();
-    console.log(userName);
     const userToDB = Object.assign({ userName }, data);
     const user = await db.createUser(userToDB);
     return user;
@@ -19,9 +17,10 @@ export const createUser = async (data) => {
   }
 };
 
-export const uploadImage = async (file) => {
+export const uploadImage = async (filePath) => {
   try {
-    //upload using cloudinary api
+    const response = await cloud(filePath).then((result) => ({ url: result.url, id: result.id }));
+    return response;
   } catch (error) {
     console.log(error);
     throw error;

@@ -16,14 +16,12 @@ export const getUserProjects = (userId) => (dispatch) => {
 };
 
 export const uploadImage = (file) => (dispatch) => {
-  if (file) {
-    const formData = new FormData();
-    formData.append('file', file);
-    axios
-      .post('/api/user/image', formData, {})
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }
+  const formData = new FormData();
+  formData.append('file', file);
+  axios
+    .post('/api/user/image', formData)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 };
 
 export const userName = (name) => (dispatch) => {

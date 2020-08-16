@@ -68,7 +68,7 @@ const AccountPrivate = (props) => {
         type='file'
         title='Profile Picture'
         value={state.profilePicture}
-        changeAction={handleOnChange}
+        changeAction={props.uploadImage}
         edit={edit}
       />
       <Button
@@ -85,6 +85,7 @@ const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
   updateUser: (data) => dispatch(actions.updateUserInfo(data)),
+  uploadImage: (e) => dispatch(actions.uploadImage(e.target.files[0])),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountPrivate);

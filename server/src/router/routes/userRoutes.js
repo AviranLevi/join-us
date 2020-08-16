@@ -2,7 +2,6 @@ import * as service from '../../services/userService';
 import { httpResponseStatus } from '../../constant';
 const { OK, ERR } = httpResponseStatus;
 import * as JWT from '../../utils/jwt';
-import { upload } from '../../utils/upload';
 
 export const createUser = async (req, res, next) => {
   try {
@@ -17,12 +16,9 @@ export const createUser = async (req, res, next) => {
 //*on progress
 export const uploadImage = async (req, res, next) => {
   try {
-    upload(req, res, (err) => {
-      if (err) {
-        return res.send({ error: true, message: err });
-      }
-      res.json(req.file);
-    });
+    const { path } = req.files[0];
+    const results = await service.uploadImage(path);
+    res.status(OK).json(results);
   } catch (error) {
     res.status(ERR).json(error);
     throw error;
