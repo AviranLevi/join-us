@@ -19,7 +19,7 @@ export const createUser = async (data) => {
 
 export const uploadImage = async (filePath) => {
   try {
-    const response = await cloud(filePath).then((result) => ({ url: result.url, id: result.id }));
+    const response = await cloud(filePath).then((result) => result);
     return response;
   } catch (error) {
     console.log(error);

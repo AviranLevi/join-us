@@ -8,13 +8,14 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   const { user } = props;
+  const { loggedIn, id, name, profileImage } = user;
   return (
     <div className='header center-items slide-from-top'>
-      <Link to={user.loggedIn ? '/home/dashboard' : '/home/login'} className='logo'>
+      <Link to={loggedIn ? '/home/dashboard' : '/home/login'} className='logo'>
         <Logo text='JoinUS' classes='bold-black-text' />
       </Link>
-      {user.loggedIn ? (
-        <UserLoggedIn userId={user.id} userName={user.name} userImageSrc={user.profileImage} />
+      {loggedIn ? (
+        <UserLoggedIn userId={id} userName={name} userImageSrc={profileImage.url} />
       ) : (
         <div className='login-signup center-items'>
           <Button action={props.openLogin} text='Login' classes='bold-black-text' />

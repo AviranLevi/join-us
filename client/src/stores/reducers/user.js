@@ -8,7 +8,7 @@ const initialState = {
   password: '',
   confirmPassword: '',
   email: '',
-  profileImage: '',
+  profileImage: {},
   projects: [],
   spotify: '',
   instagram: '',
@@ -23,6 +23,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.USER_LOG_IN:
+      console.log(action.payload);
       return {
         ...state,
         loggedIn: true,
@@ -31,6 +32,7 @@ const rootReducer = (state = initialState, action) => {
         email: action.payload.email,
         userName: action.payload.userName,
         createdAt: action.payload.createdAt,
+        profileImage: action.payload.profileImage || {},
       };
 
     case actionType.USER_NAME:
@@ -71,7 +73,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         name: action.payload.name,
         email: action.payload.email,
-        profileImage: action.payload.profileImage,
+        profileImage: action.payload.profileImage || state.profileImage,
       };
 
     case actionType.USER_LOG_OUT:

@@ -34,6 +34,30 @@
     .account-private-info {
       display: grid;
       grid-gap: 30px;
+
+      .image-upload {
+        span {
+          font-size: 17px;
+        }
+      }
+
+      .save-profile-btn {
+        color: $primary-color;
+        justify-self: center;
+        padding: 10px 30px;
+        font-size: 22px;
+        background: $title-color;
+        border-radius: 25px;
+        opacity: 1;
+
+        &:hover {
+          background: $font-color;
+        }
+
+        &:disabled {
+          opacity: 0.3;
+        }
+      }
     }
 
     .account-input {
@@ -75,24 +99,6 @@
 
     .error-message {
       font-size: 18px;
-    }
-  }
-
-  .save-profile-btn {
-    color: $primary-color;
-    justify-self: center;
-    padding: 10px 30px;
-    font-size: 22px;
-    background: $title-color;
-    border-radius: 25px;
-    opacity: 1;
-
-    &:hover {
-      background: $font-color;
-    }
-
-    &:disabled {
-      opacity: 0.3;
     }
   }
 

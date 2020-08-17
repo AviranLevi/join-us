@@ -1,10 +1,20 @@
 import axios from 'axios';
 import * as actionType from './types';
+import { findErrors } from '../../utils/general';
 
 export const createNewUser = () => (dispatch, getState) => {
-  const data = getState().user;
-  const { name, email, password, confirmPassword } = data;
-  if (name && email && password && password === confirmPassword) {
+  const { user, errors } = getState();
+
+  const { name, email, password, confirmPassword } = user;
+
+  if (!name) dispatch({ type: actionType.USER_NAME_ERROR, payload: true });
+  if (!email) dispatch({ type: actionType.USER_EMAIL_ERROR, payload: true });
+  if (!password) dispatch({ type: actionType.USER_PASSWORD_ERROR, payload: true });
+  if (!confirmPassword) dispatch({ type: actionType.USER_CONFIRM_PASSWORD_ERROR, payload: true });
+
+  const noErrors = findErrors(errors.signUp);
+
+  if (noErrors && name && email && password === confirmPassword) {
     axios
       .post('/api/user', { name, email, password })
       .then((res) => {
@@ -24,10 +34,11 @@ export const createNewUser = () => (dispatch, getState) => {
 
 export const userLogin = () => (dispatch, getState) => {
   const { email, password } = getState().user;
+  dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
+
   axios
     .post('/api/user/login', { email, password })
     .then((res) => {
-      dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
       const { data } = res;
       const { isAuthenticated, user } = data;
       if (isAuthenticated) {
@@ -36,10 +47,12 @@ export const userLogin = () => (dispatch, getState) => {
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
       }
       if (data.error) {
+        dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
         dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: true });
       }
     })
     .catch((err) => {
+      dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
       dispatch({ type: actionType.USER_NOT_FOUND, payload: true });
     });
 };

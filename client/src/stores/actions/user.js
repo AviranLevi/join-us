@@ -89,7 +89,6 @@ export const userWebsite = (url) => ({
   payload: url,
 });
 
-//*on progress
 export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
   const { name, email, oldPassword, password, confirmPassword } = updatedUserInfo;
   const nameIsValid = validator.isLength(name, { min: 3, max: 20 });
@@ -138,12 +137,9 @@ export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
       .then((res) => {
         const { data } = res;
         const { error } = data;
-        console.log(data);
         if (error) {
-          console.log(error);
           dispatch({ type: actionType.UPDATE_EMAIL_ALREADY_IN_USE_ERROR, payload: true });
         } else {
-          console.log('here');
           dispatch({ type: actionType.UPDATE_USER, payload: data });
           dispatch({ type: actionType.UPDATE_USER_STATUS_TOAST, payload: true });
           dispatch({ type: actionType.UPDATE_EMAIL_ALREADY_IN_USE_ERROR, payload: false });

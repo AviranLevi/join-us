@@ -7,10 +7,15 @@ import * as joinUsAPI from '../../../api/joinUsApi';
 import AccountInput from '../../../components/account-input/AccountInput';
 import Button from '../../../components/button/Button';
 import ErrorMessage from '../../../components/error-message/ErrorMessage';
+import Spinner from '../../../components/spinner/Spinner';
 
 const AccountPrivate = (props) => {
   const { user, edit, errors } = props;
   const { updateUser } = errors;
+
+  const [fileToUpload, setFileToUpload] = useState({});
+  const [fileErr, setFileErr] = useState(false);
+  const [uploadSpinner, setUploadSpinner] = useState(false);
   const [state, setState] = useState({
     name: user.name,
     email: user.email,
@@ -19,11 +24,26 @@ const AccountPrivate = (props) => {
     confirmPassword: '',
   });
 
-  const [file, setFile] = useState({});
-  console.log(file);
   const handleOnChange = (e) => setState({ ...state, [e.target.name]: e.target.value });
 
-  const handleFile = (e) => setFile(e.target.files[0]);
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setUploadSpinner(true);
+      joinUsAPI
+        .uploadImage(file)
+        .then((image) => {
+          setFileErr(false);
+          setUploadSpinner(false);
+          setFileToUpload(image);
+        })
+        .catch((err) => {
+          setUploadSpinner(false);
+          setFileErr(true);
+          console.log(err);
+        });
+    }
+  };
 
   if (!user.loggedIn) {
     return <Redirect to='/home/login' />;
@@ -38,19 +58,20 @@ const AccountPrivate = (props) => {
       {updateUser.email ? <ErrorMessage message='*Please insert valid email' /> : null}
       {updateUser.emailAlreadyInUse ? <ErrorMessage message='*Email already in use' /> : null}
 
-      <AccountInput
-        name='profilePicture'
-        type='file'
-        title='Profile Picture'
-        value={state.profilePicture}
-        changeAction={handleFile}
-        edit={edit}
-      />
+      <div className='image-upload'>
+        <AccountInput name='profilePicture' type='file' title='Profile Picture' changeAction={handleFile} edit={edit} />
+        {uploadSpinner ? <Spinner /> : null}
+        {fileToUpload ? <span>{fileToUpload.name}</span> : null}
+        {fileErr ? <ErrorMessage text='*Please insert a valid jpeg/png file' /> : null}
+      </div>
 
       <Button
         text={'Save'}
         classes='save-profile-btn transition'
-        action={() => props.updateUser({ ...state, file })}
+        action={() => {
+          props.setEdit(true);
+          props.updateUser({ ...state, profileImage: fileToUpload });
+        }}
         disabled={!edit}
       />
     </div>
@@ -61,7 +82,6 @@ const mapStateToProps = (state = {}) => state;
 
 const mapDispatchToProps = (dispatch) => ({
   updateUser: (data) => dispatch(actions.updateUserInfo(data)),
-  // uploadImage: (e) => dispatch(actions.uploadImage(e.target.files[0])),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountPrivate);

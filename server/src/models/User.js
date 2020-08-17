@@ -30,7 +30,9 @@ const UserSchema = new Schema({
     max: 20,
   },
   profileImage: {
-    type: String,
+    url: { type: String },
+    cloudID: { type: String },
+    name: { type: String },
   },
   socialMedia: {
     type: [String],
@@ -38,6 +40,9 @@ const UserSchema = new Schema({
   createdAt: {
     type: String,
     default: currentDate,
+  },
+  updatedAt: {
+    type: String,
   },
 });
 

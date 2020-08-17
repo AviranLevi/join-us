@@ -1,6 +1,9 @@
 import User from '../models/User';
 import Project from '../models/Project';
+import moment from 'moment';
 import { dbResponses } from '../constant';
+
+const currentDate = moment().format('MMM Do YYYY');
 
 export const createUser = async (data) => {
   try {
@@ -11,6 +14,7 @@ export const createUser = async (data) => {
     } else {
       const user = new User(data);
       user.save();
+      console.log(`New user created - ${user.userName} `);
       return user;
     }
   } catch (error) {
@@ -37,7 +41,8 @@ export const updateUser = async (userId, data) => {
       return dbResponses.emailAlreadyInUse;
     } else if (emailAlreadyUsed) delete data.email;
 
-    const user = await User.findOneAndUpdate({ _id: userId }, data, { new: true });
+    const newData = Object.assign(data, { updatedAt: currentDate });
+    const user = await User.findOneAndUpdate({ _id: userId }, { $set: newData }, { new: true });
     return user;
   } catch (error) {
     throw error;

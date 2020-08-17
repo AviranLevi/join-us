@@ -13,7 +13,6 @@ export const createUser = async (req, res, next) => {
   }
 };
 
-//*on progress
 export const uploadImage = async (req, res, next) => {
   try {
     const { path } = req.files[0];

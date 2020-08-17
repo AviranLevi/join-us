@@ -21,7 +21,7 @@ const Profile = (props) => {
   return (
     <div className='profile center-items fade-in'>
       {profile.profileImage ? (
-        <img className='profile-image' src={profile.profileImage} alt={profile.name} />
+        <img className='profile-image' src={profile.profileImage.url} alt={profile.name} />
       ) : (
         <div className='profile-image-icon center-items'>
           <Icon icon={icons.profile} />

@@ -25,7 +25,7 @@ const AccountSettings = (props) => {
       <div className='account-info'>
         <Title text='Private Information' classes='bold-text' />
 
-        <AccountPrivate edit={edit} />
+        <AccountPrivate edit={edit} setEdit={setEdit} />
 
         <Button text='Delete User' classes='delete-user-btn' action={props.openDeleteUserToast} />
       </div>

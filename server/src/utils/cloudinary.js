@@ -12,7 +12,7 @@ export const cloud = (path) => {
       if (err) resolve(err);
       console.log('Image uploaded to Cloudinary');
       fs.unlinkSync(path);
-      resolve({ url: image.url, id: image.public_id });
+      resolve({ url: image.url, cloudID: image.public_id, name: image.original_filename });
     });
   });
   return image;
