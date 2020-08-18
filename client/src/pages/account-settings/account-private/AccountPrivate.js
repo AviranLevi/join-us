@@ -51,7 +51,15 @@ const AccountPrivate = (props) => {
 
   return (
     <div className='account-private-info '>
-      <AccountInput name='name' title='Name' value={state.name} changeAction={handleOnChange} edit={edit} />
+      <AccountInput
+        name='name'
+        title='Name'
+        value={state.name}
+        changeAction={handleOnChange}
+        edit={edit}
+        maxLength={20}
+        minLength={3}
+      />
       {updateUser.name ? <ErrorMessage message='*Name should be between 3-20 chararters' /> : null}
 
       <AccountInput name='email' title='Email' value={state.email} changeAction={handleOnChange} edit={edit} />

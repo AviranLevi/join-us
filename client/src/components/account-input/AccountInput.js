@@ -1,6 +1,17 @@
 import React from 'react';
 
-const AccountInput = ({ title, name = '', type = 'text', classes = '', edit, changeAction, value, style = {} }) => (
+const AccountInput = ({
+  title,
+  name = '',
+  type = 'text',
+  classes = '',
+  edit,
+  changeAction,
+  value,
+  style = {},
+  maxLength,
+  minLength,
+}) => (
   <div className={`account-input ${classes}`} style={style}>
     <label>{title}</label>
     <input
@@ -11,6 +22,8 @@ const AccountInput = ({ title, name = '', type = 'text', classes = '', edit, cha
       onChange={changeAction}
       disabled={!edit}
       placeholder={`${title}...`}
+      maxLength={maxLength}
+      minLength={minLength}
     />
   </div>
 );

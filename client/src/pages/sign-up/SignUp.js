@@ -12,8 +12,13 @@ const SignUp = (props) => {
   const { user, errors } = props;
   const { signUp } = errors;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.createNewUser();
+  };
+
   return (
-    <div className='sign-up fade-in rounded-border' onSubmit={props.createNewUser}>
+    <form className='sign-up fade-in rounded-border' onSubmit={handleSubmit}>
       <Icon icon={icons.close} classes='close-icon bold-black-text' action={props.closeSignUp} />
       <div className='sign-up-content'>
         <Title text='Signup' classes='bold-text' />
@@ -47,7 +52,7 @@ const SignUp = (props) => {
 
         <Button text='Sign-up' classes='bold-text transition' action={props.createNewUser} />
       </div>
-    </div>
+    </form>
   );
 };
 

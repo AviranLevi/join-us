@@ -41,7 +41,6 @@ const App = (props) => {
         </div>
         <Footer />
       </div>
-
       {user.loggedIn ? <Redirect to='home/dashboard' /> : <Redirect to='/home/login' />}
       {features.loginToast ? <Login /> : null}
       {features.signUpToast ? <SignUp /> : null}
