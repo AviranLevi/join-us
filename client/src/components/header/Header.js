@@ -11,7 +11,7 @@ const Header = (props) => {
   const { loggedIn, id, name, profileImage } = user;
   return (
     <div className='header center-items slide-from-top'>
-      <Link to={loggedIn ? '/home/dashboard' : '/home/login'} className='logo'>
+      <Link to='/' className='logo'>
         <Logo text='JoinUS' classes='bold-black-text' />
       </Link>
       {loggedIn ? (

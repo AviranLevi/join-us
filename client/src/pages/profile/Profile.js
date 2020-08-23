@@ -15,8 +15,8 @@ const Profile = (props) => {
     props.getUserProfile(id);
   }, [props.getUserProfile]);
 
-  if (!user.loggedIn) {
-    return <Redirect to='/home/login' />;
+  if (!user.isAuthenticated) {
+    return <Redirect to='/' />;
   }
   return (
     <div className='profile center-items fade-in'>

@@ -14,32 +14,62 @@ const MusicLinks = (props) => {
       <Title text='Your music here:' classes='bold-text' />
 
       <div className='music-link center-items'>
-        <UserLinkInput value={musicLinks.spotify} icon={icons.spotify} changeAction={props.spotifyLink} />
+        <UserLinkInput
+          value={musicLinks.spotify}
+          icon={icons.spotify}
+          changeAction={props.spotifyLink}
+          placeholderText={'https://open.spotify.com/...'}
+        />
         {errors.project.spotify ? <ErrorMessage classes='link-error' message='Valid Spotify link required!' /> : null}
       </div>
 
       <div className='music-link center-items'>
-        <UserLinkInput value={musicLinks.appleMusic} icon={icons.appleMusic} changeAction={props.appleMusicLink} />
+        <UserLinkInput
+          value={musicLinks.appleMusic}
+          icon={icons.appleMusic}
+          changeAction={props.appleMusicLink}
+          placeholderText={'https://music.apple.com/...'}
+        />
         {errors.project.appleMusic ? <ErrorMessage classes='link-error' message='Please insert valid link' /> : null}
       </div>
 
       <div className='music-link center-items'>
-        <UserLinkInput value={musicLinks.deezer} icon={icons.deezer} changeAction={props.deezerLink} />
+        <UserLinkInput
+          value={musicLinks.deezer}
+          icon={icons.deezer}
+          changeAction={props.deezerLink}
+          placeholderText={'https://www.deezer.com/...'}
+        />
         {errors.project.deezer ? <ErrorMessage classes='link-error' message='Please insert valid link' /> : null}
       </div>
 
       <div className='music-link center-items'>
-        <UserLinkInput value={musicLinks.youtube} icon={icons.youtube} changeAction={props.youtubeLink} />
+        <UserLinkInput
+          value={musicLinks.youtube}
+          icon={icons.youtube}
+          changeAction={props.youtubeLink}
+          placeholderText={'https://www.youtube.com/...'}
+        />
         {errors.project.youtube ? <ErrorMessage classes='link-error' message='Please insert valid link' /> : null}
       </div>
 
       <div className='music-link center-items'>
-        <UserLinkInput value={musicLinks.soundcloud} icon={icons.soundcloud} changeAction={props.soundCloudLink} />
+        <UserLinkInput
+          value={musicLinks.soundcloud}
+          icon={icons.soundcloud}
+          changeAction={props.soundCloudLink}
+          placeholderText={'https://www.soundcloud.com/...'}
+        />
         {errors.project.soundcloud ? <ErrorMessage classes='link-error' message='Please insert valid link' /> : null}
       </div>
 
       <div className='music-link center-items'>
-        <UserLinkInput value={musicLinks.tidal} icon={icons.tidal} changeAction={props.tidalLink} />
+        <UserLinkInput
+          value={musicLinks.tidal}
+          icon={icons.tidal}
+          changeAction={props.tidalLink}
+          placeholderText={'https://www.tidal.com/...'}
+        />
         {errors.project.tidal ? <ErrorMessage classes='link-error' message='Please insert valid link' /> : null}
       </div>
     </div>

@@ -7,13 +7,12 @@ import { Redirect } from 'react-router-dom';
 
 const UserProjects = (props) => {
   const { user } = props;
-
   useEffect(() => {
     props.getUserProjects(user.id);
   }, []);
 
-  if (!user.loggedIn) {
-    return <Redirect to='/home/login' />;
+  if (!user.isAuthenticated) {
+    return <Redirect to='/' />;
   }
 
   return <div className='user-projects'>{user.projects.length !== 0 ? <Projects /> : <NoProjects />}</div>;

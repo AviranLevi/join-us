@@ -10,8 +10,8 @@ import SocialLinks from './social-links/SocialLinks';
 
 const NewProject = (props) => {
   const { user, features, project } = props;
-  if (!user.loggedIn) {
-    return <Redirect to='/home/login' />;
+  if (!user.isAuthenticated) {
+    return <Redirect to='/' />;
   }
   return (
     <div className='user-new-project center-items fade-in'>

@@ -22,26 +22,27 @@ const App = (props) => {
   useEffect(() => {
     props.userAuthenticated();
   }, []);
-
   return (
     <div className='app'>
       <div className='home center-items'>
         <Header />
         <div className='dashboard'>
-          {user.loggedIn ? <Menu /> : null}
+          {user.isAuthenticated ? <Menu /> : null}
           <div className='user-workspace slide-from-right'>
-            <Switch>
-              <Route exact path='/home/login' component={Home} />
-              <Route exact path='/home/dashboard' component={UserProjects} />
-              <Route exact path='/home/profile/:id' component={Profile} />
-              <Route exact path='/home/dashboard/new-project' component={NewProject} />
-              <Route exact path='/home/account-settings' component={AccountSettings} />
-            </Switch>
+            {user.isAuthenticated ? (
+              <Switch>
+                <Route exact path='/' component={UserProjects} />
+                <Route exact path='/profile/:id' component={Profile} />
+                <Route exact path='/new-project' component={NewProject} />
+                <Route exact path='/account-settings' component={AccountSettings} />
+              </Switch>
+            ) : (
+              <Route exact path='/' component={Home} />
+            )}
           </div>
         </div>
         <Footer />
       </div>
-      {user.loggedIn ? <Redirect to='home/dashboard' /> : <Redirect to='/home/login' />}
       {features.loginToast ? <Login /> : null}
       {features.signUpToast ? <SignUp /> : null}
       {features.trackDataLoading ? <Loading /> : null}

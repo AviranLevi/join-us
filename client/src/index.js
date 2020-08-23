@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 //components
 import App from './App';
 import UserLandPage from './pages/user-land-page/UserLandPage';
-import Profile from './pages/profile/Profile';
+import ErrorPage from './pages/error-page/ErrorPage';
 
 //stores
 import UserStore from './stores/reducers/user';
@@ -35,8 +35,8 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route exact path='/project/:id' render={({ match }) => <UserLandPage match={match} />} />
-          <Route path='/home' component={App} />
-          <Redirect from='*' to='/home/dashboard' />
+          <Route exact path='/error' component={ErrorPage} />
+          <Route path='/' component={App} />
         </Switch>
       </Router>
     </React.StrictMode>

@@ -42,6 +42,7 @@ const UserLandPage = (props) => {
     backgroundRepeat: 'no-repeat',
     filter: 'blur(50px) saturate(1.5)',
   };
+
   if (projectDataNotFound) {
     return <Redirect to='/error' />;
   }
@@ -110,7 +111,7 @@ const UserLandPage = (props) => {
           </div>
         </div>
 
-        <Link to='/home/dashboard' className='join-us-link' target='_blank'>
+        <Link to='/' className='join-us-link' target='_blank'>
           Powered by JoinUS
         </Link>
       </div>

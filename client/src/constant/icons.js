@@ -16,6 +16,7 @@ export const icons = {
   image: <i className='far fa-images'></i>,
   settings: <i className='fas fa-cog'></i>,
   profile: <i className='fas fa-user-circle profile-icon'></i>,
+  error: <i className='fas fa-exclamation'></i>,
   //social-media
   facebook: <i className='fab fa-facebook'></i>,
   google: <i className='fab fa-google'></i>,

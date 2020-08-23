@@ -13,8 +13,8 @@ const AccountSettings = (props) => {
   const { user, features } = props;
   const [edit, setEdit] = useState(false);
 
-  if (!user.loggedIn) {
-    return <Redirect to='/home/login' />;
+  if (!user.isAuthenticated) {
+    return <Redirect to='/' />;
   }
 
   return (

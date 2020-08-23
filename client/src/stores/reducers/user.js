@@ -23,7 +23,6 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.USER_LOG_IN:
-      console.log(action.payload);
       return {
         ...state,
         loggedIn: true,
@@ -33,6 +32,7 @@ const rootReducer = (state = initialState, action) => {
         userName: action.payload.userName,
         createdAt: action.payload.createdAt,
         profileImage: action.payload.profileImage || {},
+        isAuthenticated: true,
       };
 
     case actionType.USER_NAME:

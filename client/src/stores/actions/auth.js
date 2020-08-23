@@ -64,7 +64,6 @@ export const userLogout = () => (dispatch) => {
       const { data } = res;
       const { user } = data;
       dispatch({ type: actionType.USER_LOG_OUT, payload: user });
-      dispatch({ type: actionType.USER_LOG_OUT });
     })
     .catch((err) => console.log(err));
 };
@@ -77,6 +76,8 @@ export const userAuthenticated = () => (dispatch) => {
         const { data } = res;
         const { user } = data;
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
+      } else {
+        dispatch({ type: actionType.USER_LOG_OUT });
       }
     })
     .catch((err) => console.log(err));

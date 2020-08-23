@@ -16,22 +16,41 @@ const SocialLinks = (props) => {
       <Title text='Your socials here:' classes='bold-text' />
 
       <div className='social-link center-items'>
-        <UserLinkInput value={socialLinks.instagram} icon={icons.instagram} changeAction={props.instagramLink} />
+        <UserLinkInput
+          value={socialLinks.instagram}
+          icon={icons.instagram}
+          changeAction={props.instagramLink}
+          placeholderText={'https://www.instagram .com/...'}
+        />
         {errors.project.instagram ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
 
       <div className='social-link center-items'>
-        <UserLinkInput value={socialLinks.facebook} icon={icons.facebook} changeAction={props.facebookLink} />
+        <UserLinkInput
+          value={socialLinks.facebook}
+          icon={icons.facebook}
+          changeAction={props.facebookLink}
+          placeholderText={'https://www.facebook.com/...'}
+        />
         {errors.project.facebook ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
 
       <div className='social-link center-items'>
-        <UserLinkInput value={socialLinks.tiktok} icon={icons.tiktok} changeAction={props.tiktokLink} />
+        <UserLinkInput
+          value={socialLinks.tiktok}
+          icon={icons.tiktok}
+          changeAction={props.tiktokLink}
+          placeholderText={'https://www.tiktok.com/...'}
+        />
         {errors.project.tiktok ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
 
       <div className='social-link center-items'>
-        <UserLinkInput value={socialLinks.website} changeAction={props.websiteLink} />
+        <UserLinkInput
+          value={socialLinks.website}
+          changeAction={props.websiteLink}
+          placeholderText={'https://www.your-website.com/'}
+        />
         {errors.project.website ? <ErrorMessage classes='link-error' message='Invalid link' /> : null}
       </div>
     </div>

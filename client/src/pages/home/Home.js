@@ -5,8 +5,8 @@ import { Redirect } from 'react-router-dom';
 
 const Home = (props) => {
   const { user } = props;
-  if (user.loggedIn) {
-    return <Redirect to='/home/dashboard' />;
+  if (user.isAuthenticated) {
+    return <Redirect to='/' />;
   }
   return (
     <div className='home center-items'>
