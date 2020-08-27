@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node index.js",
+    "publishToHeroku": "cd ../ && git subtree push --prefix server heroku-server master || true"
   },
   "author": "",
   "license": "ISC",
