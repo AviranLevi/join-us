@@ -12,6 +12,7 @@ router.post('/image', passport.authenticate('jwt', { session: false }), upload.a
 router.get('/logout', passport.authenticate('jwt', { session: false }), routes.userLogout);
 router.get('/auth', passport.authenticate('jwt', { session: false }), routes.userAuth);
 router.get('/:id', passport.authenticate('jwt', { session: false }), routes.getUser);
+router.get('/test', (req, res) => res.json({ test: 'test' }));
 router.patch('/:id', passport.authenticate('jwt', { session: false }), routes.updateUser);
 router.delete('/:id', passport.authenticate('jwt', { session: false }), routes.deleteUser);
 
