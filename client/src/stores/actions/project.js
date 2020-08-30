@@ -2,6 +2,7 @@ import axios from 'axios';
 import validator from 'validator';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
+import { serverURL } from '../../config';
 
 export const getTrackData = () => (dispatch, getState) => {
   const { project, user, errors } = getState();
