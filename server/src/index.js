@@ -1,8 +1,9 @@
-import cookieParser from 'cookie-parser';
 import express from 'express';
-import router from './router';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import sslRedirect from 'heroku-ssl-redirect';
+import router from './router';
 
 const app = express();
 const { env } = process;
@@ -19,6 +20,7 @@ mongoose.connect(url, options).then(() => console.log('DB Connected'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
+app.use(sslRedirect());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
