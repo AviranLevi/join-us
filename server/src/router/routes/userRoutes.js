@@ -30,7 +30,11 @@ export const userLogin = (req, res, next) => {
       const user = req.user;
       const { _id } = user;
       const token = JWT.signToken(_id);
-      res.cookie('access_token', token, { maxAge: 604800000, path: '/', httpOnly: false });
+      res.cookie('access_token', token, {
+        maxAge: 604800000,
+        path: 'https://join-us-client.herokuapp.com/',
+        httpOnly: false,
+      });
       res.status(OK).json({ isAuthenticated: true, user });
     }
   } catch (error) {
