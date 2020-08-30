@@ -18,4 +18,4 @@ export const spotifyINFO = {
   client_secret: process.env.REACT_APP_SPOTIFY_CLIENT_SECRET,
 };
 
-export const serverURL = REACT_APP_SERVER_URL;
+export const serverURL = process.env.REACT_APP_SERVER_URL;
