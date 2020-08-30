@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
+import { serverURL } from '../../config';
 
 export const createNewUser = () => (dispatch, getState) => {
   const { user, errors } = getState();
@@ -16,7 +17,7 @@ export const createNewUser = () => (dispatch, getState) => {
 
   if (noErrors && name && email && password === confirmPassword) {
     axios
-      .post('/api/user', { name, email, password })
+      .post(`${serverURL}/user`, { name, email, password })
       .then((res) => {
         const { data } = res;
         const { error } = data;
@@ -37,7 +38,7 @@ export const userLogin = () => (dispatch, getState) => {
   dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
 
   axios
-    .post('/api/user/login', { email, password })
+    .post(`${serverURL}/user/login`, { email, password })
     .then((res) => {
       const { data } = res;
       const { isAuthenticated, user } = data;
@@ -59,7 +60,7 @@ export const userLogin = () => (dispatch, getState) => {
 
 export const userLogout = () => (dispatch) => {
   axios
-    .get('/api/user/logout')
+    .get(`${serverURL}/user/logout`)
     .then((res) => {
       const { data } = res;
       const { user } = data;
@@ -70,7 +71,7 @@ export const userLogout = () => (dispatch) => {
 
 export const userAuthenticated = () => (dispatch) => {
   axios
-    .get('/api/user/auth')
+    .get(`${serverURL}/user/auth`)
     .then((res) => {
       if (res.status !== 401) {
         const { data } = res;

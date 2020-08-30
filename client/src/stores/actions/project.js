@@ -27,7 +27,7 @@ export const getTrackData = () => (dispatch, getState) => {
   if (userProject.spotify && noErrors) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
     axios
-      .post('/api/project', userProject)
+      .post(`${serverURL}/project`, userProject)
       .then((res) => {
         dispatch({ type: actionType.TRACK_DATA, payload: res.data });
         dispatch({ type: actionType.REDIRECT });
