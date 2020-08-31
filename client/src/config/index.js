@@ -1,3 +1,4 @@
+import { getTokenFromLocalStorage } from '../utils/general';
 export const google = {
   clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
   clientSecret: process.env.REACT_APP_CLIENT_SECRET,
@@ -19,3 +20,4 @@ export const spotifyINFO = {
 };
 
 export const serverURL = process.env.REACT_APP_SERVER_URL;
+export const accessToken = getTokenFromLocalStorage();

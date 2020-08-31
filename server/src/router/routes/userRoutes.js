@@ -30,12 +30,7 @@ export const userLogin = (req, res, next) => {
       const user = req.user;
       const { _id } = user;
       const token = JWT.signToken(_id);
-      res.cookie('access_token', token, {
-        maxAge: 604800000,
-        path: '/',
-        httpOnly: true,
-      });
-      res.status(OK).json({ isAuthenticated: true, user });
+      res.status(OK).json({ isAuthenticated: true, user, accessToken: token });
     }
   } catch (error) {
     res.status(ERR).json(error);

@@ -2,6 +2,13 @@ import axios from 'axios';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
 import { serverURL } from '../../config';
+import { accessToken } from '../../config';
+import { saveTokenInLocalStorage } from '../../utils/general';
+
+const api = axios.create({
+  baseURL: serverURL,
+  headers: { Authorization: `Bearer ${accessToken}` },
+});
 
 export const createNewUser = () => (dispatch, getState) => {
   const { user, errors } = getState();
@@ -16,14 +23,17 @@ export const createNewUser = () => (dispatch, getState) => {
   const noErrors = findErrors(errors.signUp);
 
   if (noErrors && name && email && password === confirmPassword) {
+    dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
     axios
       .post(`${serverURL}/user`, { name, email, password })
       .then((res) => {
         const { data } = res;
         const { error } = data;
         if (error) {
+          dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
           dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: true });
         } else {
+          dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
           dispatch({ type: actionType.CLOSE_SIGN_UP_TOAST });
           dispatch({ type: actionType.USER_ALREADY_EXISTS, payload: false });
           dispatch({ type: actionType.LOGIN_TOAST, payload: true });
@@ -37,15 +47,18 @@ export const userLogin = () => (dispatch, getState) => {
   const { email, password } = getState().user;
   dispatch({ type: actionType.TRACK_DATA_LOADING, payload: true });
 
-  axios
-    .post(`${serverURL}/user/login`, { email, password })
+  api
+    .post(`/user/login`, { email, password })
     .then((res) => {
       const { data } = res;
-      const { isAuthenticated, user } = data;
+      const { isAuthenticated, user, accessToken } = data;
       if (isAuthenticated) {
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
+        if (accessToken) {
+          saveTokenInLocalStorage(accessToken);
+        }
       }
       if (data.error) {
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
@@ -59,8 +72,8 @@ export const userLogin = () => (dispatch, getState) => {
 };
 
 export const userLogout = () => (dispatch) => {
-  axios
-    .get(`${serverURL}/user/logout`)
+  api
+    .get(`/user/logout`)
     .then((res) => {
       const { data } = res;
       const { user } = data;
@@ -70,8 +83,8 @@ export const userLogout = () => (dispatch) => {
 };
 
 export const userAuthenticated = () => (dispatch) => {
-  axios
-    .get(`${serverURL}/user/auth`)
+  api
+    .get(`/user/auth`)
     .then((res) => {
       if (res.status !== 401) {
         const { data } = res;

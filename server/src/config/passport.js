@@ -1,6 +1,7 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { Strategy as JwtStrategy } from 'passport-jwt';
+import { ExtractJwt } from 'passport-jwt';
 import User from '../models/User';
 
 const { env } = process;
@@ -16,7 +17,7 @@ const cookieExtractor = (req) => {
 passport.use(
   new JwtStrategy(
     {
-      jwtFromRequest: cookieExtractor,
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: env.JWT_KEY || 'JoinUsKey',
     },
     (payload, done) => {
