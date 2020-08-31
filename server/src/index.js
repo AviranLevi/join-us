@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import sslRedirect from 'heroku-ssl-redirect';
+import session from 'express-session';
 import router from './router';
 
 const app = express();
@@ -19,17 +20,19 @@ const options = {
 mongoose.connect(url, options).then(() => console.log('DB Connected'));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: env.CLIENT_ORIGIN }));
+app.use(cors());
 app.use(sslRedirect());
+app.use(session({ proxy: true }));
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Credentials: true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-    return res.status(200).json({});
-  }
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type,Authorization, Access-Control-Request-Method, Access-Control-Request-Headers'
+  );
   next();
 });
 
