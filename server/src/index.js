@@ -3,7 +3,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import sslRedirect from 'heroku-ssl-redirect';
-import session from 'express-session';
 import router from './router';
 
 const app = express();
@@ -22,7 +21,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(sslRedirect());
-app.use(session({ proxy: true }));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
