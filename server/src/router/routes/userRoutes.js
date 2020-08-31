@@ -72,7 +72,6 @@ export const updateUser = async (req, res, next) => {
 
 export const userLogout = (req, res, next) => {
   try {
-    res.clearCookie('access_token');
     res.status(OK).json({ user: {}, success: true });
   } catch (error) {
     res.status(ERR).json({ message: error.message, success: false });
