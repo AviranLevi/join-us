@@ -19,7 +19,7 @@ const options = {
 mongoose.connect(url, options).then(() => console.log('DB Connected'));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: env.CLIENT_ORIGIN, credentials: true }));
+app.use(cors({ origin: env.CLIENT_ORIGIN }));
 app.use(sslRedirect());
 
 app.use((req, res, next) => {
