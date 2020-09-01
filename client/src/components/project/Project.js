@@ -14,8 +14,7 @@ const Project = ({ songId, title, artists = [], createdDate, coverImage }) => {
 
   const copyToClipboard = () => {
     setCopySuccess(true);
-    // copy(`www.join-us.com/project/${songId}`);
-    copy(`http://localhost:3000/project/${songId}`);
+    copy(`https://join-us-client.herokuapp.com/project/${songId}`);
     setTimeout(() => setCopySuccess(false), 2000);
   };
 

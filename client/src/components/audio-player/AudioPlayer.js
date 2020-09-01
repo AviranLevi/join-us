@@ -21,7 +21,7 @@ const AudioPlayer = ({ audioSrc, classes = '', autoPlay = true }) => {
   return (
     <div className={`${classes} audio-player`}>
       <audio id='player' controls autoPlay={autoPlay} loop className='song-audio'>
-        <source src={audioSrc} /> />
+        <source src={audioSrc} />
       </audio>
       <div className='audio-btns'>
         <Button style={!audioPause ? style : null} action={play} text={icons.play} classes='play-btn fade-in' />

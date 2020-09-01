@@ -18,6 +18,11 @@ const UserLandPage = (props) => {
   const [projectDataNotFound, setProjectDataNotFound] = useState(false);
   const id = props.match.params.id;
 
+  const audioFirstAppearance = () => {
+    document.getElementsByClassName('audio-player')[0].style.opacity = '1';
+    setTimeout(() => (document.getElementsByClassName('audio-player')[0].style.opacity = '0'), 1000);
+  };
+
   useEffect(() => {
     const project = async () =>
       joinUsAPI
@@ -32,6 +37,7 @@ const UserLandPage = (props) => {
         .catch((err) => console.log(err));
 
     project();
+    audioFirstAppearance();
     props.resetProjectState();
   }, []);
 
