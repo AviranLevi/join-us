@@ -2,15 +2,20 @@ import axios from 'axios';
 import validator from 'validator';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
+import { serverURL } from '../../config';
+import { accessToken } from '../../config';
 
-export const getUser = (userId) => (dispatch) => {};
+const api = axios.create({
+  baseURL: serverURL,
+  headers: { Authorization: `Bearer ${accessToken}` },
+});
 
 export const getUserProjects = (userId) => (dispatch) => {
-  axios
-    .get(`/api/project/user/${userId}`)
+  api
+    .get(`/project/user/${userId}`)
     .then((res) => {
       const { data } = res;
-      dispatch({ type: actionType.USER_PROJECTS, payload: data.reverse() });
+      dispatch({ type: actionType.USER_PROJECTS, payload: data });
     })
     .catch((err) => console.log(err));
 };
@@ -132,8 +137,8 @@ export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
   const noErrors = findErrors(errs.updateUser);
 
   if (noErrors) {
-    axios
-      .patch(`/api/user/${id}`, updatedUserInfo)
+    api
+      .patch(`/user/${id}`, updatedUserInfo)
       .then((res) => {
         const { data } = res;
         const { error } = data;
@@ -151,8 +156,8 @@ export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
 
 export const deleteUser = () => (dispatch, getState) => {
   const { id } = getState().user;
-  axios
-    .delete(`/api/user/${id}`)
+  api
+    .delete(`/user/${id}`)
     .then((res) => {
       const { data } = res;
       const { success } = data;

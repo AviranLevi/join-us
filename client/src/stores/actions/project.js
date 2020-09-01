@@ -3,6 +3,12 @@ import validator from 'validator';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
 import { serverURL } from '../../config';
+import { accessToken } from '../../config';
+
+const api = axios.create({
+  baseURL: serverURL,
+  headers: { Authorization: `Bearer ${accessToken}` },
+});
 
 export const getTrackData = () => (dispatch, getState) => {
   const { project, user, errors } = getState();
@@ -27,8 +33,8 @@ export const getTrackData = () => (dispatch, getState) => {
 
   if (userProject.spotify && noErrors) {
     dispatch({ type: actionType.TRACK_DATA_LOADING });
-    axios
-      .post(`${serverURL}/project`, userProject)
+    api
+      .post(`/project`, userProject)
       .then((res) => {
         dispatch({ type: actionType.TRACK_DATA, payload: res.data });
         dispatch({ type: actionType.REDIRECT });

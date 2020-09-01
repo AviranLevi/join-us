@@ -29,7 +29,7 @@ export const getUserProjects = async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await service.getUserProjects(id);
-    res.status(OK).json(result);
+    res.status(OK).json(result.length ? result.reverse() : result);
   } catch (error) {
     res.status(ERR).json(error);
     throw error;

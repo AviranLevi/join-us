@@ -1,9 +1,16 @@
 import axios from 'axios';
 import * as actionType from './types';
+import { serverURL } from '../../config';
+import { accessToken } from '../../config';
+
+const api = axios.create({
+  baseURL: serverURL,
+  headers: { Authorization: `Bearer ${accessToken}` },
+});
 
 export const getUserProfile = (userId) => (dispatch) => {
-  axios
-    .get(`/api/user/${userId}`)
+  api
+    .get(`/user/${userId}`)
     .then((res) => {
       const { data } = res;
       const { user, projects } = data;
