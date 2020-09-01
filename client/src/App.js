@@ -46,7 +46,7 @@ const App = (props) => {
       {features.loginToast ? <Login /> : null}
       {features.signUpToast ? <SignUp /> : null}
       {features.trackDataLoading ? <Loading /> : null}
-      {!user.isAuthenticated ? <Redirect to='/' /> : null}
+      {!user.loggedIn ? <Redirect to='/' /> : null}
     </div>
   );
 };
