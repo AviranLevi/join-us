@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { serverURL } from '../config';
-import { accessToken } from '../../config';
+import { accessToken } from '../config';
 
 const api = axios.create({
   baseURL: serverURL,
