@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as actions from '../../stores/actions';
@@ -13,9 +13,9 @@ const AccountSettings = (props) => {
   const { user, features } = props;
   const [edit, setEdit] = useState(false);
 
-  if (!user.isAuthenticated) {
-    return <Redirect to='/' />;
-  }
+  useEffect(() => {
+    if (!user.isAuthenticated) return props.history.push('/');
+  });
 
   return (
     <div className='acount-settings fade-in'>

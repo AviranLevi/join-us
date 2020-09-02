@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as actionType from './types';
-import { findErrors } from '../../utils/general';
+import { findErrors, removeTokenFromLocalStorage } from '../../utils/general';
 import { serverURL } from '../../config';
 import { accessToken } from '../../config';
 import { saveTokenInLocalStorage } from '../../utils/general';
@@ -53,12 +53,10 @@ export const userLogin = () => (dispatch, getState) => {
       const { data } = res;
       const { isAuthenticated, user, accessToken } = data;
       if (isAuthenticated) {
+        saveTokenInLocalStorage(accessToken);
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
-        if (accessToken) {
-          saveTokenInLocalStorage(accessToken);
-        }
       }
       if (data.error) {
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
@@ -78,6 +76,7 @@ export const userLogout = () => (dispatch) => {
       const { data } = res;
       const { user } = data;
       dispatch({ type: actionType.USER_LOG_OUT, payload: user });
+      removeTokenFromLocalStorage();
     })
     .catch((err) => console.log(err));
 };

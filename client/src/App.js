@@ -21,6 +21,7 @@ const App = (props) => {
 
   useEffect(() => {
     props.userAuthenticated();
+    if (!user.isAuthenticated) return <Redirect to='/' />;
   }, []);
   return (
     <div className='app'>
@@ -46,7 +47,6 @@ const App = (props) => {
       {features.loginToast ? <Login /> : null}
       {features.signUpToast ? <SignUp /> : null}
       {features.trackDataLoading ? <Loading /> : null}
-      {!user.loggedIn ? <Redirect to='/' /> : null}
     </div>
   );
 };
