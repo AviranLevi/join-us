@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { serverURL } from '../config';
-import { accessToken } from '../config';
 
 const api = axios.create({
   baseURL: serverURL,
-  headers: { Authorization: `Bearer ${accessToken}` },
 });
 
 export const getUserProject = async (id) => {
@@ -20,7 +18,8 @@ export const uploadImage = async (file) => {
   try {
     const formData = new FormData();
     formData.append('file', file);
-    const { data } = await api.post(`/user/image`, formData);
+    const token = localStorage.getItem('accessToken');
+    const { data } = await api.post(`/user/image`, formData, { headers: { Authorization: `Bearer ${token}` } });
     return data;
   } catch (error) {
     console.log(error);
@@ -29,7 +28,9 @@ export const uploadImage = async (file) => {
 
 export const removeProject = async (userId) => {
   try {
-    const { data } = await api.delete(`/project/${userId}`);
+    const token = localStorage.getItem('accessToken');
+    console.log(token);
+    const { data } = await api.delete(`/project/${userId}`, { headers: { Authorization: `Bearer ${token}` } });
     return data;
   } catch (error) {
     console.log(error);

@@ -3,11 +3,10 @@ import validator from 'validator';
 import * as actionType from './types';
 import { findErrors, removeTokenFromLocalStorage } from '../../utils/general';
 import { serverURL } from '../../config';
-import { accessToken } from '../../config';
 
 const api = axios.create({
   baseURL: serverURL,
-  headers: { Authorization: `Bearer ${accessToken}` },
+  headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
 });
 
 export const getUserProjects = (userId) => (dispatch) => {
@@ -156,9 +155,11 @@ export const updateUserInfo = (updatedUserInfo) => (dispatch, getState) => {
 
 export const deleteUser = () => (dispatch, getState) => {
   const { id } = getState().user;
+  console.log(localStorage.getItem('accessToken'));
   api
     .delete(`/user/${id}`)
     .then((res) => {
+      localStorage.getItem('accessToken');
       const { data } = res;
       const { success } = data;
       if (success) {

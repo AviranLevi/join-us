@@ -3,11 +3,9 @@ import validator from 'validator';
 import * as actionType from './types';
 import { findErrors } from '../../utils/general';
 import { serverURL } from '../../config';
-import { accessToken } from '../../config';
 
 const api = axios.create({
   baseURL: serverURL,
-  headers: { Authorization: `Bearer ${accessToken}` },
 });
 
 export const getTrackData = () => (dispatch, getState) => {
@@ -32,9 +30,11 @@ export const getTrackData = () => (dispatch, getState) => {
   const noErrors = findErrors(errors.project);
 
   if (userProject.spotify && noErrors) {
+    const token = localStorage.getItem('accessToken');
     dispatch({ type: actionType.TRACK_DATA_LOADING });
+
     api
-      .post(`/project`, userProject)
+      .post(`/project`, userProject, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
         dispatch({ type: actionType.TRACK_DATA, payload: res.data });
         dispatch({ type: actionType.REDIRECT });

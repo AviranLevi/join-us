@@ -14,7 +14,8 @@ const AccountSettings = (props) => {
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    if (!user.isAuthenticated) return props.history.push('/');
+    console.log(user.isAuthenticated);
+    if (!user.isAuthenticated) return <Redirect exact to='/' />;
   });
 
   return (

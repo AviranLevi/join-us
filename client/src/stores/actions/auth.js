@@ -2,12 +2,9 @@ import axios from 'axios';
 import * as actionType from './types';
 import { findErrors, removeTokenFromLocalStorage } from '../../utils/general';
 import { serverURL } from '../../config';
-import { accessToken } from '../../config';
-import { saveTokenInLocalStorage } from '../../utils/general';
 
 const api = axios.create({
   baseURL: serverURL,
-  headers: { Authorization: `Bearer ${accessToken}` },
 });
 
 export const createNewUser = () => (dispatch, getState) => {
@@ -53,10 +50,11 @@ export const userLogin = () => (dispatch, getState) => {
       const { data } = res;
       const { isAuthenticated, user, accessToken } = data;
       if (isAuthenticated) {
-        saveTokenInLocalStorage(accessToken);
+        localStorage.setItem('accessToken', accessToken);
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
-        dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
+        dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
+        window.location.reload();
       }
       if (data.error) {
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
@@ -70,20 +68,22 @@ export const userLogin = () => (dispatch, getState) => {
 };
 
 export const userLogout = () => (dispatch) => {
+  const token = localStorage.getItem('accessToken');
   api
-    .get(`/user/logout`)
+    .get(`/user/logout`, { headers: { Authorization: `Bearer ${token}` } })
     .then((res) => {
       const { data } = res;
       const { user } = data;
       dispatch({ type: actionType.USER_LOG_OUT, payload: user });
-      removeTokenFromLocalStorage();
+      localStorage.removeItem('accessToken');
     })
     .catch((err) => console.log(err));
 };
 
 export const userAuthenticated = () => (dispatch) => {
+  const token = localStorage.getItem('accessToken');
   api
-    .get(`/user/auth`)
+    .get(`/user/auth`, { headers: { Authorization: `Bearer ${token}` } })
     .then((res) => {
       if (res.status !== 401) {
         const { data } = res;

@@ -1,16 +1,15 @@
 import axios from 'axios';
 import * as actionType from './types';
 import { serverURL } from '../../config';
-import { accessToken } from '../../config';
 
 const api = axios.create({
   baseURL: serverURL,
-  headers: { Authorization: `Bearer ${accessToken}` },
 });
 
 export const getUserProfile = (userId) => (dispatch) => {
+  const token = localStorage.getItem('accessToken');
   api
-    .get(`/user/${userId}`)
+    .get(`/user/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
     .then((res) => {
       const { data } = res;
       const { user, projects } = data;
