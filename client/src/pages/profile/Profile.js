@@ -6,18 +6,15 @@ import { icons } from '../../constant/icons';
 import Icon from '../../components/icon/icon';
 import ProfileSocialLinks from './profile-social-links/ProfileSocialLinks';
 import ProfileInfo from './profile-info/ProfileInfo';
-import { Redirect } from 'react-router-dom';
 
 const Profile = (props) => {
-  const { user, profile } = props;
+  const { profile } = props;
+
   useEffect(() => {
     const { id } = props.match.params;
     props.getUserProfile(id);
   }, [props.getUserProfile]);
 
-  if (!user.isAuthenticated) {
-    return <Redirect to='/' />;
-  }
   return (
     <div className='profile center-items fade-in'>
       {profile.profileImage ? (

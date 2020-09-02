@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as actionType from './types';
-import { findErrors, removeTokenFromLocalStorage } from '../../utils/general';
+import { findErrors } from '../../utils/general';
 import { serverURL } from '../../config';
 
 const api = axios.create({
@@ -51,7 +51,6 @@ export const userLogin = () => (dispatch, getState) => {
       const { isAuthenticated, user, accessToken } = data;
       if (isAuthenticated) {
         localStorage.setItem('accessToken', accessToken);
-        dispatch({ type: actionType.USER_LOG_IN, payload: user });
         dispatch({ type: actionType.CLOSE_LOGIN_TOAST });
         dispatch({ type: actionType.TRACK_DATA_LOADING, payload: false });
         window.location.reload();
@@ -76,6 +75,7 @@ export const userLogout = () => (dispatch) => {
       const { user } = data;
       dispatch({ type: actionType.USER_LOG_OUT, payload: user });
       localStorage.removeItem('accessToken');
+      window.location.reload();
     })
     .catch((err) => console.log(err));
 };
@@ -88,6 +88,7 @@ export const userAuthenticated = () => (dispatch) => {
       if (res.status !== 401) {
         const { data } = res;
         const { user } = data;
+        console.log(data);
         dispatch({ type: actionType.USER_LOG_IN, payload: user });
       } else {
         dispatch({ type: actionType.USER_LOG_OUT });

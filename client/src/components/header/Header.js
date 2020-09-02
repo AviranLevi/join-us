@@ -4,11 +4,12 @@ import * as actions from '../../stores/actions';
 import Logo from '../logo/Logo';
 import Button from '../button/Button';
 import UserLoggedIn from './UserLoggedIn/UserLoggedIn';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Header = (props) => {
   const { user } = props;
   const { loggedIn, id, name, profileImage } = user;
+
   return (
     <div className='header center-items slide-from-top'>
       <Link to='/' className='logo'>
@@ -22,6 +23,7 @@ const Header = (props) => {
           <Button action={props.openSignUp} text='Sign-up' classes='bold-black-text' />
         </div>
       )}
+      {!loggedIn ? <Redirect to='/' exact /> : null}
     </div>
   );
 };

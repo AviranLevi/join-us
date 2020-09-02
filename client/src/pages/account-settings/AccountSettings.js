@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import * as actions from '../../stores/actions';
 import { icons } from '../../constant/icons';
 
@@ -12,11 +11,6 @@ import AccountPrivate from './account-private/AccountPrivate';
 const AccountSettings = (props) => {
   const { user, features } = props;
   const [edit, setEdit] = useState(false);
-
-  useEffect(() => {
-    console.log(user.isAuthenticated);
-    if (!user.isAuthenticated) return <Redirect exact to='/' />;
-  });
 
   return (
     <div className='acount-settings fade-in'>

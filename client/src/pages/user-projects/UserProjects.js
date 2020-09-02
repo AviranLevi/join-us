@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 import * as actions from '../../stores/actions';
 import Projects from './projects/Projects';
 import NoProjects from './no-projects/NoProjects';
-import { Redirect } from 'react-router-dom';
 
 const UserProjects = (props) => {
   const { user } = props;
   useEffect(() => {
     props.getUserProjects(user.id);
   }, []);
-
-  if (!user.isAuthenticated) {
-    return <Redirect to='/' />;
-  }
 
   return <div className='user-projects'>{user.projects.length !== 0 ? <Projects /> : <NoProjects />}</div>;
 };

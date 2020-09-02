@@ -13,7 +13,3 @@ export const findErrors = (errorsObj) => {
   }
   return true;
 };
-
-export const saveTokenInLocalStorage = (token) => localStorage.setItem('accessToken', token);
-export const getTokenFromLocalStorage = () => localStorage.getItem('accessToken') || null;
-export const removeTokenFromLocalStorage = () => localStorage.removeItem('accessToken');

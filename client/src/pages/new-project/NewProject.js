@@ -9,10 +9,7 @@ import MusicLinks from './music-links/MusicLinks';
 import SocialLinks from './social-links/SocialLinks';
 
 const NewProject = (props) => {
-  const { user, features, project } = props;
-  if (!user.isAuthenticated) {
-    return <Redirect to='/' />;
-  }
+  const { features, project } = props;
   return (
     <div className='user-new-project center-items fade-in'>
       {features.redirect ? <Redirect to={`/project/${project.projectId}`} target='_blank' /> : null}

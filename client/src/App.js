@@ -16,13 +16,15 @@ import Menu from './pages/menu/Menu';
 import Footer from './components/footer/Footer';
 import Profile from './pages/profile/Profile';
 
+const PrivateRoute = ({ loggedIn = false, ...props }) => (loggedIn ? <Route {...props} /> : <Redirect to='/login' />);
+
 const App = (props) => {
   const { user, features } = props;
 
   useEffect(() => {
     props.userAuthenticated();
-    if (!user.isAuthenticated) return <Redirect to='/' />;
   }, []);
+
   return (
     <div className='app'>
       <div className='home center-items'>
@@ -35,10 +37,17 @@ const App = (props) => {
                 <Route exact path='/' component={UserProjects} />
                 <Route exact path='/profile/:id' component={Profile} />
                 <Route exact path='/new-project' component={NewProject} />
-                <Route exact path='/account-settings' component={AccountSettings} />
+                <PrivateRoute
+                  exact
+                  path='/account-settings'
+                  component={AccountSettings}
+                  loggedIn={user.isAuthenticated}
+                />
               </Switch>
             ) : (
-              <Route exact path='/' component={Home} />
+              <Switch>
+                <Route exact path='/' component={Home} />
+              </Switch>
             )}
           </div>
         </div>

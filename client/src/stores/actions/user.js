@@ -1,7 +1,7 @@
 import axios from 'axios';
 import validator from 'validator';
 import * as actionType from './types';
-import { findErrors, removeTokenFromLocalStorage } from '../../utils/general';
+import { findErrors } from '../../utils/general';
 import { serverURL } from '../../config';
 
 const api = axios.create({
@@ -164,7 +164,8 @@ export const deleteUser = () => (dispatch, getState) => {
       const { success } = data;
       if (success) {
         dispatch({ type: actionType.USER_LOG_OUT });
-        removeTokenFromLocalStorage();
+        localStorage.removeItem('accessToken');
+        window.location.reload();
       }
     })
     .catch((err) => console.log(err));
