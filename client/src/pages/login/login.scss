@@ -48,3 +48,12 @@
     }
   }
 }
+
+@media only screen and (max-width: 1440px) {
+  .login {
+    top: 20vh;
+    left: 35vw;
+    height: 60vh;
+    width: 30vw;
+  }
+}

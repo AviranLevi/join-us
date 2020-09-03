@@ -3,6 +3,7 @@
   top: 15vh;
   left: 35vw;
   height: fit-content;
+  max-height: 80%;
   width: 30vw;
   background: $font-color;
   box-shadow: 0px 0px 55px 3px rgba(0, 0, 0, 0.55);
@@ -46,6 +47,14 @@
       &:hover {
         background: $title-color;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .sign-up {
+    .sign-up-content {
+      grid-gap: 35px;
     }
   }
 }

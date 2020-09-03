@@ -14,3 +14,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 1440px) {
+  .social-links {
+    .social-link {
+      .user-link-input {
+        flex-wrap: unset;
+        margin: 0;
+      }
+    }
+  }
+}

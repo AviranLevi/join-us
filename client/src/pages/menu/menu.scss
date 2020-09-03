@@ -33,3 +33,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 1440px) {
+  .menu {
+    button {
+      font-size: 18px;
+
+      &:hover {
+        font-size: 20px;
+      }
+    }
+  }
+}
