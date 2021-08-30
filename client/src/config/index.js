@@ -19,6 +19,6 @@ export const spotifyINFO = {
   client_secret: process.env.REACT_APP_SPOTIFY_CLIENT_SECRET,
 }
 
-export const serverURL = process.env.REACT_APP_SERVER_URL
+export const serverURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:5000/api'
 
 export const DEV = process.env.DEV
