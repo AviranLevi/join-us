@@ -48,5 +48,8 @@
   "proxy": "https://join-us-server.herokuapp.com/",
   "devDependencies": {
     "sass": "^1.53.0"
+  },
+  "engines": {
+    "node": "16.13.2"
   }
 }
