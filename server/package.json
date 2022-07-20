@@ -42,5 +42,8 @@
     "@babel/node": "^7.14.9",
     "babel-loader": "^8.2.2",
     "babel-watch": "^7.5.0"
+  },
+  "engines": {
+    "node": "16.13.2"
   }
 }
